@@ -76,9 +76,7 @@ body {
     margin-bottom: 45px;
 }
 
-iframe{
-  height: 100% !important;
-}
+
 .tooltip-social a {
     text-decoration: none;
     color: inherit;
