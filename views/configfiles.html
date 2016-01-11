@@ -1,0 +1,115 @@
+<bootstrap-navbar current-tab='Configuration'></bootstrap-navbar>
+<table class="table table-striped">
+  <thead>
+    <th>Files</th>
+    <th>File Content</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <label class="header" text ="Configuration Files">Configuration Files</label>
+        <ul>
+            <li ng-repeat="config in configfiles"><a ng-click="updateTextArea(config);">{{config}}</a>
+            </li>
+        </ul>
+        <a class="btn btn-primary" ng-click="createLogstashConfig()" ><span class="glyphicon glyphicon-plus"></span> Create Logstash Config File</a>
+        <br />
+        <br />
+        </br>
+        <label class="header" text ="Configuration Files">Elastic Files</label>
+        <ul>
+            <li ng-repeat="esconfig in elastic"><a ng-click="updateTextArea(esconfig);">{{esconfig}}</a>
+            </li>
+        </ul>
+        <a class="btn btn-primary" ng-click="createElasticConfig()" ><span class="glyphicon glyphicon-plus"></span> Create Elastic Search Config File</a>
+        <br />
+        <br />
+        <br />
+        <label class="header" text ="Configuration Files">Cron Files</label>
+        <ul>
+            <li ng-repeat="cronconfig in cron"><a ng-click="updateTextArea(cronconfig);">{{cronconfig}}</a>
+            </li>
+        </ul>
+      </td>
+      <td>
+          <table width="100%" >
+              <tr>
+                  <td width="100%">
+                      Filename: <input type="text" class="filename" ng-model="filename"  />
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <textarea style="texteditor" border=true ng-model="configuration" rows="25" />
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <a class="btn btn-primary" ng-click="saveConfigFile()" ><span class="glyphicon"></span>Save</a>
+                </td>
+              </tr>
+          </table>
+        <!--<textarea enabled="false" accept="text/html" autofocus="true"
+      ng-model="configfile.configuration"
+      class="form-control" id="title" placeholder="filename">-->
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!--
+container
+<div class ="container">
+  <div class="row" >
+    <div class ="left">
+      <label class="header" text ="Configuration Files">Configuration Files</label>
+      <ul>
+          <li ng-repeat="config in configfiles">{{config}}
+          </li>
+      </ul>
+      <label class="header" text ="Configuration Files">Elastic Files</label>
+      <ul>
+          <li ng-repeat="esconfig in elastic">{{esconfig}}
+          </li>
+      </ul>
+    </div>
+    <div class = "right">
+        <textarea style="texteditor" border=true ng-model="configfile.data" rows="25"  />
+    </div>
+  </div>
+</div>
+
+<!--
+table 2
+<table class="table table-striped">
+  <thead>
+    <th>File Name</th>
+    <th>Active</th>
+       <th>Operations</th>
+  </thead>
+  <tbody width = "100%">
+    <tr ng-repeat="configfile in configfiles">
+      <td>{{ configfile.filename }}</td>
+    <td>-->
+        <!--<textarea enabled="false" accept="text/html" autofocus="true"   ng-model="configfile.configuration" class="form-control" id="title" form = "form"     placeholder="filename">-->
+        <!--{{ configfile.active }}
+        <a class="btn btn-default" ng-click="enableConfigFile(configfile)">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>-->
+        <!--todo: identify which to display based on status.-->
+        <!--<a class="btn btn-default" ng-click="disableConfigFile(configfile)">
+            <span class="glyphicon glyphicon-minus"></span>
+        </a>
+    </td>
+      <td>
+  <div class="button-group">
+    <a ng-href="/#/configfile/{{ configfile._id }}/edit" class="btn btn-default">
+      <span class="glyphicon glyphicon-edit"></span>
+    </a>
+    <a ng-href="/#/configfile/{{ configfile._id }}/delete" class="btn btn-danger">
+      <span class="glyphicon glyphicon-remove-circle"></span>
+    </a>
+  </div>
+</td>
+    </tr>
+  </tbody>
+</table>-->

@@ -1,0 +1,129 @@
+<bootstrap-navbar current-tab='System Manager'></bootstrap-navbar>
+   <form role="form">
+<div class='system_dialog'>
+    <div class='browsehappy'>Time Zone</div>
+    <div class='system_admin_section' id='system_timezones'>
+        <div class="container">
+            <div class="row">
+                <div class="left">
+                    <div class="">Time Zone:</div>
+                </div>
+                <div class="right">
+                    <select id="timezone" data-ng-options="o.name for o in timezoneoptions" data-ng-model="systemsettings.selectedTimezone">
+                    </select>
+                </div>
+                <div class="right">
+                    <input type="submit" class="btn btn-primary" ng-click="saveTimeZone(systemsettings)"  value="Update Time Zone">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--    <div class='browsehappy'>Cron Settings</div>
+    <div class='system_admin_section' id='system_crontab'>
+        <div class="container">
+            <div class="row">
+                <div class="left">
+                  <div class="">Logstash Delete Indicies:</div>
+                </div>
+                <div class="right">
+                  <input type="text" class="form-control" ng-model="systemsettings.logstashdeletedays" id="logstashDeleteDays" placeholder="0" value="0">
+                </div>
+                <div class="right">
+                  <div class="">days</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="left">
+                  <div class="">Logstash Close Indicies:</div>
+                </div>
+                <div class="right">
+                  <input type="text" class="form-control" ng-model="systemsettings.logstashclosedays" id="logstashCloseDays"  placeholder="0" value="0">
+                </div>
+                <div class="right">
+                  <div class="">days</div>
+                </div>
+            </div>
+            <div class="row">
+              <div class="right">
+              </div>
+              <div class="right">
+                <input type="submit" class="btn btn-primary" ng-click="saveCron(systemsettings)"  value="Save Cron Jobs">
+              </div>
+            </div>
+        </div>
+    </div>-->
+
+    <div class='browsehappy'>Application Services</div>
+    <div class='system_admin_section' id='system_services'>
+      <div class="container">
+          <div class="row">
+              <div class="left">
+                  <div class='browsehappy'>Start/Stop</div>
+              </div>
+              <div class="middle">
+                  <div class='browsehappy'>Service Name</div>
+              </div>
+              <div class="middle">
+                  <div class='browsehappy'>Status</div>
+              </div>
+              <div class="right">
+                  <div class='browsehappy'>Details</div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="left">
+                    <input type="submit" class="btn btn-primary" ng-click="cycleLogstash(systemsettings)" name="logstashButton"  value="{{systemsettings.logstashstatusbit && 'Stop' || 'Start'}}">
+                </div>
+                <div class="middle">
+                    <div class=''>Logstash</div>
+                </div>
+                <div class="middle">
+                    <img ng-src="./images/icons/{{systemsettings.logstashstatusbit && 'checkmark.png' || 'X.png'}}" name="logstashStatus" ></img>
+                </div>
+                <div class="right">
+                    <div class=''>{{systemsettings.logstashstatus}}</div>
+                </div>
+            </div>
+
+            <div class="row">
+                  <div class="left">
+                        <input type="submit" class="btn btn-primary" ng-click="cycleKibana(systemsettings)" name="kibanaButton"  value="{{systemsettings.kibanastatusbit && 'Stop' || 'Start'}}">
+                  </div>
+                  <div class="middle">
+                      <div class=''>Kibana 4</div>
+                  </div>
+                  <div class="middle">
+                    <img ng-src="./images/icons/{{systemsettings.kibanastatusbit && 'checkmark.png' || 'X.png'}}" name="kibanaStatus"></img>
+                  </div>
+                  <div class="right">
+                        <div class=''>{{systemsettings.kibanastatus}}</div>
+                  </div>
+            </div>
+
+            <div class="row">
+                    <div class="left">
+                        <input type="submit" class="btn btn-primary" ng-click="cycleElasticSearch(systemsettings)" name="elasticButton" value="{{systemsettings.elasticsearchstatusbit && 'Stop' || 'Start'}}">
+                    </div>
+                    <div class="middle">
+                        <div class=''>Elastic Search</div>
+                    </div>
+                    <div class="middle">
+                        <img ng-src="./images/icons/{{systemsettings.elasticsearchstatusbit && 'checkmark.png' || 'X.png'}}" name="elasticStatus" ></img>
+                    </div>
+                    <div class="right">
+
+                          <div class=''>{{systemsettings.elasticsearchstatus}}</div>
+                    </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+  <h2 >debug info</h2>
+<pre>Form data settings = "{{systemsettings | json}}"</pre>
+<pre>Location = "{{servicelocation}}"</pre>
+</form>
