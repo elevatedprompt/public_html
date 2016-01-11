@@ -1,2 +1,8 @@
 <bootstrap-navbar current-tab='Elk HQ'></bootstrap-navbar>
+<div portalFrame>
 <iframe ng-src="{{hqUrl}}" id="idIframe" class="iframearea" width="100%" frameborder=0 > </iframe>
+</div>
+<div ng-app="clientApp" ng-controller="AppController" ng-style="style()" resize>
+    window.height: {{windowHeight}} <br />
+    window.width: {{windowWidth}} <br />
+</div>
