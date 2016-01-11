@@ -196,7 +196,7 @@ textarea {
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   /* Make the masthead heading the same height as the navigation */
   h3 {
@@ -274,7 +274,7 @@ textarea {
   }
   /* Space out the masthead */
   .header {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
 }
