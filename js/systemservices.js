@@ -17,6 +17,7 @@ angular.module('clientApp')
     $http
 
   ) {
+    servicelocation = "https://" + $location.$$host + "/api/";
 
     $scope.timezoneoptions =
 [
