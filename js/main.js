@@ -10,7 +10,18 @@
  var servicelocation = "";
 var app = angular.module('clientApp', [
   'ngRoute'
-])
+]).directive('portalFrame', function() {
+    return{
+      restrict: "E",
+         replace: true,
+       transclude: true,
+    compile: function (scope, element, attrs) {
+        //element.height($(window).height() - $('.header').outerHeight());
+        element.height(2);
+        alert('message');
+    }
+  }
+})
 .directive("bootstrapNavbar", function($location) {
    return {
      restrict: "E",
