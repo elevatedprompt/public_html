@@ -19,50 +19,57 @@ angular.module('clientApp')
   ) {
     servicelocation = "https://" + $location.$$host + "/api/";
 
-    $scope.timezoneoptions =
-[
-    {value:"-12", name:"(GMT -12:00) Eniwetok, Kwajalein"},
-    {value:"-11", name:"(GMT -11:00) Midway Island, Samoa"},
-    {value:"-10", name:"(GMT -10:00) Hawaii"},
-    {value:"-9", name:"(GMT -9:00) Alaska"},
-    {value:"-8", name:"(GMT -8:00) Pacific Time (US & Canada)"},
-    {value:"-7", name:"(GMT -7:00) Mountain Time (US & Canada)"},
-    {value:"-6", name:"(GMT -6:00) Central Time (US & Canada), Mexico City"},
-    {value:"-5", name:"(GMT -5:00) Eastern Time (US & Canada), Bogota, Lima"},
-    {value:"-4.5", name:"(GMT -4:30) Caracas"},
-    {value:"-4", name:"(GMT -4:00) Atlantic Time (Canada), La Paz, Santiago"},
-    {value:"-3.5", name:"(GMT -3:30) Newfoundland"},
-    {value:"-3", name:"(GMT -3:00) Brazil, Buenos Aires, Georgetown"},
-    {value:"-2", name:"(GMT -2:00) Mid-Atlantic"},
-    {value:"-1", name:"(GMT -1:00 hour) Azores, Cape Verde Islands"},
-    {value:"0",  name:"(GMT) Western Europe Time, London, Lisbon, Casablanca, Greenwich"},
-    {value:"1", name:"(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris"},
-    {value:"2", name:"(GMT +2:00) Kaliningrad, South Africa, Cairo"},
-    {value:"3", name:"(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg"},
-    {value:"3.5", name:"(GMT +3:30) Tehran"},
-    {value:"4",  name:"(GMT +4:00) Abu Dhabi, Muscat, Yerevan, Baku, Tbilisi"},
-    {value:"4.5", name:"(GMT +4:30) Kabul"},
-    {value:"5", name:"(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent"},
-    {value:"5.5", name:"(GMT +5:30) Mumbai, Kolkata, Chennai, New Delhi"},
-    {value:"5.75", name:"(GMT +5:45) Kathmandu"},
-    {value:"6", name:"(GMT +6:00) Almaty, Dhaka, Colombo"},
-    {value:"6.5", name:"(GMT +6:30) Yangon, Cocos Islands"},
-    {value:"7", name:"(GMT +7:00) Bangkok, Hanoi, Jakarta"},
-    {value:"8", name:"(GMT +8:00) Beijing, Perth, Singapore, Hong Kong"},
-    {value:"9", name:"(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk"},
-    {value:"9.5", name:"(GMT +9:30) Adelaide, Darwin"},
-    {value:"10", name:"(GMT +10:00) Eastern Australia, Guam, Vladivostok"},
-    {value:"11", name:"(GMT +11:00) Magadan, Solomon Islands, New Caledonia"},
-    {value:"12", name:"(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka"}];
+    $scope.timezoneoptions =[
+    {value:"-12", offset:"-1200", name:"(GMT -12:00) Eniwetok, Kwajalein"},
+    {value:"-11", offset:"-1100", name:"(GMT -11:00) Midway Island, Samoa"},
+    {value:"-10", offset:"-1000", name:"(GMT -10:00) Hawaii"},
+    {value:"-9", offset:"-0900", name:"(GMT -9:00) Alaska"},
+    {value:"-8", offset:"-0800", name:"(GMT -8:00) Pacific Time (US & Canada)"},
+    {value:"-7", offset:"-0700", name:"(GMT -7:00) Mountain Time (US & Canada)"},
+    {value:"-6", offset:"-0600", name:"(GMT -6:00) Central Time (US & Canada), Mexico City"},
+    {value:"-5", offset:"-0500", name:"(GMT -5:00) Eastern Time (US & Canada), Bogota, Lima"},
+    {value:"-4.5", offset:"-0450", name:"(GMT -4:30) Caracas"},
+    {value:"-4", offset:"-0400", name:"(GMT -4:00) Atlantic Time (Canada), La Paz, Santiago"},
+    {value:"-3.5", offset:"-0350", name:"(GMT -3:30) Newfoundland"},
+    {value:"-3", offset:"-0300", name:"(GMT -3:00) Brazil, Buenos Aires, Georgetown"},
+    {value:"-2", offset:"-0200", name:"(GMT -2:00) Mid-Atlantic"},
+    {value:"-1", offset:"-0100", name:"(GMT -1:00 hour) Azores, Cape Verde Islands"},
+    {value:"0",  offset:"0000", name:"(GMT) Western Europe Time, London, Lisbon, Casablanca, Greenwich"},
+    {value:"1", offset:"0100", name:"(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris"},
+    {value:"2", offset:"0200", name:"(GMT +2:00) Kaliningrad, South Africa, Cairo"},
+    {value:"3", offset:"0300", name:"(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg"},
+    {value:"3.5", offset:"0350", name:"(GMT +3:30) Tehran"},
+    {value:"4",  offset:"0400", name:"(GMT +4:00) Abu Dhabi, Muscat, Yerevan, Baku, Tbilisi"},
+    {value:"4.5", offset:"0450", name:"(GMT +4:30) Kabul"},
+    {value:"5", offset:"0500", name:"(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent"},
+    {value:"5.5", offset:"0550", name:"(GMT +5:30) Mumbai, Kolkata, Chennai, New Delhi"},
+    {value:"5.75", offset:"0575", name:"(GMT +5:45) Kathmandu"},
+    {value:"6", offset:"0600", name:"(GMT +6:00) Almaty, Dhaka, Colombo"},
+    {value:"6.5", offset:"0650", name:"(GMT +6:30) Yangon, Cocos Islands"},
+    {value:"7", offset:"0700", name:"(GMT +7:00) Bangkok, Hanoi, Jakarta"},
+    {value:"8", offset:"0800", name:"(GMT +8:00) Beijing, Perth, Singapore, Hong Kong"},
+    {value:"9", offset:"0900", name:"(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk"},
+    {value:"9.5", offset:"0950", name:"(GMT +9:30) Adelaide, Darwin"},
+    {value:"10", offset:"1000", name:"(GMT +10:00) Eastern Australia, Guam, Vladivostok"},
+    {value:"11", offset:"1100", name:"(GMT +11:00) Magadan, Solomon Islands, New Caledonia"},
+    {value:"12", offset:"1200", name:"(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka"}];
     $scope.systemsettings = {};
     $scope.systemsettings.selectedTimezone =  $scope.timezoneoptions[14];
 
     //TODO: update next line to the current setting for the server.
-    //$scope.selectedTimezone = $scope.timezoneoptions[14];
     $scope.systemsettings.logstashstatusbit = true;
     $scope.systemsettings.kibanastatusbit = true;
     $scope.systemsettings.elasticsearchstatusbit = true;
 
+    $http.post(servicelocation+"/GetTimeZone",data,config)
+      .success(function(data)
+        {
+          $scope.timezoneoptions.forEach(function(zone){
+            if(zone.offset==data.trim()){
+              $scope.systemsettings.selectedTimezone = zone;
+            }
+          });
+        });
 
     console.log("Get Service Status")
     var data = "servicename=elasticsearch";
