@@ -190,7 +190,7 @@ textarea {
   padding-left: 15px;
   padding-right: 15px;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  
+
 }
 
 /* Custom page header */
@@ -265,13 +265,6 @@ textarea {
   //  max-width: 730px;
   }
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
   /* Space out the masthead */
   .header {
     margin-bottom: 0px;
