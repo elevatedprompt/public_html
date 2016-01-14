@@ -9,7 +9,7 @@
       <td>
         <label class="header" text ="Configuration Files">Configuration Files</label>
         <ul>
-            <li ng-repeat="config in configfiles"><a ng-click="updateTextArea(config);">{{config}}</a>
+            <li ng-repeat="config in configfiles"><a ng-click="updateTextArea(config);">{{config.replace('/etc/logstash/conf.d//','')}}</a>
             </li>
         </ul>
         <a class="btn btn-primary" ng-click="createLogstashConfig()" ><span class="glyphicon glyphicon-plus"></span> Create Logstash Config File</a>
@@ -18,7 +18,7 @@
         </br>
         <label class="header" text ="Configuration Files">Elastic Files</label>
         <ul>
-            <li ng-repeat="esconfig in elastic"><a ng-click="updateTextArea(esconfig);">{{esconfig}}</a>
+            <li ng-repeat="esconfig in elastic"><a ng-click="updateTextArea(esconfig);">{{esconfig.replace('/etc/elasticsearch//','')}}</a>
             </li>
         </ul>
         <a class="btn btn-primary" ng-click="createElasticConfig()" ><span class="glyphicon glyphicon-plus"></span> Create Elastic Search Config File</a>
@@ -27,7 +27,7 @@
         <br />
         <label class="header" text ="Configuration Files">Cron Files</label>
         <ul>
-            <li ng-repeat="cronconfig in cron"><a ng-click="updateTextArea(cronconfig);">{{cronconfig}}</a>
+            <li ng-repeat="cronconfig in cron"><a ng-click="updateTextArea(cronconfig);">{{cronconfig.replace('/var/spool/cron//','')}}</a>
             </li>
         </ul>
       </td>
