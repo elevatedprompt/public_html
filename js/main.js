@@ -9,7 +9,7 @@
  */
  var servicelocation = "";
 var app = angular.module('clientApp', [
-  'ngRoute'
+'ngRoute', 'angular-timezone-selector'
 ]).directive('portalFrame', function() {
     return{
       restrict: "E",

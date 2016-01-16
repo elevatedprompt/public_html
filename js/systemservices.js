@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 
 /**
@@ -9,17 +9,15 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-
-  .controller('SystemservicesCtrl', function (
+  .controller('SystemservicesCtrl',function (
     $location,
     $scope,
   //  $parse,
     $http
-
   ) {
     servicelocation = "https://" + $location.$$host + "/api/";
-    servicelocation = "http://192.168.1.96:3000";
 
+    $scope.country = 'CN';
     $scope.timezoneoptions =[
     {value:"-12", offset:"-1200", name:"(GMT -12:00) Eniwetok, Kwajalein"},
     {value:"-11", offset:"-1100", name:"(GMT -11:00) Midway Island, Samoa"},
@@ -65,6 +63,7 @@ angular.module('clientApp')
     $http.post(servicelocation+"/GetTimeZone",data,config)
       .success(function(data)
         {
+
           $scope.timezoneoptions.forEach(function(zone){
             if(zone.offset==data.trim()){
               $scope.systemsettings.selectedTimezone = zone;
@@ -117,9 +116,9 @@ angular.module('clientApp')
            //TODO: parse data looking for string.
         });
 
-    $scope.saveTimeZone = function() {
+    $scope.saveTimeZone = function(timezone) {
       $scope.selectedTimezone = $scope.systemsettings.selectedTimezone;
-      var data = "timezoneFromGMT=" + $scope.systemsettings.selectedTimezone.value;
+      var data = "timezone=" + timezone; //$scope.systemsettings.selectedTimezone.value;
       var config = {headers:{
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
         }};
@@ -153,9 +152,7 @@ angular.module('clientApp')
           button.value = "Start";
           var status = document.getElementsByName(service + 'Status');
         }
-
     };
-
 
     $scope.cycleElasticSearch = function() {
       var data = "servicename=elasticsearch";
@@ -180,7 +177,6 @@ angular.module('clientApp')
       $scope.updateStatus($scope.systemsettings.elasticsearchstatusbit,'elastic');
     };
 
-
     $scope.cycleKibana = function() {
       var config = {headers:{
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -203,7 +199,6 @@ angular.module('clientApp')
       $scope.systemsettings.kibanastatusbit = !$scope.systemsettings.kibanastatusbit;
       $scope.updateStatus($scope.systemsettings.kibanastatusbit,'kibana');
     };
-
 
     $scope.cycleLogstash = function() {
       var data = "servicename=logstash";
