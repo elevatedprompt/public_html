@@ -1,5 +1,11 @@
 <bootstrap-navbar current-tab='System Manager'></bootstrap-navbar>
-   <form role="form">
+<link rel="stylesheet" href="./bower_components/select2/select2.css">
+<link rel="stylesheet" type="text/css" href="bower_components/angular-timezone-selector/dist/angular-timezone-selector.css" media="screen">
+<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+<link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+<link rel="stylesheet" type="text/css" href="bower_components/angular-timezone-selector/dist/angular-timezone-selector.css" media="screen">
+<form role="form">
+
 <div class='system_dialog'>
     <div class='browsehappy'>Time Zone</div>
     <div class='system_admin_section' id='system_timezones'>
@@ -8,52 +14,20 @@
                 <div class="left">
                     <div class="">Time Zone:</div>
                 </div>
-                <div class="right">
-                    <select id="timezone" data-ng-options="o.name for o in timezoneoptions" data-ng-model="systemsettings.selectedTimezone">
-                    </select>
+                <div class="right" ng-init="translations.placeholder = 'Select your Timezone'">
+                    <timezone-selector ng-model="timezone"
+                    sort-by="offset"
+                    translations="translations"
+                    name="timezone"
+                    width = "100%" >
+
                 </div>
                 <div class="right">
-                    <input type="submit" class="btn btn-primary" ng-click="saveTimeZone(systemsettings)"  value="Update Time Zone">
+                    <input type="submit" class="btn btn-primary" ng-click="saveTimeZone(timezone)"  value="Update Time Zone">
                 </div>
             </div>
         </div>
     </div>
-
-<!--    <div class='browsehappy'>Cron Settings</div>
-    <div class='system_admin_section' id='system_crontab'>
-        <div class="container">
-            <div class="row">
-                <div class="left">
-                  <div class="">Logstash Delete Indicies:</div>
-                </div>
-                <div class="right">
-                  <input type="text" class="form-control" ng-model="systemsettings.logstashdeletedays" id="logstashDeleteDays" placeholder="0" value="0">
-                </div>
-                <div class="right">
-                  <div class="">days</div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="left">
-                  <div class="">Logstash Close Indicies:</div>
-                </div>
-                <div class="right">
-                  <input type="text" class="form-control" ng-model="systemsettings.logstashclosedays" id="logstashCloseDays"  placeholder="0" value="0">
-                </div>
-                <div class="right">
-                  <div class="">days</div>
-                </div>
-            </div>
-            <div class="row">
-              <div class="right">
-              </div>
-              <div class="right">
-                <input type="submit" class="btn btn-primary" ng-click="saveCron(systemsettings)"  value="Save Cron Jobs">
-              </div>
-            </div>
-        </div>
-    </div>-->
 
     <div class='browsehappy'>Application Services</div>
     <div class='system_admin_section' id='system_services'>
