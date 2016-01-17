@@ -19,9 +19,9 @@ angular.module('clientApp')
     $scope.systemsettings = {};
 
     //TODO: update next line to the current setting for the server.
-    $scope.systemsettings.logstashstatusbit = true;
-    $scope.systemsettings.kibanastatusbit = true;
-    $scope.systemsettings.elasticsearchstatusbit = true;
+//    $scope.systemsettings.logstashstatusbit = true;
+//    $scope.systemsettings.kibanastatusbit = true;
+//    $scope.systemsettings.elasticsearchstatusbit = true;
 
     $http.post(servicelocation+"GetTimeZone",data,config)
       .success(function(data)
@@ -76,7 +76,7 @@ angular.module('clientApp')
 
     $scope.saveTimeZone = function(timezone) {
       $scope.selectedTimezone = timezone;
-      var data = "timezone=" + timezone; 
+      var data = "timezone=" + timezone;
       var config = {headers:{
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
         }};
