@@ -16,7 +16,7 @@ var app = angular.module('clientApp', [
          replace: true,
        transclude: true,
     compile: function (scope, element, attrs) {
-      
+
     }
   }
 })
@@ -47,7 +47,7 @@ var app = angular.module('clientApp', [
 app.config(['$routeProvider', function ($routeProvider) {
   $routeProvider
     // Home
-    .when("/", {templateUrl: "views/main.html", controller: "MainCtrl"})
+  //  .when("/", {templateUrl: "views/main.html", controller: "MainCtrl"})
     // Pages
     .when('/ConfigFiles', {
       templateUrl: 'views/configfiles.html', controller: 'ConfigfilesCtrl'
