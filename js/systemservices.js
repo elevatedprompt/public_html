@@ -35,26 +35,26 @@ angular.module('clientApp')
     var config = {headers:{
       "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
     }};
-    $http.post(servicelocation+"/GetServiceStatus",data,config)
+    $http.post(servicelocation+"GetServiceStatus",data,config)
       .success(function(data)
         {
            $scope.systemsettings.elasticsearchstatus=data;
            //TODO: parse data looking for string.
         });
-    $http.post(servicelocation+"/IsServiceRunning",data,config)
+    $http.post(servicelocation+"IsServiceRunning",data,config)
       .success(function(data)
         {
            $scope.systemsettings.elasticsearchstatusbit=data;
            //TODO: parse data looking for string.
         });
     data = "servicename=logstash";
-    $http.post(servicelocation+"/GetServiceStatus",data,config)
+    $http.post(servicelocation+"GetServiceStatus",data,config)
           .success(function(data)
             {
                $scope.systemsettings.logstashstatus=data;
                //TODO: parse data looking for string.
             });
-    $http.post(servicelocation+"/IsServiceRunning",data,config)
+    $http.post(servicelocation+"IsServiceRunning",data,config)
           .success(function(data)
             {
                $scope.systemsettings.logstashstatusbit=data;
@@ -62,13 +62,13 @@ angular.module('clientApp')
             });
     data = "servicename=kibana4";
 
-    $http.post(servicelocation+"/GetServiceStatus",data,config)
+    $http.post(servicelocation+"GetServiceStatus",data,config)
       .success(function(data)
         {
            $scope.systemsettings.kibanastatus=data;
            //TODO: parse data looking for string.
         });
-    $http.post(servicelocation+"/IsServiceRunning",data,config)
+    $http.post(servicelocation+"IsServiceRunning",data,config)
       .success(function(data)
         {
            $scope.systemsettings.kibanastatusbit=data;
@@ -82,12 +82,12 @@ angular.module('clientApp')
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
         }};
 
-      $http.post(servicelocation+"/UpdateTimeZone",data,config)
+      $http.post(servicelocation+"UpdateTimeZone",data,config)
         .success(function(data)
           {
              $scope.systemsettings.logstashstatus=data;
           });
-      $http.post(servicelocation+"/GetServiceStatus",data,config)
+      $http.post(servicelocation+"GetServiceStatus",data,config)
         .success(function(data)
           {
              $scope.systemsettings.logstashstatus=data;
@@ -127,7 +127,7 @@ angular.module('clientApp')
           {
              $scope.systemsettings.elasticsearchstatus=data;
           });
-      $http.post(servicelocation+"/GetServiceStatus",data,config)
+      $http.post(servicelocation+"GetServiceStatus",data,config)
         .success(function(data)
           {
              $scope.systemsettings.elasticsearchstatus=data;
@@ -145,12 +145,12 @@ angular.module('clientApp')
       var method = "StartService";
       if($scope.systemsettings.kibanastatusbit)
         {method = "StopService";}
-      $http.post(servicelocation+"/"+method,data,config)
+      $http.post(servicelocation+method,data,config)
         .success(function(data)
           {
              $scope.systemsettings.kibanastatus=data;
           });
-      $http.post(servicelocation+"/GetServiceStatus",data,config)
+      $http.post(servicelocation+"GetServiceStatus",data,config)
         .success(function(data)
           {
              $scope.systemsettings.kibanastatus=data;
@@ -168,12 +168,12 @@ angular.module('clientApp')
       var method = "StartService";
       if($scope.systemsettings.logstashstatusbit)
         {method = "StopService";}
-      $http.post(servicelocation+"/"+method,data,config)
+      $http.post(servicelocation+method,data,config)
         .success(function(data)
           {
              $scope.systemsettings.logstashstatus=data;
           });
-      $http.post(servicelocation+"/GetServiceStatus",data,config)
+      $http.post(servicelocation+"GetServiceStatus",data,config)
         .success(function(data)
           {
              $scope.systemsettings.logstashstatus=data;
