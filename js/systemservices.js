@@ -77,7 +77,7 @@ angular.module('clientApp')
 
     $scope.saveTimeZone = function(timezone) {
       $scope.selectedTimezone = $scope.systemsettings.selectedTimezone;
-      var data = "timezone=" + timezone; //$scope.systemsettings.selectedTimezone.value;
+      var data = "timezoneFromGMT=" + timezone; //$scope.systemsettings.selectedTimezone.value;
       var config = {headers:{
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
         }};
