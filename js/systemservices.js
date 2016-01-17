@@ -24,7 +24,7 @@ angular.module('clientApp')
       var running = "is running";
 
       $interval(checkServiceStatus, 10000);
-      function checkServiceStatus() {
+      $scope.checkServiceStatus = function() {
           console.log("Interval occurred check status");
           var data = "servicename=elasticsearch";
           var config = {headers:{
@@ -47,7 +47,7 @@ angular.module('clientApp')
               {
                  $scope.systemsettings.kibanastatusbit=data;
               });
-      }
+      };
 
     //TODO: update next line to the current setting for the server.
 //    $scope.systemsettings.logstashstatusbit = true;
