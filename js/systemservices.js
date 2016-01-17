@@ -76,8 +76,8 @@ angular.module('clientApp')
         });
 
     $scope.saveTimeZone = function(timezone) {
-      $scope.selectedTimezone = $scope.systemsettings.timezone;
-      var data = "timezone=" + systemsettings.timezone; //$scope.systemsettings.selectedTimezone.value;
+      $scope.selectedTimezone = timezone;
+      var data = "timezone=" + timezone; //$scope.systemsettings.selectedTimezone.value;
       var config = {headers:{
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
         }};
