@@ -46,8 +46,7 @@ angular.module('clientApp')
                  $scope.systemsettings.kibanastatusbit=data;
               });
       };
-      $interval(checkServiceStatus, 10000);
-
+      //$interval(checkServiceStatus, 10000);
 
     //TODO: update next line to the current setting for the server.
 //    $scope.systemsettings.logstashstatusbit = true;
