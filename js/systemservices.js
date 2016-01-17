@@ -1,6 +1,5 @@
 //'use strict';
 
-
 /**
  * @ngdoc function
  * @name clientApp.controller:SystemservicesCtrl
@@ -24,7 +23,7 @@ angular.module('clientApp')
     $scope.systemsettings.kibanastatusbit = true;
     $scope.systemsettings.elasticsearchstatusbit = true;
 
-    $http.post(servicelocation+"/GetTimeZone",data,config)
+    $http.post(servicelocation+"GetTimeZone",data,config)
       .success(function(data)
         {
           $scope.systemsettings.timezone = data;
@@ -77,7 +76,7 @@ angular.module('clientApp')
 
     $scope.saveTimeZone = function(timezone) {
       $scope.selectedTimezone = timezone;
-      var data = "timezone=" + timezone; //$scope.systemsettings.selectedTimezone.value;
+      var data = "timezone=" + timezone; 
       var config = {headers:{
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
         }};
@@ -92,10 +91,6 @@ angular.module('clientApp')
           {
              $scope.systemsettings.logstashstatus=data;
           });
-    };
-
-    $scope.saveCron = function() {
-      //TODO save cron information
     };
 
     $scope.updateStatus = function(status, service)//status: Boolean running/not running, service: "serviceName"
@@ -122,7 +117,7 @@ angular.module('clientApp')
       var method = "StartService";
       if($scope.systemsettings.elasticsearchstatusbit)
         {method = "StopService";}
-      $http.post(servicelocation+"/"+method,data,config)
+      $http.post(servicelocation+method,data,config)
         .success(function(data)
           {
              $scope.systemsettings.elasticsearchstatus=data;
