@@ -13,6 +13,7 @@ angular.module('clientApp')
     $location,
     $scope,
   //  $parse,
+    $interval,
     $http
   ) {
     servicelocation = "https://" + $location.$$host + "/api/";
@@ -21,6 +22,32 @@ angular.module('clientApp')
       var stopped = "stopped";
       var notrunning = "not running";
       var running = "is running";
+
+      $interval(checkServiceStatus, 10000);
+      function checkServiceStatus() {
+          console.log("Interval occurred check status");
+          var data = "servicename=elasticsearch";
+          var config = {headers:{
+            "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+          }};
+          $http.post(servicelocation+"IsServiceRunning",data,config)
+            .success(function(data)
+              {
+                 $scope.systemsettings.elasticsearchstatusbit=data;
+              });
+           data = "servicename=logstash";
+          $http.post(servicelocation+"IsServiceRunning",data,config)
+            .success(function(data)
+              {
+                 $scope.systemsettings.logstashstatusbit=data;
+              });
+           data = "servicename=kibana4";
+          $http.post(servicelocation+"IsServiceRunning",data,config)
+            .success(function(data)
+              {
+                 $scope.systemsettings.kibanastatusbit=data;
+              });
+      }
 
     //TODO: update next line to the current setting for the server.
 //    $scope.systemsettings.logstashstatusbit = true;
@@ -38,6 +65,7 @@ angular.module('clientApp')
     var config = {headers:{
       "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
     }};
+
     $http.post(servicelocation+"GetServiceStatus",data,config)
       .success(function(data)
         {
