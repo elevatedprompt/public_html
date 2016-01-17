@@ -7,6 +7,7 @@
  * # SystemservicesCtrl
  * Controller of the clientApp
  */
+
 angular.module('clientApp')
   .controller('SystemservicesCtrl',function (
     $location,
@@ -17,6 +18,9 @@ angular.module('clientApp')
     servicelocation = "https://" + $location.$$host + "/api/";
 
     $scope.systemsettings = {};
+      var stopped = "stopped";
+      var notrunning = "not running";
+      var running = "is running";
 
     //TODO: update next line to the current setting for the server.
 //    $scope.systemsettings.logstashstatusbit = true;
@@ -38,26 +42,48 @@ angular.module('clientApp')
       .success(function(data)
         {
            $scope.systemsettings.elasticsearchstatus=data;
-           //TODO: parse data looking for string.
+           var str = data;
+           if(str.match(stopped)){
+             console.log(data + ' service stopped');
+            $scope.systemsettings.elasticsearchstatusbit = false;
+           }
+           if(str.match(notrunning)){
+             console.log(data + ' service stopped');
+              $scope.systemsettings.elasticsearchstatusbit = false;
+           }
+           if(str.match(running)){
+             console.log(data + ' service running');
+              $scope.systemsettings.elasticsearchstatusbit = true;
+           }
         });
     $http.post(servicelocation+"IsServiceRunning",data,config)
       .success(function(data)
         {
            $scope.systemsettings.elasticsearchstatusbit=data;
-           //TODO: parse data looking for string.
         });
     data = "servicename=logstash";
     $http.post(servicelocation+"GetServiceStatus",data,config)
           .success(function(data)
             {
                $scope.systemsettings.logstashstatus=data;
-               //TODO: parse data looking for string.
+               var str = data;
+               if(str.match(stopped)){
+                 console.log(data + ' service stopped');
+                $scope.systemsettings.logstashstatusbit = false;
+               }
+               if(str.match(notrunning)){
+                 console.log(data + ' service stopped');
+                  $scope.systemsettings.logstashstatusbit = false;
+               }
+               if(str.match(running)){
+                 console.log(data + ' service running');
+                  $scope.systemsettings.logstashstatusbit = true;
+               }
             });
     $http.post(servicelocation+"IsServiceRunning",data,config)
           .success(function(data)
             {
                $scope.systemsettings.logstashstatusbit=data;
-               //TODO: parse data looking for string.
             });
     data = "servicename=kibana4";
 
@@ -65,7 +91,20 @@ angular.module('clientApp')
       .success(function(data)
         {
            $scope.systemsettings.kibanastatus=data;
-           //TODO: parse data looking for string.
+           var str = data;
+           if(str.match(stopped)){
+             console.log(data + ' service stopped');
+            $scope.systemsettings.kibanastatusbit = false;
+           }
+           if(str.match(notrunning)){
+             console.log(data + ' service stopped');
+              $scope.systemsettings.kibanastatusbit = false;
+           }
+           if(str.match(running)){
+             console.log(data + ' service running');
+              $scope.systemsettings.kibanastatusbit = true;
+           }
+
         });
     $http.post(servicelocation+"IsServiceRunning",data,config)
       .success(function(data)
