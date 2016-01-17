@@ -16,9 +16,7 @@ var app = angular.module('clientApp', [
          replace: true,
        transclude: true,
     compile: function (scope, element, attrs) {
-        //element.height($(window).height() - $('.header').outerHeight());
-        element.height(2);
-        alert('message');
+      
     }
   }
 })
