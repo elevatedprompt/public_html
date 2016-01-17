@@ -79,6 +79,9 @@ app.config(['$routeProvider', function ($routeProvider) {
 //    .otherwise("/", {templateUrl: "partials/404.html", controller: "AboutCtrl"});
 }]);
 
+app.controler('MainCtrl', function (){
+
+});
 /**
  * Controls all other Pages
  */
