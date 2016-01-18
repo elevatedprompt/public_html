@@ -18,7 +18,7 @@
         </br>
       </td>
       <td>
-          <table width="100%" >
+          <table width="200px" >
               <tr>
                   <td width="100%">
                       User: <input type="text" class="filename" ng-model="userManagmentModel.selectedUser"  />
@@ -36,6 +36,7 @@
                 <td>
                   <a class="btn btn-primary" ng-click="clearForm()" ><span class="glyphicon"></span>Cancel</a>
                   <a class="btn btn-primary" ng-click="updateUser(selectedUser,passwd)" ><span class="glyphicon"></span>Save</a>
+                  <div confirm-delete on-confirm="deleteUser()"></div>
                   <a class="btn btn-danger" ng-click="deleteUser()" ><span class="glyphicon"></span>Delete</a>
                 </td>
               </tr>
@@ -44,10 +45,6 @@
     </tr>
   </tbody>
 </table>
-
-<h3 >debug info</h3>
-<pre>User Management = "{{userManagmentModel | json}}"</pre>
-<pre>Location = "{{servicelocation}}"</pre>
 
 <div class="footer">
     <div class="container-narrow">

@@ -16,7 +16,9 @@ body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
-
+.deleteConfirmation{
+  width: 250px;
+}
 .dropdown {
     cursor:pointer;
 }
