@@ -74,7 +74,7 @@ angular.module('clientApp')
     $scope.updateUser = function(){
       console.log("Update User: " + $scope.userManagmentModel.selectedUser);
 
-      var data = "User=" +$scope.userManagmentModel.selectedUser + ";Password=" + $scope.userManagmentModel.password;
+      var data = "User=" +$scope.userManagmentModel.selectedUser + ";Password=" + $scope.userManagmentModel.passwd;
       var config = {headers:{
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
       }};
