@@ -71,10 +71,12 @@ angular.module('clientApp')
           });
     };
 
+///TODO: Add validation for users ("no space. no semicolon(:) no & or special character")
+///TODO: Add validation for password ("no space. no semicolon(:) no & or special character")
     $scope.updateUser = function(){
       console.log("Update User: " + $scope.userManagmentModel.selectedUser);
 
-      var data = "User=" +$scope.userManagmentModel.selectedUser + "&passwd=" + $scope.userManagmentModel.passwd;
+      var data = "User=" +$scope.userManagmentModel.selectedUser.trim() + "&passwd=" + $scope.userManagmentModel.passwd.trim();
       var config = {headers:{
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
       }};
