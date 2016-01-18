@@ -82,6 +82,7 @@ angular.module('clientApp')
         .success(function(data)
           {
              $scope.listUsers();
+             $scope.clearForm();
           });
     };
 
@@ -95,6 +96,7 @@ angular.module('clientApp')
         .success(function(data)
           {
              $scope.listUsers();
+             $scope.clearForm();
           });
     };
   });
