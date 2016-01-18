@@ -9,7 +9,7 @@
  */
 
 angular.module('clientApp')
-.directive('confirmDelete', ->
+.directive('confirmDelete',
   return {
     replace: true,
     templateUrl: 'templates/deleteConfirmation.html',

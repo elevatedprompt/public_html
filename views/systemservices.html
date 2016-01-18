@@ -2,7 +2,6 @@
 <link rel="stylesheet" type="text/css" href="bower_components/angular-timezone-selector/dist/angular-timezone-selector.css" media="screen">
 <link rel="stylesheet" type="text/css" href="bower_components/angular-timezone-selector/dist/angular-timezone-selector.css" media="screen">
 <form role="form">
-
 <div class='system_dialog'>
     <div class='browsehappy'>Time Zone</div>
     <div class='system_admin_section' id='system_timezones'>
@@ -24,7 +23,6 @@
             </div>
         </div>
     </div>
-
     <div class='browsehappy'>Application Services</div>
     <input type="submit" class="btn btn-primary" ng-click="checkServiceStatus()" name="kibanaButton"  value="Check Service Status">
     <div class='system_admin_section' ng-app='clientApp' ng-controller='SystemservicesCtrl' id='system_services'>
@@ -57,7 +55,6 @@
                     <div class=''>{{systemsettings.logstashstatus}}</div>
                 </div>
             </div>
-
             <div class="row">
                   <div class="left">
                         <input type="submit" class="btn btn-primary" ng-click="cycleKibana(systemsettings)" name="kibanaButton"  value="{{systemsettings.kibanastatusbit && 'Stop' || 'Start'}}">
@@ -72,7 +69,6 @@
                         <div class=''>{{systemsettings.kibanastatus}}</div>
                   </div>
             </div>
-
             <div class="row">
                     <div class="left">
                         <input type="submit" class="btn btn-primary" ng-click="cycleElasticSearch(systemsettings)" name="elasticButton" value="{{systemsettings.elasticsearchstatusbit && 'Stop' || 'Start'}}">
@@ -88,10 +84,7 @@
                           <div class=''>{{systemsettings.elasticsearchstatus}}</div>
                     </div>
             </div>
-
         </div>
-
-
     </div>
 </div>
   <h2 >debug info</h2>

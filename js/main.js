@@ -38,8 +38,7 @@ var app = angular.module('clientApp', [
          if (links[0].textContent === attrs.currentTab) $(li).addClass("active"); // (4)
        }
      }
-   }})
-;
+   }});
 
 /**
  * Configure the Routes
@@ -69,18 +68,16 @@ app.config(['$routeProvider', function ($routeProvider) {
       controllerAs: 'systemservices'
     })
 
-    // Blog
+    // Blog (Future)
   //  .when("/blog", {templateUrl: "partials/blog.html", controller: "BlogCtrl"})
   //  .when("/blog/post", {templateUrl: "partials/blog_item.html", controller: "BlogCtrl"})
     // else 404
     .otherwise("/404", {
       templateUrl: "views/about.html", controller: "AboutCtrl",
       controllerAs:'about'});
-//    .otherwise("/", {templateUrl: "partials/404.html", controller: "AboutCtrl"});
 }]);
 
 app.controller('MainCtrl', function (){
-
 });
 /**
  * Controls all other Pages
