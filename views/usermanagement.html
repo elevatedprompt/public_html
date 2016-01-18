@@ -34,10 +34,17 @@
                 </td>
               <tr>
                 <td>
-                  <a class="btn btn-primary" ng-click="clearForm()" ><span class="glyphicon"></span>Cancel</a>
-                  <a class="btn btn-primary" ng-click="updateUser(selectedUser,passwd)" ><span class="glyphicon"></span>Save</a>
-                  <div confirm-delete on-confirm="deleteUser()"></div>
-                  <a class="btn btn-danger" ng-click="deleteUser()" ><span class="glyphicon"></span>Delete</a>
+                  <div class="rows">
+                    <div class="row">
+                      <div class="center">
+                      <a class="btn btn-primary" ng-click="clearForm()" ><span class="glyphicon"></span>Cancel</a>
+                      <a class="btn btn-primary" ng-click="updateUser(selectedUser,passwd)" ><span class="glyphicon"></span>Save</a>
+                      </div>
+                      <div class="right">
+                        <a class="btn btn-danger" ng-click="deleteUser()" ><span class="glyphicon"></span>Delete</a>
+                      </div>
+                    </div>
+                  </div>
                 </td>
               </tr>
           </table>
