@@ -7,7 +7,7 @@
  * # UsermanagementCtrl
  * Controller of the clientApp
  */
- 
+
 angular.module('clientApp')
   .controller('UsermanagementCtrl', function (
     $location,
@@ -42,7 +42,7 @@ angular.module('clientApp')
             });
     };
 
-    function listUsers(){
+  //  function listUsers(){
       console.log("Get List of users");
       var data = "";
       var config = {headers:{
@@ -53,7 +53,7 @@ angular.module('clientApp')
           {
              $scope.userManagmentModel.userList=data;
           });
-    }
+//    }
 
     $scope.listUsers = function(){
       console.log("Get List of users");
