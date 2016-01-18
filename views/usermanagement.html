@@ -1,9 +1,5 @@
 <bootstrap-navbar current-tab='User Management'></bootstrap-navbar>
 <table class="table table-striped">
-  <thead>
-    <th>Users</th>
-    <th>User Info</th>
-  </thead>
   <tbody>
     <tr>
       <td>
@@ -19,10 +15,18 @@
       </td>
       <td>
           <table width="200px" >
+            <tr>
+              <td><h4>&nbsp;</h4></td>
+            </tr>
               <tr>
                   <td width="100%">
                       User: <input type="text" class="filename" ng-model="userManagmentModel.selectedUser"  />
                   </td>
+              </tr>
+              <tr>
+                <td>
+                  &nbsp;
+                </td>
               </tr>
               <tr>
                   <td>
@@ -30,23 +34,25 @@
                   </td>
               </tr>
               <tr>
-                <td>
+                <td>&nbsp;
                 </td>
               <tr>
                 <td>
-                  <div class="table">
                   <div class="rows">
-                    <div class="table-row row">
-                      <div class="table-cell center">
-                      <a class="btn btn-primary" ng-click="clearForm()" ><span class="glyphicon"></span>Cancel</a>
+                    <div class="row">
+                      <div class="center">
                       <a class="btn btn-primary" ng-click="updateUser(selectedUser,passwd)" ><span class="glyphicon"></span>Save</a>
-                      </div>
-                      <div class="table-cell right">
+                      <a class="btn btn-primary" ng-click="clearForm()"><span class="glyphicon"></span>Cancel</a>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <a class="btn btn-danger" ng-click="deleteUser()" ><span class="glyphicon"></span>Delete</a>
                       </div>
                     </div>
                   </div>
-                </div>
+
                 </td>
               </tr>
           </table>
@@ -54,7 +60,6 @@
     </tr>
   </tbody>
 </table>
-
 <div class="container-narrow">
     <i><sub>&copy; 2016 elevatedprompt [EPSTACK version 2.0 RC January 17, 2016]</sub></i>
 </div>
