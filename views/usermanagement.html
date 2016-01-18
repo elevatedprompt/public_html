@@ -1,6 +1,50 @@
 <bootstrap-navbar current-tab='User Management'></bootstrap-navbar>
+<table class="table table-striped">
+  <thead>
+    <th>Files</th>
+    <th>File Content</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <label class="header" text ="Users">Users</label>
+        <ul>
+            <li ng-repeat="user in userList"><a ng-click="selectedUser=user;">{{config.replace('/etc/logstash/conf.d//','')}}</a>
+            </li>
+        </ul>
+        <a class="btn btn-primary" ng-click="clearForm()" ><span class="glyphicon glyphicon-plus"></span> Create User</a>
+        <br />
+        <br />
+        </br>
+      </td>
+      <td>
+          <table width="100%" >
+              <tr>
+                  <td width="100%">
+                      User: <input type="text" class="filename" ng-model="selectedUser"  />
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      Password: <input type="password" class="filename" ng-model="passwd"  />
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <a class="btn btn-primary" ng-click="updateUser(selectedUser,passwd)" ><span class="glyphicon"></span>Save</a>
+                </td>
+              </tr>
+          </table>
+        <!--<textarea enabled="false" accept="text/html" autofocus="true"
+      ng-model="configfile.configuration"
+      class="form-control" id="title" placeholder="filename">-->
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 <div>
-  {{userList}}
+  {{}}
 </div>
 
 <p>Under Construction...</p>
