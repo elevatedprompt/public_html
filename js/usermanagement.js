@@ -72,7 +72,7 @@ angular.module('clientApp')
     };
 
     $scope.updateUser = function(){
-      console.log("Update User" + $scope.userManagmentModel.selectedUser);
+      console.log("Update User: " + $scope.userManagmentModel.selectedUser);
 
       var data = "User=" +$scope.userManagmentModel.selectedUser + ";Password=" + $scope.userManagmentModel.password;
       var config = {headers:{
@@ -85,8 +85,8 @@ angular.module('clientApp')
           });
     };
 
-    $scope.deleteUsers = function(){
-      console.log("Get List of users");
+    $scope.deleteUser = function(){
+      console.log("Delete User: " + $scope.userManagmentModel.selectedUser);
       var data = "User=" + $scope.userManagmentModel.selectedUser;
       var config = {headers:{
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
