@@ -14,7 +14,7 @@ angular.module('clientApp')
     $http
   ) {
       servicelocation = "https://" + $location.$$host + "/api/";
-      $scope.listUsers();
+    listUsers();
     $scope.checkServiceStatus = function() {
         console.log("Interval occurred check status");
         var data = "servicename=elasticsearch";
@@ -39,6 +39,19 @@ angular.module('clientApp')
                $scope.systemsettings.kibanastatusbit=data;
             });
     };
+
+    function listUsers(){
+      console.log("Get List of users");
+      var data = "";
+      var config = {headers:{
+        "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+      }};
+      $http.post(servicelocation+"ListUsers",data,config)
+        .success(function(data)
+          {
+             $scope.userList=data;
+          });
+    }
 
     $scope.listUsers = function(){
       console.log("Get List of users");
