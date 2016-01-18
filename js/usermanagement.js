@@ -7,6 +7,7 @@
  * # UsermanagementCtrl
  * Controller of the clientApp
  */
+ 
 angular.module('clientApp')
   .controller('UsermanagementCtrl', function (
     $location,
@@ -14,6 +15,7 @@ angular.module('clientApp')
     $http
   ) {
       servicelocation = "https://" + $location.$$host + "/api/";
+      $scope.userManagmentModel = {};
     listUsers();
     $scope.checkServiceStatus = function() {
         console.log("Interval occurred check status");
@@ -49,7 +51,7 @@ angular.module('clientApp')
       $http.post(servicelocation+"ListUsers",data,config)
         .success(function(data)
           {
-             $scope.userList=data;
+             $scope.userManagmentModel.userList=data;
           });
     }
 
@@ -62,7 +64,7 @@ angular.module('clientApp')
       $http.post(servicelocation+"ListUsers",data,config)
         .success(function(data)
           {
-             $scope.userList=data;
+             $scope.userManagmentModel.userList=data;
           });
     };
 
