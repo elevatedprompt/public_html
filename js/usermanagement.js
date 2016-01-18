@@ -42,7 +42,10 @@ angular.module('clientApp')
             });
     };
 
-  //  function listUsers(){
+    $scope.clearForm = function() {
+      $scope.userManagmentModel.selectedUser = "";
+      $scope.userManagmentModel.passwd = "";
+    };
       console.log("Get List of users");
       var data = "";
       var config = {headers:{
@@ -53,7 +56,7 @@ angular.module('clientApp')
           {
              $scope.userManagmentModel.userList=data;
           });
-//    }
+
 
     $scope.listUsers = function(){
       console.log("Get List of users");
