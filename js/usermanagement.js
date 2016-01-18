@@ -16,7 +16,7 @@ angular.module('clientApp')
   ) {
       servicelocation = "https://" + $location.$$host + "/api/";
       $scope.userManagmentModel = {};
-    listUsers();
+  //  listUsers();
     $scope.checkServiceStatus = function() {
         console.log("Interval occurred check status");
         var data = "servicename=elasticsearch";
