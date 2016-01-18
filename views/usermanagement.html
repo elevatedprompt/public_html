@@ -9,7 +9,7 @@
       <td>
         <label class="header" text ="Users">Users</label>
         <ul>
-          {{userList}}
+
             <li ng-repeat="user in userList"><a ng-click="selectedUser=user;">{{user}}</a>
             </li>
         </ul>
@@ -44,10 +44,11 @@
   </tbody>
 </table>
 
-<div>
-  {{}}
-</div>
 
+<h3 >debug info</h3>
+<pre>Form data settings = "{{systemsettings | json}}"</pre>
+<pre>Form data settings = "{{scope | json}}"</pre>
+<pre>Location = "{{servicelocation}}"</pre>
 <p>Under Construction...</p>
 <div class="footer">
     <div class="container-narrow">
