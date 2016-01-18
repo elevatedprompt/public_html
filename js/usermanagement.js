@@ -71,9 +71,10 @@ angular.module('clientApp')
           });
     };
 
-    $scope.updateUser = function(user,password){
-      console.log("Get List of users");
-      var data = "User=" +user + ";Password=" + password;
+    $scope.updateUser = function(){
+      console.log("Update User" + $scope.userManagmentModel.selectedUser);
+
+      var data = "User=" +$scope.userManagmentModel.selectedUser + ";Password=" + $scope.userManagmentModel.password;
       var config = {headers:{
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
       }};
