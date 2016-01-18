@@ -9,7 +9,8 @@
       <td>
         <label class="header" text ="Users">Users</label>
         <ul>
-            <li ng-repeat="user in userList"><a ng-click="selectedUser=user;">{{config.replace('/etc/logstash/conf.d//','')}}</a>
+          {{userList}}
+            <li ng-repeat="user in userList"><a ng-click="selectedUser=user;">{{user}}</a>
             </li>
         </ul>
         <a class="btn btn-primary" ng-click="clearForm()" ><span class="glyphicon glyphicon-plus"></span> Create User</a>
