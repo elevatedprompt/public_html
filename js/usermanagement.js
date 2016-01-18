@@ -85,9 +85,9 @@ angular.module('clientApp')
           });
     };
 
-    $scope.deleteUsers = function(user){
+    $scope.deleteUsers = function(){
       console.log("Get List of users");
-      var data = "User=" + user;
+      var data = "User=" + $scope.userManagmentModel.selectedUser;
       var config = {headers:{
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
       }};
