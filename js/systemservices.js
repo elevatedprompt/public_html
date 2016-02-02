@@ -31,19 +31,19 @@ angular.module('clientApp')
           $http.post(servicelocation+"IsServiceRunning",data,config)
             .success(function(data)
               {
-                 $scope.systemsettings.elasticsearchstatusbit=data;
+                 $scope.systemsettings.elasticsearchstatusbit=(data==="true");
               });
            data = "servicename=logstash";
           $http.post(servicelocation+"IsServiceRunning",data,config)
             .success(function(data)
               {
-                 $scope.systemsettings.logstashstatusbit=data;
+                 $scope.systemsettings.logstashstatusbit=(data==="true");
               });
            data = "servicename=kibana4";
           $http.post(servicelocation+"IsServiceRunning",data,config)
             .success(function(data)
               {
-                 $scope.systemsettings.kibanastatusbit=data;
+                 $scope.systemsettings.kibanastatusbit=(data==="true");
               });
       };
       //$interval(checkServiceStatus, 10000);

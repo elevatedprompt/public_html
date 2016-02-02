@@ -9,6 +9,4 @@
  */
 angular.module('clientApp')
   .controller('AboutCtrl', function () {
-alert('about');
-
   });
