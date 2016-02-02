@@ -190,7 +190,7 @@ angular.module('clientApp')
       $scope.updateStatus($scope.systemsettings.elasticsearchstatusbit,'elastic');
     setTimeout(function () {
       checkServiceStatus()
-    }, 300);
+    }, 3000);
     };
 
     $scope.cycleKibana = function() {
@@ -216,7 +216,7 @@ angular.module('clientApp')
       $scope.updateStatus($scope.systemsettings.kibanastatusbit,'kibana');
       setTimeout(function () {
         checkServiceStatus();
-      }, 300);
+      }, 3000);
 
     };
 
@@ -244,7 +244,7 @@ angular.module('clientApp')
 
       setTimeout(function () {
         checkServiceStatus()
-      }, 300);
+      }, 3000);
 
     };
   });
