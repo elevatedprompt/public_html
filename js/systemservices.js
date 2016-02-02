@@ -22,7 +22,7 @@ angular.module('clientApp')
       var stopped = "stopped";
       var notrunning = "not running";
       var running = "is running";
-      $scope.checkServiceStatus = function() {
+      checkServiceStatus = function() {
           var data = "servicename=elasticsearch";
           var config = {headers:{
             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
