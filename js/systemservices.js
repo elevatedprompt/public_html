@@ -188,7 +188,9 @@ angular.module('clientApp')
           });
       checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.elasticsearchstatusbit,'elastic');
-      $timeout(checkServiceStatus(), 3);
+    setTimeout(function () {
+      checkServiceStatus()
+    }, 10);
     };
 
     $scope.cycleKibana = function() {
@@ -212,7 +214,10 @@ angular.module('clientApp')
           });
       checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.kibanastatusbit,'kibana');
-      $timeout(checkServiceStatus(), 300);
+      setTimeout(function () {
+        checkServiceStatus();
+      }, 10);
+
     };
 
     $scope.cycleLogstash = function() {
@@ -236,6 +241,10 @@ angular.module('clientApp')
           });
       checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.logstashstatusbit,'logstash');
-      $timeout(checkServiceStatus(), 300);
+      
+      setTimeout(function () {
+        checkServiceStatus()
+      }, 10);
+
     };
   });
