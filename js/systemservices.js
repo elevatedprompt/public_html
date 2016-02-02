@@ -245,6 +245,5 @@ angular.module('clientApp')
       setTimeout(function () {
         checkServiceStatus()
       }, 3000);
-
     };
   });
