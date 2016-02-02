@@ -186,9 +186,9 @@ angular.module('clientApp')
           {
              $scope.systemsettings.elasticsearchstatus=data;
           });
-      $scope.systemsettings.elasticsearchstatusbit = !$scope.systemsettings.elasticsearchstatusbit;
       checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.elasticsearchstatusbit,'elastic');
+      $setTimeout(checkServiceStatus(), 300);
     };
 
     $scope.cycleKibana = function() {
@@ -210,9 +210,9 @@ angular.module('clientApp')
           {
              $scope.systemsettings.kibanastatus=data;
           });
-      $scope.systemsettings.kibanastatusbit = !$scope.systemsettings.kibanastatusbit;
       checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.kibanastatusbit,'kibana');
+      $setTimeout(checkServiceStatus(), 300);
     };
 
     $scope.cycleLogstash = function() {
@@ -234,8 +234,8 @@ angular.module('clientApp')
           {
              $scope.systemsettings.logstashstatus=data;
           });
-      $scope.systemsettings.logstashstatusbit = !$scope.systemsettings.logstashstatusbit;
       checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.logstashstatusbit,'logstash');
+      $setTimeout(checkServiceStatus(), 300);
     };
   });

@@ -68,10 +68,6 @@ app.config(['$routeProvider', function ($routeProvider) {
       controllerAs: 'systemservices'
     })
 
-    // Blog (Future)
-  //  .when("/blog", {templateUrl: "partials/blog.html", controller: "BlogCtrl"})
-  //  .when("/blog/post", {templateUrl: "partials/blog_item.html", controller: "BlogCtrl"})
-    // else 404
     .otherwise("/404", {
       templateUrl: "views/about.html", controller: "AboutCtrl",
       controllerAs:'about'});
