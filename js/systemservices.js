@@ -22,8 +22,7 @@ angular.module('clientApp')
       var stopped = "stopped";
       var notrunning = "not running";
       var running = "is running";
-      $scope.checkServiceStatus = function() {
-          console.log("Interval occurred check status");
+      checkServiceStatus = function() {
           var data = "servicename=elasticsearch";
           var config = {headers:{
             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -46,12 +45,7 @@ angular.module('clientApp')
                  $scope.systemsettings.kibanastatusbit=(data==="true");
               });
       };
-      //$interval(checkServiceStatus, 10000);
 
-    //TODO: update next line to the current setting for the server.
-//    $scope.systemsettings.logstashstatusbit = true;
-//    $scope.systemsettings.kibanastatusbit = true;
-//    $scope.systemsettings.elasticsearchstatusbit = true;
 
     $http.post(servicelocation+"GetTimeZone",data,config)
       .success(function(data)
@@ -86,7 +80,7 @@ angular.module('clientApp')
     $http.post(servicelocation+"IsServiceRunning",data,config)
       .success(function(data)
         {
-           $scope.systemsettings.elasticsearchstatusbit=data;
+           $scope.systemsettings.elasticsearchstatusbit=(data==="true");
         });
     data = "servicename=logstash";
     $http.post(servicelocation+"GetServiceStatus",data,config)
@@ -110,7 +104,7 @@ angular.module('clientApp')
     $http.post(servicelocation+"IsServiceRunning",data,config)
           .success(function(data)
             {
-               $scope.systemsettings.logstashstatusbit=data;
+               $scope.systemsettings.logstashstatusbit=(data==="true");
             });
     data = "servicename=kibana4";
 
@@ -136,8 +130,7 @@ angular.module('clientApp')
     $http.post(servicelocation+"IsServiceRunning",data,config)
       .success(function(data)
         {
-           $scope.systemsettings.kibanastatusbit=data;
-           //TODO: parse data looking for string.
+           $scope.systemsettings.kibanastatusbit=(data==="true");
         });
 
     $scope.saveTimeZone = function(timezone) {
@@ -193,8 +186,11 @@ angular.module('clientApp')
           {
              $scope.systemsettings.elasticsearchstatus=data;
           });
-      $scope.systemsettings.elasticsearchstatusbit = !$scope.systemsettings.elasticsearchstatusbit;
+      checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.elasticsearchstatusbit,'elastic');
+    setTimeout(function () {
+      checkServiceStatus()
+    }, 3000);
     };
 
     $scope.cycleKibana = function() {
@@ -216,8 +212,12 @@ angular.module('clientApp')
           {
              $scope.systemsettings.kibanastatus=data;
           });
-      $scope.systemsettings.kibanastatusbit = !$scope.systemsettings.kibanastatusbit;
+      checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.kibanastatusbit,'kibana');
+      setTimeout(function () {
+        checkServiceStatus();
+      }, 3000);
+
     };
 
     $scope.cycleLogstash = function() {
@@ -239,7 +239,11 @@ angular.module('clientApp')
           {
              $scope.systemsettings.logstashstatus=data;
           });
-      $scope.systemsettings.logstashstatusbit = !$scope.systemsettings.logstashstatusbit;
+      checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.logstashstatusbit,'logstash');
+
+      setTimeout(function () {
+        checkServiceStatus()
+      }, 3000);
     };
   });
