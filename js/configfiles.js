@@ -42,6 +42,29 @@ angular.module('clientApp')
              $scope.cron=data;
           });
 
+      $scope.deleteFile = function(configuration){
+        $scope.filelocation = "";
+        $scope.conffilename = configuration;
+
+        var retVal = prompt("You must confirm to delete this file enter DELETE in the box below \n\n are you sure you want to continue?", "WARNING");
+
+        if(retVal=="DELETE")
+        {
+          alert("You Confirmed");
+          var data = "configfile="+ encodeURIComponent(configuration);
+          var config = {headers:{
+            "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+          }};
+
+          var result = $http.post(servicelocation+"/DeleteConfFile",data,config)
+            .success(function(data)
+              {
+                console.log(data);
+                $scope.configuration = data;
+              });
+        }
+      }
+
     $scope.updateTextArea = function(configuration){
 
       $scope.filelocation = "";
