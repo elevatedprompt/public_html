@@ -218,7 +218,14 @@ textarea {
   border-top: 1px solid #e5e5e5;
 }
 
-
+.EP_Footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}
 .container-narrow > hr {
   margin: 30px 0;
 
