@@ -61,7 +61,6 @@ angular.module('clientApp')
 
         if(retVal=="DELETE")
         {
-          alert("You Confirmed");
           var data = "conffilename="+ encodeURIComponent(configuration);
           var config = {headers:{
             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
