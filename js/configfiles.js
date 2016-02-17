@@ -22,25 +22,60 @@ angular.module('clientApp')
       var config = {headers:{
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
         }};
-      $http.post(servicelocation+"/GetLogstashConfigDirectoryListing",data,config)
-        .success(function(data)
-          {
-            console.log(data);
-             $scope.configfiles=data;
-          });
-      $http.post(servicelocation+"/GetElasticConfigDirectoryListing",data,config)
-        .success(function(data)
-          {
-            console.log(data);
-             $scope.elastic=data;
-          });
 
-      $http.post(servicelocation+"/GetCronJobDirectory",data,config)
-        .success(function(data)
-          {
-            console.log(data);
-             $scope.cron=data;
-          });
+      $scope.refreshScreen = function()
+      {
+        servicelocation = "https://" + $location.$$host + "/api/";
+        var data = {};
+        var config = {headers:{
+          "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+          }};
+        $http.post(servicelocation+"/GetLogstashConfigDirectoryListing",data,config)
+          .success(function(data)
+            {
+              console.log(data);
+               $scope.configfiles=data;
+            });
+        $http.post(servicelocation+"/GetElasticConfigDirectoryListing",data,config)
+          .success(function(data)
+            {
+              console.log(data);
+               $scope.elastic=data;
+            });
+
+        $http.post(servicelocation+"/GetCronJobDirectory",data,config)
+          .success(function(data)
+            {
+              console.log(data);
+               $scope.cron=data;
+            });
+      }
+
+      $scope.refreshScreen();
+
+      $scope.deleteFile = function(configuration){
+        $scope.filelocation = "";
+        $scope.conffilename = configuration;
+
+        var retVal = prompt("You must confirm to delete this file enter DELETE in the box below \n\n are you sure you want to continue?", "WARNING");
+
+        if(retVal=="DELETE")
+        {
+          alert("You Confirmed");
+          var data = "configfile="+ encodeURIComponent(configuration);
+          var config = {headers:{
+            "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+          }};
+
+          var result = $http.post(servicelocation+"/DeleteConfFile",data,config)
+            .success(function(data)
+              {
+                console.log(data);
+                $scope.configuration = data;
+              });
+        }
+        $scope.refreshScreen();
+      }
 
     $scope.updateTextArea = function(configuration){
 
