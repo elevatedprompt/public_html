@@ -1,0 +1,72 @@
+<bootstrap-navbar current-tab='Notifications'></bootstrap-navbar>
+<table class="table table-striped">
+  <thead>
+    <th>Files</th>
+    <th>File Content</th>
+  </thead>
+    <tbody>
+    <script>
+        function enableTab(id) {
+            var el = document.getElementById(id);
+            el.onkeydown = function (e) {
+                if (e.keyCode === 9) { // tab was pressed
+
+                    // get caret position/selection
+                    var val = this.value,
+                        start = this.selectionStart,
+                        end = this.selectionEnd;
+
+                    // set textarea value to: text before caret + tab + text after caret
+                    this.value = val.substring(0, start) + '\t' + val.substring(end);
+
+                    // put caret at right position again
+                    this.selectionStart = this.selectionEnd = start + 1;
+
+                    // prevent the focus lose
+                    return false;
+
+                }
+            };
+        }
+
+        // Enable the tab character onkeypress (onkeydown) inside textarea...
+        // ... for a textarea that has an `id="my-textarea"`
+        enableTab('notificationTextArea');
+    </script>
+    <tr>
+      <td>
+        <label class="header" text ="Notifications">Notifications</label>
+        <ul>
+            <li ng-repeat="notify in notifications"><img  ng-src='./images/icons/X.png' ng-click="deleteFile(notify);" ></img> &nbsp;<a ng-click="updateTextArea(config);">{{config.replace('/etc/logstash/conf.d//','')}}</a>
+            </li>
+        </ul>
+        <a class="btn btn-primary" ng-click="createNotificationConfig()" ><span class="glyphicon glyphicon-plus"></span> Create Notification</a>
+        <br />
+        <br />
+
+      </td>
+      <td>
+          <table width="100%" >
+              <tr>
+                  <td width="100%">
+                      Filename: <input type="text" class="filename" ng-model="filename"  />
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                      <textarea style="texteditor" border=true id="notificationTextArea" ng-model="configuration" rows="25" />
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <a class="btn btn-primary" ng-click="saveConfigFile()" ><span class="glyphicon"></span>Save</a>
+                </td>
+              </tr>
+          </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="EP_Footer">
+    <i><sub>&copy; 2016 elevatedprompt [EPSTACK version 2.0 RC January 17, 2016]</sub></i>
+</div>
