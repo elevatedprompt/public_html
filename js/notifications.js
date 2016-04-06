@@ -124,4 +124,24 @@ create notification from search
               $scope.configuration = data;
             });
       };
+
+
+
+      $scope.testNotifyService = function(){
+        console.log("test notfiy");
+        servicelocation = "http://" + $location.$$host + ":3003/";
+        var data = {};
+        var config = {headers:{
+          "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+          }};
+
+        $http.post(servicelocation+"/PingCluster",data,config)
+          .success(function(data)
+            {
+              console.log(data);
+               $scope.searchList=data;
+            });
+
+      };
+
     });
