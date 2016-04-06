@@ -31,10 +31,10 @@ create notification from search
           {ID:"3",Title:"Another Example",SearchString:"searchstring"},
         ];
         $scope.NotificationList = [
-          {NotifyID:"1",SearchID:"1",Threshold:"2",Period:""}//Period in minutes.
-          {NotifyID:"2",SearchID:"1",Threshold:"2",Period:""}
-          {NotifyID:"3",SearchID:"2",Threshold:"2",Period:""}
-          {NotifyID:"4",SearchID:"3",Threshold:"2",Period:""}
+          {NotifyID:"1",SearchID:"1",Threshold:"2",Period:""},//Period in minutes.
+          {NotifyID:"2",SearchID:"1",Threshold:"2",Period:""},
+          {NotifyID:"3",SearchID:"2",Threshold:"2",Period:""},
+          {NotifyID:"4",SearchID:"3",Threshold:"2",Period:""},
         ];
         //
         // $scope.configfiles = [{filename:"logstash.conf", configuration:"config data"},
