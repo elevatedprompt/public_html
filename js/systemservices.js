@@ -16,6 +16,12 @@ angular.module('clientApp')
     $interval,
     $http
   ) {
+
+    var checkServiceTimer = setInterval(function () {
+      checkServiceStatus()
+    }, 5000);
+  //  clearInterval(checkServiceTimer);
+
     servicelocation = "https://" + $location.$$host + "/api/";
 
     $scope.systemsettings = {};
@@ -186,11 +192,9 @@ angular.module('clientApp')
           {
              $scope.systemsettings.elasticsearchstatus=data;
           });
-      checkServiceStatus();
+    //  checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.elasticsearchstatusbit,'elastic');
-    setTimeout(function () {
-      checkServiceStatus()
-    }, 3000);
+
     };
 
     $scope.cycleKibana = function() {
@@ -212,11 +216,9 @@ angular.module('clientApp')
           {
              $scope.systemsettings.kibanastatus=data;
           });
-      checkServiceStatus();
+    //  checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.kibanastatusbit,'kibana');
-      setTimeout(function () {
-        checkServiceStatus();
-      }, 3000);
+
 
     };
 
@@ -239,11 +241,8 @@ angular.module('clientApp')
           {
              $scope.systemsettings.logstashstatus=data;
           });
-      checkServiceStatus();
+    //  checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.logstashstatusbit,'logstash');
 
-      setTimeout(function () {
-        checkServiceStatus()
-      }, 3000);
     };
   });
