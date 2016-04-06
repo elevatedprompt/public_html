@@ -67,7 +67,7 @@ app.config(['$routeProvider', function ($routeProvider) {
       templateUrl: 'views/systemservices.html', controller: 'SystemservicesCtrl',
       controllerAs: 'systemservices'
     })
-    .when('/Notification', {
+    .when('/Notifications', {
       templateUrl: 'views/notifications.html', controller: 'NotificationsCtrl',
       controllerAs: 'systemservices'
     })
