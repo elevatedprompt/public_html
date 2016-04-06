@@ -18,7 +18,7 @@ angular.module('clientApp')
   ) {
 
     var checkServiceTimer = setInterval(function () {
-      checkServiceStatus()
+      checkServiceStatus();
     }, 5000);
   //  clearInterval(checkServiceTimer);
 
@@ -192,7 +192,7 @@ angular.module('clientApp')
           {
              $scope.systemsettings.elasticsearchstatus=data;
           });
-    //  checkServiceStatus();
+      checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.elasticsearchstatusbit,'elastic');
 
     };
@@ -216,7 +216,7 @@ angular.module('clientApp')
           {
              $scope.systemsettings.kibanastatus=data;
           });
-    //  checkServiceStatus();
+      checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.kibanastatusbit,'kibana');
 
 
@@ -241,7 +241,7 @@ angular.module('clientApp')
           {
              $scope.systemsettings.logstashstatus=data;
           });
-    //  checkServiceStatus();
+      checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.logstashstatusbit,'logstash');
 
     };
