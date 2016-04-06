@@ -129,7 +129,7 @@ create notification from search
 
       $scope.testNotifyService = function(){
         console.log("test notfiy");
-        servicelocation = "http://" + $location.$$host + ":3003/";
+        servicelocation = "https://" + $location.$$host + ":3003/";
         var data = {};
         var config = {headers:{
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
