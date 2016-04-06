@@ -38,17 +38,73 @@ angular.module('clientApp')
               {
                  $scope.systemsettings.elasticsearchstatusbit=(data==="true");
               });
-           data = "servicename=logstash";
+          $http.post(servicelocation+"GetServiceStatus",data,config)
+            .success(function(data)
+              {
+                 $scope.systemsettings.elasticsearchstatus=data;
+                 var str = data;
+                 if(str.match(stopped)){
+                   console.log(data + ' service stopped');
+                  $scope.systemsettings.elasticsearchstatusbit = false;
+                 }
+                 if(str.match(notrunning)){
+                   console.log(data + ' service stopped');
+                    $scope.systemsettings.elasticsearchstatusbit = false;
+                 }
+                 if(str.match(running)){
+                   console.log(data + ' service running');
+                    $scope.systemsettings.elasticsearchstatusbit = true;
+                 }
+              });
+
+          data = "servicename=logstash";
           $http.post(servicelocation+"IsServiceRunning",data,config)
             .success(function(data)
               {
                  $scope.systemsettings.logstashstatusbit=(data==="true");
               });
+          $http.post(servicelocation+"GetServiceStatus",data,config)
+                .success(function(data)
+                  {
+                     $scope.systemsettings.logstashstatus=data;
+                     var str = data;
+                     if(str.match(stopped)){
+                       console.log(data + ' service stopped');
+                      $scope.systemsettings.logstashstatusbit = false;
+                     }
+                     if(str.match(notrunning)){
+                       console.log(data + ' service stopped');
+                        $scope.systemsettings.logstashstatusbit = false;
+                     }
+                     if(str.match(running)){
+                       console.log(data + ' service running');
+                        $scope.systemsettings.logstashstatusbit = true;
+                     }
+                  });
            data = "servicename=kibana4";
           $http.post(servicelocation+"IsServiceRunning",data,config)
             .success(function(data)
               {
                  $scope.systemsettings.kibanastatusbit=(data==="true");
+              });
+          $http.post(servicelocation+"GetServiceStatus",data,config)
+            .success(function(data)
+              {
+                 $scope.systemsettings.kibanastatus=data;
+                 var str = data;
+                 if(str.match(stopped)){
+                   console.log(data + ' service stopped');
+                  $scope.systemsettings.kibanastatusbit = false;
+                 }
+                 if(str.match(notrunning)){
+                   console.log(data + ' service stopped');
+                    $scope.systemsettings.kibanastatusbit = false;
+                 }
+                 if(str.match(running)){
+                   console.log(data + ' service running');
+                    $scope.systemsettings.kibanastatusbit = true;
+                 }
+
               });
       };
 
