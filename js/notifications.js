@@ -67,7 +67,7 @@ create notification from search
               var config = {headers:{
                 "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
                 }};
-              $http.post(servicelocation+"/GetSearchList",data,config)
+              $http.post(servicelocation+"/ListSearches",data,config)
                 .success(function(data)
                   {
                     console.log(data);
@@ -141,7 +141,6 @@ create notification from search
               console.log(data);
                $scope.searchList=data;
             });
-
       };
 
     });
