@@ -71,7 +71,7 @@ create notification from search
                 .success(function(data)
                   {
                     console.log(data);
-                     $scope.searchList=data;
+                     $scope.avalibleSearches=data;
                   });
 
         }

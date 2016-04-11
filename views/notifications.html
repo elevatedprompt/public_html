@@ -48,6 +48,11 @@
           <table width="100%" >
               <tr>
                   <td width="100%">
+                    Search Name:  <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect">
+                                    <option ng-repeat="option in avalibleSearches" value="{{option.title}}">{{option.title}}</option>
+                                  </select>
+
+
                       Filename: <input type="text" class="filename" ng-model="filename"  />
                   </td>
               </tr>
