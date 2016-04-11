@@ -42,7 +42,8 @@ create notification from search
         //                   {filename:"bro.conf", configuration:"config data3"}];
         // $scope.cron = [{filename:"admin", configuration:"/cron/admin"}];
 
-        servicelocation = "https://" + $location.$$host + "/api/";
+        //servicelocation = "https://" + $location.$$host + "/Notify_API/";
+        servicelocation = "http://" + $location.$$host + ":3003/";
         var data = {};
         var config = {headers:{
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -50,7 +51,8 @@ create notification from search
 
         $scope.refreshScreen = function()
         {
-          servicelocation = "https://" + $location.$$host + "/Notify_API/";
+          //servicelocation = "https://" + $location.$$host + "/Notify_API/";
+          servicelocation = "http://" + $location.$$host + ":3003/";
           var data = {};
           var config = {headers:{
             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -63,6 +65,7 @@ create notification from search
               });
 
               servicelocation = "https://" + $location.$$host + "/Notify_API/";
+              servicelocation = "http://" + $location.$$host + ":3003/";
               var data = {};
               var config = {headers:{
                 "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -129,7 +132,8 @@ create notification from search
 
       $scope.testNotifyService = function(){
         console.log("test notfiy");
-        servicelocation = "http://" + $location.$$host + ":3003";
+        //servicelocation = "http://" + $location.$$host + ":3003";
+        servicelocation = "http://" + $location.$$host + ":3003/";
         var data = {};
         var config = {headers:{
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
