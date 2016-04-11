@@ -49,7 +49,7 @@
               <tr>
                   <td width="100%">
                     Search Name:  <select name="repeatSelect" id="repeatSelect" ng-model="selectedSearch">
-                                    <option ng-repeat="option in avalibleSearches" value="{{option.title}}">{{option.title}}</option>
+                                    <option ng-repeat="option in avalibleSearches" value="">test</option>
                                   </select>
 
 
@@ -77,4 +77,5 @@
 </div>
 <h2 >debug info</h2>
 <pre>Form data settings = "{{avalibleSearches | json}}"</pre>
+<pre>Form data settings = "{{scope | json}}"</pre>
 <pre>Location = "{{selectedSearch}}"</pre>
