@@ -56,24 +56,24 @@ create notification from search
           var config = {headers:{
             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
             }};
-          $http.post(servicelocation+"/GetNotificationListing",data,config)
+          $http.post(servicelocation+"/GetNotifications",data,config)
             .success(function(data)
               {
                 console.log(data);
                  $scope.notifications=data;
               });
 
-              servicelocation = "https://" + $location.$$host + "/api/Notification";
-              var data = {};
-              var config = {headers:{
-                "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-                }};
-              $http.post(servicelocation+"/ListSearches",data,config)
-                .success(function(data)
-                  {
-                    console.log(data);
-                     $scope.avalibleSearches=data;
-                  });
+          servicelocation = "https://" + $location.$$host + "/api/Notification";
+          var data = {};
+          var config = {headers:{
+            "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+            }};
+          $http.post(servicelocation+"/ListSearches",data,config)
+            .success(function(data)
+              {
+                console.log(data);
+                 $scope.avalibleSearches=data;
+              });
 
         }
 
