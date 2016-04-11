@@ -49,7 +49,7 @@
               <tr>
                   <td width="100%">
                     Search Name:  <select name="repeatSelect" id="repeatSelect" ng-model="selectedSearch">
-                                    <option ng-repeat="option in avalibleSearches" value="">test</option>
+                                    <option ng-repeat="option in avalibleSearches" value="{{option.title}}">{{option.title}}</option>
                                   </select>
 
 
