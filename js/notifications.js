@@ -50,7 +50,7 @@ create notification from search
 
         $scope.refreshScreen = function()
         {
-          servicelocation = "https://" + $location.$$host + "/api/Notifications";
+          servicelocation = "https://" + $location.$$host + "/api/Notification";
           var data = {};
           var config = {headers:{
             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -62,7 +62,7 @@ create notification from search
                  $scope.notifications=data;
               });
 
-              servicelocation = "https://" + $location.$$host + "/api/Notifications";
+              servicelocation = "https://" + $location.$$host + "/api/Notification";
               var data = {};
               var config = {headers:{
                 "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -129,7 +129,7 @@ create notification from search
 
       $scope.testNotifyService = function(){
         console.log("test notfiy");
-        servicelocation = "https://" + $location.$$host + "/api/Notifications";
+        servicelocation = "https://" + $location.$$host + "/api/Notification";
         var data = {};
         var config = {headers:{
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
