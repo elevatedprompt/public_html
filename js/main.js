@@ -39,7 +39,91 @@ var app = angular.module('clientApp', [
        }
      }
    }});
+/*Check Service*/
+var checkServiceTimer = setInterval(function ($http) {
+     checkServiceStatus($http);
+   }, 5000);
 
+   checkServiceStatus = function($http) {
+       var data = "servicename=elasticsearch";
+       var config = {headers:{
+         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+       }};
+       $http.post(servicelocation+"IsServiceRunning",data,config)
+         .success(function(data)
+           {
+              $rootScope.systemsettings.elasticsearchstatusbit=(data==="true");
+           });
+       $http.post(servicelocation+"GetServiceStatus",data,config)
+         .success(function(data)
+           {
+              $rootScope.systemsettings.elasticsearchstatus=data;
+              var str = data;
+              if(str.match(stopped)){
+                console.log(data + ' service stopped');
+               $rootScope.systemsettings.elasticsearchstatusbit = false;
+              }
+              if(str.match(notrunning)){
+                console.log(data + ' service stopped');
+                 $rootScope.systemsettings.elasticsearchstatusbit = false;
+              }
+              if(str.match(running)){
+                console.log(data + ' service running');
+                 $rootScope.systemsettings.elasticsearchstatusbit = true;
+              }
+           });
+
+       data = "servicename=logstash";
+       $http.post(servicelocation+"IsServiceRunning",data,config)
+         .success(function(data)
+           {
+              $rootScope.systemsettings.logstashstatusbit=(data==="true");
+           });
+       $http.post(servicelocation+"GetServiceStatus",data,config)
+             .success(function(data)
+               {
+                  $rootScope.systemsettings.logstashstatus=data;
+                  var str = data;
+                  if(str.match(stopped)){
+                    console.log(data + ' service stopped');
+                   $rootScope.systemsettings.logstashstatusbit = false;
+                  }
+                  if(str.match(notrunning)){
+                    console.log(data + ' service stopped');
+                     $rootScope.systemsettings.logstashstatusbit = false;
+                  }
+                  if(str.match(running)){
+                    console.log(data + ' service running');
+                     $rootScope.systemsettings.logstashstatusbit = true;
+                  }
+               });
+        data = "servicename=kibana4";
+       $http.post(servicelocation+"IsServiceRunning",data,config)
+         .success(function(data)
+           {
+              $rootScope.systemsettings.kibanastatusbit=(data==="true");
+           });
+       $http.post(servicelocation+"GetServiceStatus",data,config)
+         .success(function(data)
+           {
+              $rootScope.systemsettings.kibanastatus=data;
+              var str = data;
+              if(str.match(stopped)){
+                console.log(data + ' service stopped');
+               $rootScope.systemsettings.kibanastatusbit = false;
+              }
+              if(str.match(notrunning)){
+                console.log(data + ' service stopped');
+                 $rootScope.systemsettings.kibanastatusbit = false;
+              }
+              if(str.match(running)){
+                console.log(data + ' service running');
+                 $rootScope.systemsettings.kibanastatusbit = true;
+              }
+
+           });
+   };
+/*End check serice*/
 /**
  * Configure the Routes
  */
