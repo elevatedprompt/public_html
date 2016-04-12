@@ -17,14 +17,14 @@ angular.module('clientApp')
     $http
   ) {
 
-    // var checkServiceTimer = setInterval(function () {
-    //   checkServiceStatus();
-    // }, 5000);
+    var checkServiceTimer = setInterval(function () {
+      checkServiceStatus();
+    }, 5000);
   //  clearInterval(checkServiceTimer);
 
     servicelocation = "https://" + $location.$$host + "/api/";
 
-    $scope.systemsettings = {};
+    //$scope.systemsettings = {};
       var stopped = "stopped";
       var notrunning = "not running";
       var running = "is running";
