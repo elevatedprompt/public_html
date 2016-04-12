@@ -78,7 +78,6 @@ create notification from search
                 console.log(data);
                  $scope.avalibleSearches=data;
               });
-
         }
 
         $scope.createNotificationConfig= function(){
