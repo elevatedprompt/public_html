@@ -60,23 +60,23 @@
               </tr>
             <tr>
               <td>
-                Threshold Type: <select name="thresholdType" id="thresholdType" ng-model="selectedSearch">
-                                  <option value="Max">Max</option>
-                                  <option value="Max">Min</option>
-                                  <option value="Max"></option>
+                Threshold Type: <select name="thresholdType" id="thresholdType" ng-model="thresholdType">
+                                  <option value="Max" selected="true">Max</option>
+                                  <option value="Min">Min</option>
+                                  <option value="Any">Any</option>
                                 </select>
               </td>
             </tr>
             <tr>
               <td>
-                Threshold Count: <input type="text" class="filename" ng-model="notificationName"  />
+                Threshold Count: <input type="text" class="filename" ng-model="thresholdCount"  />
               </td>
             </tr>
             <tr>
               <td>
                 Threshold Time Interval: <input type="number" class="timeValue" ng-model="timeValue"  />
                                 <select name="timeFrame" id="timeFrame" ng-model="timeFrame">
-                                  <option value="m">Minutes</option>
+                                  <option value="m" selected="true">Minutes</option>
                                   <option value="h">Hours</option>
                                   <option value="d">Days</option>
                                 </select>

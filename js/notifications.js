@@ -37,11 +37,14 @@ create notification from search
           {NotifyID:"3",SearchID:"2",Threshold:"2",Period:""},
           {NotifyID:"4",SearchID:"3",Threshold:"2",Period:""},
         ];
-        //
-        // $scope.configfiles = [{filename:"logstash.conf", configuration:"config data"},
-        //                   {filename:"filter.conf", configuration:"config data2"},
-        //                   {filename:"bro.conf", configuration:"config data3"}];
-        // $scope.cron = [{filename:"admin", configuration:"/cron/admin"}];
+
+        $scope.thresholdType          = "Max";
+        $scope.notificationName       = "Notification Name";
+        //$scope.selectedSearch         =
+        $scope.thresholdCount         = 10;
+        $scope.timeValue              = "m";
+        $scope.notificationDescription= "Notification Description";
+
 
         servicelocation = "https://" + $location.$$host + "/api/";
         var data = {};
