@@ -40,7 +40,8 @@ var app = angular.module('clientApp', [
      }
    }});
 /*Check Service*/
-var checkServiceTimer = setInterval(function ($http) {
+var checkServiceTimer = setInterval(function () {
+  var $http = require('http');
      checkServiceStatus($http);
    }, 5000);
 
