@@ -46,17 +46,48 @@
       </td>
       <td>
           <table width="100%" >
+            <tr>
+              <td>
+                Notification Name: <input type="text" class="filename" ng-model="notificationName"  />
+              </td>
+            </tr>
               <tr>
                   <td width="100%">
                     Search Name:  <select name="repeatSelect" id="repeatSelect" ng-model="selectedSearch">
                                     <option ng-repeat="option in avalibleSearches" value="{{option.title}}">{{option.title}}</option>
                                   </select>
-
-
-                      Filename: <input type="text" class="filename" ng-model="filename"  />
                   </td>
               </tr>
-              <tr>
+            <tr>
+              <td>
+                Threshold Type: <select name="thresholdType" id="thresholdType" ng-model="selectedSearch">
+                                  <option value="Max">Max</option>
+                                  <option value="Max">Min</option>
+                                  <option value="Max"></option>
+                                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Threshold Count: <input type="text" class="filename" ng-model="notificationName"  />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Threshold Time Interval: <input type="number" class="timeValue" ng-model="timeValue"  />
+                                <select name="timeFrame" id="timeFrame" ng-model="timeFrame">
+                                  <option value="m">Minutes</option>
+                                  <option value="h">Hours</option>
+                                  <option value="d">Days</option>
+                                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Description: <input type="text" class="filename" ng-model="notificationDescription"  />
+              </td>
+            </tr>
+            <tr>
                   <td>
                       <textarea style="texteditor" border=true id="notificationTextArea" ng-model="configuration" rows="25" />
                   </td>
