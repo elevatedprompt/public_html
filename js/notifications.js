@@ -42,7 +42,8 @@ create notification from search
         $scope.notificationName       = "Notification Name";
         //$scope.selectedSearch         =
         $scope.thresholdCount         = 10;
-        $scope.timeValue              = "m";
+        $scope.timeValue              = 10;
+        $scope.timeFrame              = "m";
         $scope.notificationDescription= "Notification Description";
 
 
