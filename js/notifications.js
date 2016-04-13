@@ -156,6 +156,8 @@ $scope.saveNotification = function()
   + encodeURIComponent($scope.timeValue);
   data+= "&timeFrame="
   + encodeURIComponent($scope.timeFrame);
+  data+= "&enabled="
+  + encodeURIComponent($scope.enabled);
   data+= "&notificationDescription="
   + encodeURIComponent($scope.notificationDescription);
 
@@ -167,8 +169,7 @@ $scope.saveNotification = function()
     .success(function(data)
       {
         console.log(data);
-        $scope.configuration = data;
-
+        //$scope.configuration = data;
       });
 
 
