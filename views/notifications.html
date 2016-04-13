@@ -48,7 +48,7 @@
           <table width="100%" >
             <tr>
               <td>
-                Notification Name: <input type="text" class="filename" ng-model="notificationName"  />
+                Notification Name: <input type="text" class="filename" ng-model="notificationName" />
               </td>
             </tr>
               <tr>
@@ -84,17 +84,17 @@
             </tr>
             <tr>
               <td>
-                Description: <input type="text" class="filename" ng-model="notificationDescription"  />
+                Description:
               </td>
             </tr>
             <tr>
                   <td>
-                      <textarea style="texteditor" border=true id="notificationTextArea" ng-model="configuration" rows="25" />
+                      <textarea style="texteditor" border=true id="notificationDescription" ng-model="notificationDescription" rows="25" />
                   </td>
               </tr>
               <tr>
                 <td>
-                  <a class="btn btn-primary" ng-click="saveConfigFile()" ><span class="glyphicon"></span>Save</a>
+                  <a class="btn btn-primary" ng-click="saveNotification()" ><span class="glyphicon"></span>Save</a>
                 </td>
               </tr>
           </table>
