@@ -130,49 +130,49 @@ create notification from search
       };
 
 
-$scope.saveNotification = function()
-{
-
-  if($scope.notificationName=="")
-  {
-    alert('you must supply a notification name!');
-    return;
-  }
-  if($scope.selectedSearch=="")
-  {
-    alert('you must select a search name!');
-    return;
-  }
-
-  var data = "notificationName="
-  + encodeURIComponent($scope.notificationName);
-  data+= "&selectedSearch="
-  + encodeURIComponent($scope.selectedSearch);
-  data+= "&thresholdType="
-  + encodeURIComponent($scope.thresholdType);
-  data+= "&thresholdCount="
-  + encodeURIComponent($scope.thresholdCount);
-  data+= "&timeValue="
-  + encodeURIComponent($scope.timeValue);
-  data+= "&timeFrame="
-  + encodeURIComponent($scope.timeFrame);
-  data+= "&notificationDescription="
-  + encodeURIComponent($scope.notificationDescription);
-
-  var config = {headers:{
-    "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-  }};
-
-  var result = $http.post(servicelocation+"/Notification/UpdateNotification",data,config)
-    .success(function(data)
-      {
-        console.log(data);
-        $scope.configuration = data;
-
-      });
-
-
-  };
+// $scope.saveNotification = function()
+// {
+//
+//   if($scope.notificationName=="")
+//   {
+//     alert('you must supply a notification name!');
+//     return;
+//   }
+//   if($scope.selectedSearch=="")
+//   {
+//     alert('you must select a search name!');
+//     return;
+//   }
+//
+//   var data = "notificationName="
+//   + encodeURIComponent($scope.notificationName);
+//   data+= "&selectedSearch="
+//   + encodeURIComponent($scope.selectedSearch);
+//   data+= "&thresholdType="
+//   + encodeURIComponent($scope.thresholdType);
+//   data+= "&thresholdCount="
+//   + encodeURIComponent($scope.thresholdCount);
+//   data+= "&timeValue="
+//   + encodeURIComponent($scope.timeValue);
+//   data+= "&timeFrame="
+//   + encodeURIComponent($scope.timeFrame);
+//   data+= "&notificationDescription="
+//   + encodeURIComponent($scope.notificationDescription);
+//
+//   var config = {headers:{
+//     "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+//   }};
+//
+//   var result = $http.post(servicelocation+"/Notification/UpdateNotification",data,config)
+//     .success(function(data)
+//       {
+//         console.log(data);
+//         $scope.configuration = data;
+//
+//       });
+//
+//
+//   };
       $scope.testNotifyService = function(){
         console.log("test notfiy");
         servicelocation = "https://" + $location.$$host + "/api/Notification";
