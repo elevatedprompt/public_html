@@ -46,12 +46,20 @@ create notification from search
         $scope.timeFrame              = "m";
         $scope.notificationDescription= "Notification Description";
 
+        servicelocation = "https://" + $location.$$host + "/Notification/";
 
-        servicelocation = "https://" + $location.$$host + "/api/";
+      //  servicelocation = "https://" + $location.$$host + "/api/";
         var data = {};
         var config = {headers:{
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
           }};
+
+          $http.post(servicelocation+"/GetNotificaions",data,config)
+            .success(function(data)
+              {
+                console.log(data);
+                 $scope.notificationFiles=data;
+              });
 
         $scope.refreshScreen = function()
         {
@@ -198,6 +206,7 @@ $scope.saveNotification = function()
         $scope.thresholdCount = 0;
         $scope.timeValue = 0;
         $scope.timeFrame = 'm';
+        $scope.enabled = false;
         $scope.notificationDescription = "";
       };
 
