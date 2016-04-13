@@ -171,27 +171,8 @@ $scope.saveNotification = function()
 
       });
 
-  data = {};
 
-  $http.post(servicelocation+"/GetLogstashConfigDirectoryListing",data,config)
-    .success(function(data)
-      {
-        console.log(data);
-         $scope.configfiles=data;
-      });
-  $http.post(servicelocation+"/GetElasticConfigDirectoryListing",data,config)
-    .success(function(data)
-      {
-        console.log(data);
-         $scope.elastic=data;
-      });
-  $http.post(servicelocation+"/GetCronJobDirectory",data,config)
-    .success(function(data)
-      {
-        console.log(data);
-         $scope.cron=data;
-      });
-};
+  };
       $scope.testNotifyService = function(){
         console.log("test notfiy");
         servicelocation = "https://" + $location.$$host + "/api/Notification";
