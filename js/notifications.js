@@ -46,7 +46,7 @@ create notification from search
         $scope.timeFrame              = "m";
         $scope.notificationDescription= "Notification Description";
 
-        servicelocation = "https://" + $location.$$host + "/Notification/";
+        servicelocation = "https://" + $location.$$host + "/Notification";
 
       //  servicelocation = "https://" + $location.$$host + "/api/";
         var data = {};
