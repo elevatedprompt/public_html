@@ -46,7 +46,7 @@ create notification from search
         $scope.timeFrame              = "m";
         $scope.notificationDescription= "Notification Description";
 
-        servicelocation = "https://" + $location.$$host + "/Notification";
+        servicelocation = "https://" + $location.$$host + "/api/Notification";
 
       //  servicelocation = "https://" + $location.$$host + "/api/";
         var data = {};
@@ -54,7 +54,7 @@ create notification from search
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
           }};
 
-          $http.post(servicelocation+"/api/GetNotifications",data,config)
+          $http.post(servicelocation+"/GetNotifications",data,config)
             .success(function(data)
               {
                 console.log(data);
