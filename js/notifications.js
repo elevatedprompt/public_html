@@ -88,11 +88,6 @@ create notification from search
               });
         }
 
-        $scope.createNotificationConfig= function(){
-          $scope.configuration = "";
-          $scope.filename = "";
-          $scope.filelocation = '/opt/API/Notification/';
-        };
 
         $scope.refreshScreen();
 
