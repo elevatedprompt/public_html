@@ -37,7 +37,7 @@ create notification from search
           {NotifyID:"3",SearchID:"2",Threshold:"2",Period:""},
           {NotifyID:"4",SearchID:"3",Threshold:"2",Period:""},
         ];
-
+        $scope.notification = {};
         $scope.notification.thresholdType          = "Max";
         $scope.notification.notificationName       = "Notification Name";
         //$scope.selectedSearch         =
