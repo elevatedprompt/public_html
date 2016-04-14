@@ -54,7 +54,7 @@ create notification from search
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
           }};
 
-          $http.post(servicelocation+"/GetNotifications",data,config)
+          $http.post(servicelocation+"/api/GetNotifications",data,config)
             .success(function(data)
               {
                 console.log(data);
