@@ -38,13 +38,14 @@ create notification from search
           {NotifyID:"4",SearchID:"3",Threshold:"2",Period:""},
         ];
 
-        $scope.thresholdType          = "Max";
-        $scope.notificationName       = "Notification Name";
+        $scope.notification.thresholdType          = "Max";
+        $scope.notification.notificationName       = "Notification Name";
         //$scope.selectedSearch         =
-        $scope.thresholdCount         = 10;
-        $scope.timeValue              = 10;
-        $scope.timeFrame              = "m";
-        $scope.notificationDescription= "Notification Description";
+        $scope.notification.thresholdCount         = 10;
+        $scope.notification.timeValue              = 10;
+        $scope.notification.timeFrame              = "m";
+        $scope.notification.enabled                = false;
+        $scope.notification.notificationDescription= "Notification Description";
 
         servicelocation = "https://" + $location.$$host + "/api/Notification";
 
@@ -128,7 +129,8 @@ create notification from search
           .success(function(data)
             {
               console.log(data);
-              $scope.configuration = data;
+              //$scope.configuration = data;
+              $scope.notification = data;
             });
       };
 
@@ -136,33 +138,33 @@ create notification from search
 $scope.saveNotification = function()
 {
 
-  if($scope.notificationName=="")
+  if($scope.notification.notificationName=="")
   {
     alert('you must supply a notification name!');
     return;
   }
-  if($scope.selectedSearch=="")
+  if($scope.notification.selectedSearch=="")
   {
     alert('you must select a search name!');
     return;
   }
 
   var data = "notificationName="
-  + encodeURIComponent($scope.notificationName);
+  + encodeURIComponent($scope.notification.notificationName);
   data+= "&selectedSearch="
-  + encodeURIComponent($scope.selectedSearch);
+  + encodeURIComponent($scope.notification.selectedSearch);
   data+= "&thresholdType="
-  + encodeURIComponent($scope.thresholdType);
+  + encodeURIComponent($scope.notification.thresholdType);
   data+= "&thresholdCount="
-  + encodeURIComponent($scope.thresholdCount);
+  + encodeURIComponent($scope.notification.thresholdCount);
   data+= "&timeValue="
-  + encodeURIComponent($scope.timeValue);
+  + encodeURIComponent($scope.notification.timeValue);
   data+= "&timeFrame="
-  + encodeURIComponent($scope.timeFrame);
+  + encodeURIComponent($scope.notification.timeFrame);
   data+= "&enabled="
-  + encodeURIComponent($scope.enabled);
+  + encodeURIComponent($scope.notification.enabled);
   data+= "&notificationDescription="
-  + encodeURIComponent($scope.notificationDescription);
+  + encodeURIComponent($scope.notification.notificationDescription);
 
   var config = {headers:{
     "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -195,14 +197,14 @@ $scope.saveNotification = function()
 
       //Clear form
       $scope.createNotification= function(){
-        $scope.notificationName = "";
-        $scope.selectedSearch = {};
-        $scope.thresholdType = 'Max';
-        $scope.thresholdCount = 0;
-        $scope.timeValue = 0;
-        $scope.timeFrame = 'm';
-        $scope.enabled = false;
-        $scope.notificationDescription = "";
+        $scope.notification.notificationName = "";
+        $scope.notification.selectedSearch = {};
+        $scope.notification.thresholdType = 'Max';
+        $scope.notification.thresholdCount = 0;
+        $scope.notification.timeValue = 0;
+        $scope.notification.timeFrame = 'm';
+        $scope.notification.enabled = false;
+        $scope.notification.notificationDescription = "";
       };
 
     });

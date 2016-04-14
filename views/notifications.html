@@ -48,24 +48,24 @@
           <table width="100%" >
             <tr>
               <td>
-                Notification Name: <input type="text" class="filename" ng-model="notificationName" />
+                Notification Name: <input type="text" class="filename" ng-model="notification.notificationName" />
               </td>
             </tr>
             <tr>
               <td>
-                Enabled: <input type="checkbox" class="filename" ng-model="enabled" />
+                Enabled: <input type="checkbox" class="filename" ng-model="notification.enabled" />
               </td>
             </tr>
               <tr>
                   <td width="100%">
-                    Search Name:  <select name="repeatSelect" id="repeatSelect" ng-model="selectedSearch">
+                    Search Name:  <select name="repeatSelect" id="repeatSelect" ng-model="notification.selectedSearch">
                                     <option ng-repeat="option in avalibleSearches" value="{{option.title}}">{{option.title}}</option>
                                   </select>
                   </td>
               </tr>
             <tr>
               <td>
-                Threshold Type: <select name="thresholdType" id="thresholdType" ng-model="thresholdType">
+                Threshold Type: <select name="thresholdType" id="thresholdType" ng-model="notification.thresholdType">
                                   <option value="Max" selected="true">Max</option>
                                   <option value="Min">Min</option>
                                   <option value="Any">Any</option>
@@ -74,13 +74,13 @@
             </tr>
             <tr>
               <td>
-                Threshold Count: <input type="number" ng-model="thresholdCount"  />
+                Threshold Count: <input type="number" ng-model="notification.thresholdCount"  />
               </td>
             </tr>
             <tr>
               <td>
-                Threshold Time Interval: <input type="number" class="timeValue" ng-model="timeValue"  />
-                                <select name="timeFrame" id="timeFrame" ng-model="timeFrame">
+                Threshold Time Interval: <input type="number" class="timeValue" ng-model="notification.timeValue"  />
+                                <select name="timeFrame" id="timeFrame" ng-model="notification.timeFrame">
                                   <option value="m" selected="true">Minutes</option>
                                   <option value="h">Hours</option>
                                   <option value="d">Days</option>
@@ -94,7 +94,7 @@
             </tr>
             <tr>
                   <td>
-                      <textarea style="texteditor" border=true id="notificationDescription" ng-model="notificationDescription" rows="25" />
+                      <textarea style="texteditor" border=true id="notificationDescription" ng-model="notification.notificationDescription" rows="25" />
                   </td>
               </tr>
               <tr>
