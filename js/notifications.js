@@ -104,7 +104,7 @@ create notification from search
               "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
             }};
 
-            var result = $http.post(servicelocation+"/DeleteNotification",data,config)
+            var result = $http.post(servicelocation+"Notification/DeleteNotification",data,config)
               .success(function(data)
                 {
                   console.log(data);
@@ -124,7 +124,7 @@ create notification from search
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
         }};
 
-        var result = $http.post(servicelocation+"/GetNotification",data,config)
+        var result = $http.post(servicelocation+"Notification/GetNotification",data,config)
           .success(function(data)
             {
               console.log(data);
