@@ -1,8 +1,8 @@
 <bootstrap-navbar current-tab='Notifications'></bootstrap-navbar>
 <table class="table table-striped">
   <thead>
-    <th>Files</th>
-    <th>File Content</th>
+    <th>Notifications</th>
+    <th>Notification Details</th>
   </thead>
     <tbody>
     <script>
@@ -101,6 +101,14 @@
                                   <option value="h">Hours</option>
                                   <option value="d">Days</option>
                                 </select>
+              </td>
+            </tr>
+            <tr>
+              <td width = "20%">
+                Notification Email:
+              </td>
+                <td>
+                  <input type="email" ng-model="notification.notifyEmail"  />
               </td>
             </tr>
             <tr>

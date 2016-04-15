@@ -46,6 +46,7 @@ create notification from search
         $scope.notification.timeFrame              = "m";
         $scope.notification.enabled                = false;
         $scope.notification.notificationDescription= "Notification Description";
+        $scope.notification.notifyEmail            = "example@domain.com";
 
         servicelocation = "https://" + $location.$$host + "/api/Notification";
 
@@ -165,6 +166,8 @@ $scope.saveNotification = function()
   + encodeURIComponent($scope.notification.enabled);
   data+= "&notificationDescription="
   + encodeURIComponent($scope.notification.notificationDescription);
+  data+= "&notifyEmail="
+  + encodeURIComponent(notification.notifyEmail);
 
   var config = {headers:{
     "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -205,6 +208,7 @@ $scope.saveNotification = function()
         $scope.notification.timeFrame = 'm';
         $scope.notification.enabled = false;
         $scope.notification.notificationDescription = "";
+        $scope.notification.notifyEmail = "";
       };
 
     });
