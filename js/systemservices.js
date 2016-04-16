@@ -16,6 +16,12 @@ angular.module('clientApp')
     $interval,
     $http
   ) {
+
+    var checkServiceTimer = setInterval(function () {
+      checkServiceStatus();
+    }, 5000);
+
+
     servicelocation = "https://" + $location.$$host + "/api/";
 
     $scope.systemsettings = {};
@@ -32,17 +38,73 @@ angular.module('clientApp')
               {
                  $scope.systemsettings.elasticsearchstatusbit=(data==="true");
               });
-           data = "servicename=logstash";
+          $http.post(servicelocation+"GetServiceStatus",data,config)
+            .success(function(data)
+              {
+                 $scope.systemsettings.elasticsearchstatus=data;
+                 var str = data;
+                 if(str.match(stopped)){
+                   console.log(data + ' service stopped');
+                  $scope.systemsettings.elasticsearchstatusbit = false;
+                 }
+                 if(str.match(notrunning)){
+                   console.log(data + ' service stopped');
+                    $scope.systemsettings.elasticsearchstatusbit = false;
+                 }
+                 if(str.match(running)){
+                   console.log(data + ' service running');
+                    $scope.systemsettings.elasticsearchstatusbit = true;
+                 }
+              });
+
+          data = "servicename=logstash";
           $http.post(servicelocation+"IsServiceRunning",data,config)
             .success(function(data)
               {
                  $scope.systemsettings.logstashstatusbit=(data==="true");
               });
+          $http.post(servicelocation+"GetServiceStatus",data,config)
+                .success(function(data)
+                  {
+                     $scope.systemsettings.logstashstatus=data;
+                     var str = data;
+                     if(str.match(stopped)){
+                       console.log(data + ' service stopped');
+                      $scope.systemsettings.logstashstatusbit = false;
+                     }
+                     if(str.match(notrunning)){
+                       console.log(data + ' service stopped');
+                        $scope.systemsettings.logstashstatusbit = false;
+                     }
+                     if(str.match(running)){
+                       console.log(data + ' service running');
+                        $scope.systemsettings.logstashstatusbit = true;
+                     }
+                  });
            data = "servicename=kibana4";
           $http.post(servicelocation+"IsServiceRunning",data,config)
             .success(function(data)
               {
                  $scope.systemsettings.kibanastatusbit=(data==="true");
+              });
+          $http.post(servicelocation+"GetServiceStatus",data,config)
+            .success(function(data)
+              {
+                 $scope.systemsettings.kibanastatus=data;
+                 var str = data;
+                 if(str.match(stopped)){
+                   console.log(data + ' service stopped');
+                  $scope.systemsettings.kibanastatusbit = false;
+                 }
+                 if(str.match(notrunning)){
+                   console.log(data + ' service stopped');
+                    $scope.systemsettings.kibanastatusbit = false;
+                 }
+                 if(str.match(running)){
+                   console.log(data + ' service running');
+                    $scope.systemsettings.kibanastatusbit = true;
+                 }
+
               });
       };
 
@@ -186,11 +248,9 @@ angular.module('clientApp')
           {
              $scope.systemsettings.elasticsearchstatus=data;
           });
-      checkServiceStatus();
+    //  checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.elasticsearchstatusbit,'elastic');
-    setTimeout(function () {
-      checkServiceStatus()
-    }, 3000);
+
     };
 
     $scope.cycleKibana = function() {
@@ -212,11 +272,9 @@ angular.module('clientApp')
           {
              $scope.systemsettings.kibanastatus=data;
           });
-      checkServiceStatus();
+    //  checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.kibanastatusbit,'kibana');
-      setTimeout(function () {
-        checkServiceStatus();
-      }, 3000);
+
 
     };
 
@@ -239,11 +297,8 @@ angular.module('clientApp')
           {
              $scope.systemsettings.logstashstatus=data;
           });
-      checkServiceStatus();
+    //  checkServiceStatus();
       $scope.updateStatus($scope.systemsettings.logstashstatusbit,'logstash');
 
-      setTimeout(function () {
-        checkServiceStatus()
-      }, 3000);
     };
   });

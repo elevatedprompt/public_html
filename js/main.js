@@ -39,7 +39,9 @@ var app = angular.module('clientApp', [
        }
      }
    }});
+/*Check Service*/
 
+/*End check serice*/
 /**
  * Configure the Routes
  */
@@ -67,7 +69,10 @@ app.config(['$routeProvider', function ($routeProvider) {
       templateUrl: 'views/systemservices.html', controller: 'SystemservicesCtrl',
       controllerAs: 'systemservices'
     })
-
+    .when('/Notifications', {
+      templateUrl: 'views/notifications.html', controller: 'NotificationsCtrl',
+      controllerAs: 'systemservices'
+    })
     .otherwise("/404", {
       templateUrl: "views/about.html", controller: "AboutCtrl",
       controllerAs:'about'});

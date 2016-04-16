@@ -1,0 +1,141 @@
+<bootstrap-navbar current-tab='Notifications'></bootstrap-navbar>
+<table class="table table-striped">
+  <thead>
+    <th>Notifications</th>
+    <th>Notification Details</th>
+  </thead>
+    <tbody>
+    <script>
+        function enableTab(id) {
+            var el = document.getElementById(id);
+            el.onkeydown = function (e) {
+                if (e.keyCode === 9) { // tab was pressed
+
+                    // get caret position/selection
+                    var val = this.value,
+                        start = this.selectionStart,
+                        end = this.selectionEnd;
+
+                    // set textarea value to: text before caret + tab + text after caret
+                    this.value = val.substring(0, start) + '\t' + val.substring(end);
+
+                    // put caret at right position again
+                    this.selectionStart = this.selectionEnd = start + 1;
+
+                    // prevent the focus lose
+                    return false;
+                }
+            };
+        }
+
+        // Enable the tab character onkeypress (onkeydown) inside textarea...
+        // ... for a textarea that has an `id="my-textarea"`
+        enableTab('notificationDescription');
+    </script>
+    <tr>
+      <td>
+        <label class="header" text ="Notifications">Notifications</label>
+        <ul>
+            <li ng-repeat="notify in notificationFiles"><img ng-src='./images/icons/X.png' ng-click="deleteFile(notify);" ></img> &nbsp;<a ng-click="updateTextArea(notify);">{{notify.replace('/opt/API/Notifications//','')}}</a>
+            </li>
+        </ul>
+        <a class="btn btn-primary" ng-click="createNotification()" ><span class="glyphicon glyphicon-plus"></span> Create Notification</a>
+        <br />
+        <br />
+
+      </td>
+      <td>
+
+          <table width="100%" >
+            <tr>
+              <td width = "20%">
+                Notification Name:
+              </td>
+              <td>
+                <input type="text" class="filename" width="100%" ng-model="notification.notificationName" />
+              </td>
+            </tr>
+            <tr>
+              <td width = "20%">
+                Enabled:
+              </td>
+              <td>
+                <input type="checkbox" class="filename" width="100%" ng-model="notification.enabled" />
+              </td>
+            </tr>
+              <tr>
+                  <td  width = "20%">
+                    Search Name:
+                  </td>
+                  <td><select name="repeatSelect" id="repeatSelect" width="100%" ng-model="notification.selectedSearch">
+                                    <option ng-repeat="option in avalibleSearches" value="{{option.title}}">{{option.title}}</option>
+                                  </select>
+                  </td>
+              </tr>
+            <tr>
+              <td width = "20%">
+                Threshold Type:
+              </td>
+              <td><select name="thresholdType" id="thresholdType" width = "100%" ng-model="notification.thresholdType">
+                                  <option value="Max" selected="true">Max</option>
+                                  <option value="Min">Min</option>
+                                  <option value="Any">Any</option>
+                                </select>
+              </td>
+            </tr>
+            <tr>
+              <td width = "20%">
+                Threshold Count:
+              </td>
+                <td>
+                  <input type="number" ng-model="notification.thresholdCount"  />
+              </td>
+            </tr>
+            <tr>
+              <td width = "20%">
+                Threshold Time Interval:
+              </td>
+              <td><input type="number" class="timeValue" ng-model="notification.timeValue"  />
+                                <select name="timeFrame" id="timeFrame" ng-model="notification.timeFrame">
+                                  <option value="m" selected="true">Minutes</option>
+                                  <option value="h">Hours</option>
+                                  <option value="d">Days</option>
+                                </select>
+              </td>
+            </tr>
+            <tr>
+              <td width = "20%">
+                Notification Email:
+              </td>
+                <td>
+                  <input type="email" ng-model="notification.notifyEmail"  />
+              </td>
+            </tr>
+            <tr>
+              <td width = "20%">
+                Description:
+              </td>
+            </tr>
+            <tr>
+                  <td colspan="2">
+                      <textarea style="texteditor" border=true id="notificationDescription" ng-model="notification.notificationDescription" rows="25" />
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <a class="btn btn-primary" ng-click="saveNotification()" ><span class="glyphicon"></span>Save</a>
+                </td>
+              </tr>
+          </table>
+          <a class="btn btn-primary" ng-click="testNotifyService()" ><span class="glyphicon"></span>Test Notify Service</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="EP_Footer">
+    <i><sub>&copy; 2016 elevatedprompt [EPSTACK version 2.0 RC January 17, 2016]</sub></i>
+</div>
+<h2 >debug info</h2>
+<pre>Form data settings = "{{$scope | json}}"</pre>
+<pre>Location = "{{selectedSearch}}"</pre>
+<pre>Notification Files = "{{notificationFiles | json}}"</pre>
