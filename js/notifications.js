@@ -167,7 +167,7 @@ $scope.saveNotification = function()
   data+= "&notificationDescription="
   + encodeURIComponent($scope.notification.notificationDescription);
   data+= "&notifyEmail="
-  + encodeURIComponent(notification.notifyEmail);
+  + encodeURIComponent($scope.notification.notifyEmail);
 
   var config = {headers:{
     "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
