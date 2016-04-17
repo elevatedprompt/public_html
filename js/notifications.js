@@ -132,6 +132,8 @@ create notification from search
               console.log(data);
               //$scope.configuration = data;
               $scope.notification = data;
+
+              
             });
       };
 
@@ -197,6 +199,14 @@ $scope.saveNotification = function()
                $scope.searchList=data;
             });
       };
+
+      $scope.testRegister(){
+
+      }
+
+      $scope.testUnregister(){
+
+      }
 
       //Clear form
       $scope.createNotification= function(){
