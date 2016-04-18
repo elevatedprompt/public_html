@@ -77,7 +77,7 @@ create notification from search
                   $scope.notifications=data;
                });
 
-        
+
           var data = {};
           var config = {headers:{
             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -180,7 +180,7 @@ $scope.saveNotification = function()
         //$scope.configuration = data;
       });
 
-  //    $scope.refreshScreen();
+      $scope.refreshScreen();
   };
       $scope.testNotifyService = function(){
         console.log("test notfiy");
