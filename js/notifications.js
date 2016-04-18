@@ -180,7 +180,7 @@ $scope.saveNotification = function()
         //$scope.configuration = data;
       });
 
-
+      $scope.refreshScreen();
   };
       $scope.testNotifyService = function(){
         console.log("test notfiy");
