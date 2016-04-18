@@ -70,12 +70,12 @@ create notification from search
           var config = {headers:{
             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
             }};
-          // $http.post(servicelocation+"/GetNotifications",data,config)
-          //   .success(function(data)
-          //     {
-          //       console.log(data);
-          //        $scope.notifications=data;
-          //     });
+           $http.post(servicelocation+"/GetNotifications",data,config)
+             .success(function(data)
+               {
+                 console.log(data);
+                  $scope.notifications=data;
+               });
 
           servicelocation = "https://" + $location.$$host + "/api/Notification";
           var data = {};
@@ -172,15 +172,15 @@ $scope.saveNotification = function()
   var config = {headers:{
     "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
   }};
-
-  var result = $http.post(servicelocation+"/UpdateNotification",data,config)
+  var operation =servicelocation+"/UpdateNotification";
+  var result = $http.post(operation,data,config)
     .success(function(data)
       {
         console.log(data);
         //$scope.configuration = data;
       });
 
-      $scope.refreshScreen();
+  //    $scope.refreshScreen();
   };
       $scope.testNotifyService = function(){
         console.log("test notfiy");
