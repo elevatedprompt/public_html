@@ -48,7 +48,7 @@ create notification from search
         $scope.notification.notificationDescription= "Notification Description";
         $scope.notification.notifyEmail            = "example@domain.com";
 
-        notificationService = "https://" + $location.$$host + "/api/Notification";
+        var notificationService = "https://" + $location.$$host + "/api/Notification";
 
       //  servicelocation = "https://" + $location.$$host + "/api/";
         var data = {};
@@ -65,7 +65,7 @@ create notification from search
 
         $scope.refreshScreen = function()
         {
-          notificationService = "https://" + $location.$$host + "/api/Notification";
+          var notificationService = "https://" + $location.$$host + "/api/Notification";
           var data = {};
           var config = {headers:{
             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -77,7 +77,7 @@ create notification from search
                   $scope.notifications=data;
                });
 
-          notificationService = "https://" + $location.$$host + "/api/Notification";
+        
           var data = {};
           var config = {headers:{
             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
