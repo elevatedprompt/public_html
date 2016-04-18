@@ -48,7 +48,7 @@ create notification from search
         $scope.notification.notificationDescription= "Notification Description";
         $scope.notification.notifyEmail            = "example@domain.com";
 
-        servicelocation = "https://" + $location.$$host + "/api/Notification";
+        notificationService = "https://" + $location.$$host + "/api/Notification";
 
       //  servicelocation = "https://" + $location.$$host + "/api/";
         var data = {};
@@ -56,7 +56,7 @@ create notification from search
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
           }};
 
-          $http.post(servicelocation+"/GetNotifications",data,config)
+          $http.post(notificationService+"/GetNotifications",data,config)
             .success(function(data)
               {
                 console.log(data);
@@ -65,24 +65,24 @@ create notification from search
 
         $scope.refreshScreen = function()
         {
-          servicelocation = "https://" + $location.$$host + "/api/Notification";
+          notificationService = "https://" + $location.$$host + "/api/Notification";
           var data = {};
           var config = {headers:{
             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
             }};
-           $http.post(servicelocation+"/GetNotifications",data,config)
+           $http.post(notificationService+"/GetNotifications",data,config)
              .success(function(data)
                {
                  console.log(data);
                   $scope.notifications=data;
                });
 
-          servicelocation = "https://" + $location.$$host + "/api/Notification";
+          notificationService = "https://" + $location.$$host + "/api/Notification";
           var data = {};
           var config = {headers:{
             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
             }};
-          $http.post(servicelocation+"/ListSearches",data,config)
+          $http.post(notificationService+"/ListSearches",data,config)
             .success(function(data)
               {
                 console.log(data);
@@ -106,7 +106,7 @@ create notification from search
               "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
             }};
 
-            var result = $http.post(servicelocation+"/DeleteNotification",data,config)
+            var result = $http.post(notificationService+"/DeleteNotification",data,config)
               .success(function(data)
                 {
                   console.log(data);
@@ -126,7 +126,7 @@ create notification from search
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
         }};
 
-        var result = $http.post(servicelocation+"/GetNotification",data,config)
+        var result = $http.post(notificationService+"/GetNotification",data,config)
           .success(function(data)
             {
               console.log(data);
@@ -172,7 +172,7 @@ $scope.saveNotification = function()
   var config = {headers:{
     "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
   }};
-  var operation =servicelocation+"/UpdateNotification";
+  var operation =notificationService+"/UpdateNotification";
   var result = $http.post(operation,data,config)
     .success(function(data)
       {
@@ -184,13 +184,13 @@ $scope.saveNotification = function()
   };
       $scope.testNotifyService = function(){
         console.log("test notfiy");
-        servicelocation = "https://" + $location.$$host + "/api/Notification";
+        notificationService = "https://" + $location.$$host + "/api/Notification";
         var data = {};
         var config = {headers:{
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
           }};
 
-        $http.post(servicelocation+"/PingCluster",data,config)
+        $http.post(notificationService+"/PingCluster",data,config)
           .success(function(data)
             {
               console.log(data);
