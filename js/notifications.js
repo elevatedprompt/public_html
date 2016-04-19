@@ -62,9 +62,21 @@ create notification from search
                 console.log(data);
                  $scope.notificationFiles=data;
               });
-
-        $scope.refreshScreen = function()
-        {
+        $scope.pageLoad= function(){
+            var notificationService = "https://" + $location.$$host + "/api/Notification";
+            var data = {};
+            var config = {headers:{
+              "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+              }};
+            $http.post(notificationService+"/ListSearches",data,config)
+              .success(function(data)
+                {
+                  console.log(data);
+                   $scope.avalibleSearches=data;
+                });
+            $scope.refreshScreen();
+        }
+        $scope.refreshScreen = function(){
           var notificationService = "https://" + $location.$$host + "/api/Notification";
           var data = {};
           var config = {headers:{
@@ -76,23 +88,10 @@ create notification from search
                  console.log(data);
                   $scope.notifications=data;
                });
-
-
-          var data = {};
-          var config = {headers:{
-            "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-            }};
-          $http.post(notificationService+"/ListSearches",data,config)
-            .success(function(data)
-              {
-                console.log(data);
-                 $scope.avalibleSearches=data;
-              });
         }
 
-
-        $scope.refreshScreen();
-
+        $scope.pageLoad();
+        
         $scope.deleteFile = function(configuration){
           $scope.filelocation = "";
           $scope.conffilename = configuration;
