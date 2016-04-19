@@ -91,7 +91,7 @@ create notification from search
         }
 
         $scope.pageLoad();
-        
+
         $scope.deleteFile = function(configuration){
           $scope.filelocation = "";
           $scope.conffilename = configuration;
@@ -181,23 +181,22 @@ $scope.saveNotification = function()
 
       $scope.refreshScreen();
   };
-      $scope.testNotifyService = function(){
-        console.log("test notfiy");
-        notificationService = "https://" + $location.$$host + "/api/Notification";
-        var data = {};
-        var config = {headers:{
-          "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-          }};
 
-        $http.post(notificationService+"/PingCluster",data,config)
-          .success(function(data)
-            {
-              console.log(data);
-               $scope.searchList=data;
-            });
-      };
+    $scope.testNotifyService = function(){
+      console.log("test notfiy");
+      notificationService = "https://" + $location.$$host + "/api/Notification";
+      var data = {};
+      var config = {headers:{
+        "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+        }};
 
-
+      $http.post(notificationService+"/PingCluster",data,config)
+        .success(function(data)
+          {
+            console.log(data);
+             $scope.searchList=data;
+          });
+    };
 
       //Clear form
       $scope.createNotification= function(){
