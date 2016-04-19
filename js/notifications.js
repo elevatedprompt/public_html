@@ -173,12 +173,15 @@ $scope.saveNotification = function()
   }};
   var operation =notificationService+"/UpdateNotification";
   var result = $http.post(operation,data,config)
-    .success(function(data)
-      {
+    .success(function(data){
         console.log(data);
         //$scope.configuration = data;
         $scope.refreshScreen();
+      }).error(function(err){
+        $scope.refreshScreen();
+        console.log(err);
       });
+
   };
 
     $scope.testNotifyService = function(){
