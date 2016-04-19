@@ -38,15 +38,15 @@ create notification from search
           {NotifyID:"4",SearchID:"3",Threshold:"2",Period:""},
         ];
         $scope.notification = {};
-        $scope.notification.thresholdType          = "Max";
-        $scope.notification.notificationName       = "Notification Name";
+        $scope.notification.thresholdType          = "";
+        $scope.notification.notificationName       = "";
         //$scope.selectedSearch         =
-        $scope.notification.thresholdCount         = 10;
-        $scope.notification.timeValue              = 10;
-        $scope.notification.timeFrame              = "m";
+        $scope.notification.thresholdCount         = ;
+        $scope.notification.timeValue              = ;
+        $scope.notification.timeFrame              = "";
         $scope.notification.enabled                = false;
-        $scope.notification.notificationDescription= "Notification Description";
-        $scope.notification.notifyEmail            = "example@domain.com";
+        $scope.notification.notificationDescription= "";
+        $scope.notification.notifyEmail            = "";
 
         var notificationService = "https://" + $location.$$host + "/api/Notification";
 
