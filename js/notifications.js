@@ -42,8 +42,8 @@ create notification from search
         $scope.notification.notificationName       = "";
         //$scope.selectedSearch         =
         $scope.notification.thresholdCount         = 5;
-        $scope.notification.timeValue              = 5;
-        $scope.notification.timeFrame              = "";
+        $scope.notification.timeValue              = 15;
+        $scope.notification.timeFrame              = "m";
         $scope.notification.enabled                = false;
         $scope.notification.notificationDescription= "";
         $scope.notification.notifyEmail            = "";
@@ -177,9 +177,8 @@ $scope.saveNotification = function()
       {
         console.log(data);
         //$scope.configuration = data;
+        $scope.refreshScreen();
       });
-
-      $scope.refreshScreen();
   };
 
     $scope.testNotifyService = function(){
