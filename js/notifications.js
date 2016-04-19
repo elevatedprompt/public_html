@@ -172,6 +172,7 @@ $scope.saveNotification = function()
     "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
   }};
   var operation =notificationService+"/UpdateNotification";
+  console.log(data);
   var result = $http.post(operation,data,config)
     .success(function(data){
         console.log(data);
