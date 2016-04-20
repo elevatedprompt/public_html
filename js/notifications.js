@@ -131,6 +131,7 @@ create notification from search
               console.log(data);
               //$scope.configuration = data;
               $scope.notification = data;
+              $scope.notification.enabled = data.enabled=='true';
             });
       };
 
