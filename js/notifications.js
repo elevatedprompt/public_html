@@ -47,7 +47,9 @@ create notification from search
         $scope.notification.enabled                = false;
         $scope.notification.notificationDescription= "";
         $scope.notification.notifyEmail            = "";
+        $scope.notification.htmlEmail              =false;
         $scope.notification.checkFreq = 1;//check frequency in minutes
+
 
         var notificationService = "https://" + $location.$$host + "/api/Notification";
 
@@ -133,6 +135,7 @@ create notification from search
               //$scope.configuration = data;
               $scope.notification = data;
               $scope.notification.enabled = data.enabled=='true';
+              $scope.notification.htmlEmail = data.htmlEmail=='true';
             });
       };
 
@@ -169,6 +172,8 @@ $scope.saveNotification = function()
   + encodeURIComponent($scope.notification.notificationDescription);
   data+= "&notifyEmail="
   + encodeURIComponent($scope.notification.notifyEmail);
+  data+= "&htmlEmail="
+  + encodeURIComponent($scope.notification.htmlEmail);
   data+= "&checkFreq="
   + encodeURIComponent($scope.notification.checkFreq);
 
@@ -217,6 +222,7 @@ $scope.saveNotification = function()
         $scope.notification.enabled = false;
         $scope.notification.notificationDescription = "";
         $scope.notification.notifyEmail = "";
+        $scope.notification.htmlEmail =false;
         $scope.notification.checkFreq = 1;//check frequency in minutes
       };
 
