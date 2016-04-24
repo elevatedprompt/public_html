@@ -46,7 +46,7 @@
         </br>
         <label class="header" text ="Configuration Files">Elastic Files</label>
         <ul>
-            <li ng-repeat="esconfig in elastic"><img ng-src='./images/icons/X.png' ng-click="deleteFile(config);"></img> &nbsp;<a ng-click="updateTextArea(esconfig);">{{esconfig.replace('/etc/elasticsearch//','')}}</a>
+            <li ng-repeat="esconfig in elastic"><img ng-src='./images/icons/delete-button.png' ng-click="deleteFile(config);"></img> &nbsp;<a ng-click="updateTextArea(esconfig);">{{esconfig.replace('/etc/elasticsearch//','')}}</a>
             </li>
         </ul>
         <a class="btn btn-primary" ng-click="createElasticConfig()" ><span class="glyphicon glyphicon-plus"></span> Create Elastic Search Config File</a>
