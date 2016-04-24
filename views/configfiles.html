@@ -37,7 +37,7 @@
       <td>
         <label class="header" text ="Configuration Files">Configuration Files</label>
         <ul>
-            <li ng-repeat="config in configfiles"><img  ng-src='./images/icons/X.png' ng-click="deleteFile(config);" ></img> &nbsp;<a ng-click="updateTextArea(config);">{{config.replace('/etc/logstash/conf.d//','')}}</a>
+            <li ng-repeat="config in configfiles"><img  ng-src='./images/icons/delete-button.png' ng-click="deleteFile(config);" ></img> &nbsp;<a ng-click="updateTextArea(config);">{{config.replace('/etc/logstash/conf.d//','')}}</a>
             </li>
         </ul>
         <a class="btn btn-primary" ng-click="createLogstashConfig()" ><span class="glyphicon glyphicon-plus"></span> Create Logstash Config File</a>

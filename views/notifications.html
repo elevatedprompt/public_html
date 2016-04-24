@@ -36,7 +36,7 @@
       <td>
         <label class="header" text ="Notifications">Notifications</label>
         <ul>
-            <li ng-repeat="notify in notificationFiles"><img ng-src='./images/icons/X.png' ng-click="deleteFile(notify);" ></img> &nbsp;<a style="white-space: nowrap;" ng-click="updateTextArea(notify);">{{notify.replace('/opt/API/Notifications//','')}}</a>
+            <li ng-repeat="notify in notificationFiles"><img ng-src='./images/icons/delete-button.png' ng-click="deleteFile(notify);" ></img> &nbsp;<a style="white-space: nowrap;" ng-click="updateTextArea(notify);">{{notify.replace('/opt/API/Notifications//','')}}</a>
             </li>
         </ul>
         <a class="btn btn-primary" ng-click="createNotification()" ><span class="glyphicon glyphicon-plus"></span> Create Notification</a>
