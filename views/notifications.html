@@ -36,13 +36,12 @@
       <td>
         <label class="header" text ="Notifications">Notifications</label>
         <ul>
-            <li ng-repeat="notify in notificationFiles"><img ng-src='./images/icons/X.png' ng-click="deleteFile(notify);" ></img> &nbsp;<a ng-click="updateTextArea(notify);">{{notify.replace('/opt/API/Notifications//','')}}</a>
+            <li ng-repeat="notify in notificationFiles"><img ng-src='./images/icons/X.png' ng-click="deleteFile(notify);" ></img> &nbsp;<a style="white-space: nowrap;" ng-click="updateTextArea(notify);">{{notify.replace('/opt/API/Notifications//','')}}</a>
             </li>
         </ul>
         <a class="btn btn-primary" ng-click="createNotification()" ><span class="glyphicon glyphicon-plus"></span> Create Notification</a>
         <br />
         <br />
-
       </td>
       <td>
 
@@ -135,11 +134,11 @@
                 </td>
               </tr>
           </table>
-          <a class="btn btn-primary" ng-click="testNotifyService()" ><span class="glyphicon"></span>Test Notify Service</a>
+          <!-- <a class="btn btn-primary" ng-click="testNotifyService()" ><span class="glyphicon"></span>Test Notify Service</a>
           <a class="btn btn-primary" ng-click="testRegister()" ><span class="glyphicon"></span>Call Register Notification</a>
           <a class="btn btn-primary" ng-click="testUnregister()" ><span class="glyphicon"></span>Call Unregister Notification</a>
           <a class="btn btn-primary" ng-click="testNotifyService()" ><span class="glyphicon"></span>Test Notify Service</a>
-          <a class="btn btn-primary" ng-click="testNotifyService()" ><span class="glyphicon"></span>Test Notify Service</a>
+          <a class="btn btn-primary" ng-click="testNotifyService()" ><span class="glyphicon"></span>Test Notify Service</a> -->
       </td>
     </tr>
   </tbody>

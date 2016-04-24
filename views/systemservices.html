@@ -70,19 +70,19 @@
                   </div>
             </div>
             <div class="row">
-                    <div class="left">
-                        <input type="submit" class="btn btn-primary" ng-click="cycleElasticSearch(systemsettings)" name="elasticButton" value="{{systemsettings.elasticsearchstatusbit && 'Stop' || 'Start'}}">
-                    </div>
-                    <div class="middle">
-                        <div class=''>Elastic Search</div>
-                    </div>
-                    <div class="middle">
-                        <img ng-src="./images/icons/{{systemsettings.elasticsearchstatusbit && 'checkmark.png' || 'X.png'}}" name="elasticStatus" ></img>
-                    </div>
-                    <div class="right">
+                  <div class="left">
+                      <input type="submit" class="btn btn-primary" ng-click="cycleElasticSearch(systemsettings)" name="elasticButton" value="{{systemsettings.elasticsearchstatusbit && 'Stop' || 'Start'}}">
+                  </div>
+                  <div class="middle">
+                      <div class=''>Elastic Search</div>
+                  </div>
+                  <div class="middle">
+                      <img ng-src="./images/icons/{{systemsettings.elasticsearchstatusbit && 'checkmark.png' || 'X.png'}}" name="elasticStatus" ></img>
+                  </div>
+                  <div class="right">
 
-                          <div class=''>{{systemsettings.elasticsearchstatus}}</div>
-                    </div>
+                        <div class=''>{{systemsettings.elasticsearchstatus}}</div>
+                  </div>
             </div>
         </div>
     </div>
