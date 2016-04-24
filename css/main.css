@@ -152,6 +152,7 @@ footer {
   padding: 0.2em 0;
   font-weight:bold;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  white-space: nowrap;
 }
 
 .label{
