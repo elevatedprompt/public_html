@@ -168,6 +168,9 @@ body {
   padding: 0;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+td{
+    white-space: nowrap;
+}
 textarea {
     width: 100%;// 600px;
     min-width: 600px;
@@ -254,6 +257,7 @@ textarea {
 
   .row  {
     display: table-row;
+    white-space: nowrap;
     }
 
   .left, .right, .middle {

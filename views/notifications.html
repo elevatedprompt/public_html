@@ -110,14 +110,14 @@
                   <input type="text" ng-model="notification.notifyEmail"  />
               </td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td width = "20%">
                 Send notification Email in HTML:
               </td>
               <td>
                 <input type="checkbox" class="htmlEmail" width="100%" ng-model="notification.htmlEmail" />
               </td>
-            </tr>
+            </tr> -->
             <tr>
               <td width = "20%">
                 Description:
@@ -125,7 +125,7 @@
             </tr>
             <tr>
                   <td colspan="2">
-                      <textarea style="texteditor" border=true id="notificationDescription" ng-model="notification.notificationDescription" rows="25" />
+                      <textarea style="texteditor" border=true id="notificationDescription" ng-model="notification.notificationDescription" rows="5" />
                   </td>
               </tr>
               <tr>
@@ -134,11 +134,6 @@
                 </td>
               </tr>
           </table>
-          <!-- <a class="btn btn-primary" ng-click="testNotifyService()" ><span class="glyphicon"></span>Test Notify Service</a>
-          <a class="btn btn-primary" ng-click="testRegister()" ><span class="glyphicon"></span>Call Register Notification</a>
-          <a class="btn btn-primary" ng-click="testUnregister()" ><span class="glyphicon"></span>Call Unregister Notification</a>
-          <a class="btn btn-primary" ng-click="testNotifyService()" ><span class="glyphicon"></span>Test Notify Service</a>
-          <a class="btn btn-primary" ng-click="testNotifyService()" ><span class="glyphicon"></span>Test Notify Service</a> -->
       </td>
     </tr>
   </tbody>
@@ -148,5 +143,3 @@
 </div>
 <h2 >debug info</h2>
 <pre>Form data settings = "{{$scope | json}}"</pre>
-<pre>Location = "{{selectedSearch}}"</pre>
-<pre>Notification Files = "{{notificationFiles | json}}"</pre>
