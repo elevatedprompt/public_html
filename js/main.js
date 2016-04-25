@@ -7,10 +7,9 @@
  * Main AngularJS Web Application
  tutorialWebApp
  */
- var servicelocation = "";
-var app = angular.module('clientApp', [
-'ngRoute', 'angular-timezone-selector'
-]).directive('portalFrame', function() {
+var servicelocation = "";
+var app = angular.module('clientApp', ['ngRoute', 'angular-timezone-selector'])
+  .directive('portalFrame', function() {
     return{
       restrict: "E",
          replace: true,
