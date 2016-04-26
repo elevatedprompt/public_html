@@ -14,7 +14,8 @@ angular.module('clientApp')
                                               $scope,
                                             //  $parse,
                                               $interval,
-                                              $http
+                                              $http,
+                                              $rootScope
                                             ) {
 
     $rootScope.checkService = setInterval(function () {

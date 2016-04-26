@@ -39,7 +39,7 @@ var app = angular.module('clientApp', ['ngRoute', 'angular-timezone-selector'])
      }
    }});
 /*Check Service*/
-$rootScope.checkService = {};
+
 /*End check serice*/
 /**
  * Configure the Routes
@@ -94,4 +94,7 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
   $('.tooltip-social').tooltip({
     selector: "a[data-toggle=tooltip]"
   })
+});
+app.run(function($rootScope){
+  $rootScope.checkService = null;
 });

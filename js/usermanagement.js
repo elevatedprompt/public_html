@@ -12,7 +12,8 @@ angular.module('clientApp')
   .controller('UsermanagementCtrl', function (
     $location,
     $scope,
-    $http
+    $http,
+    $rootScope
   ) {
       servicelocation = "https://" + $location.$$host + "/api/";
       $scope.userManagmentModel = {};

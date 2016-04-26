@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('ConfigfilesCtrl', function ($scope,$http,$location) {
+  .controller('ConfigfilesCtrl', function ($scope,$http,$location,$rootScope) {
       if($rootScope.checkService!=null)
         {clearInterval($rootScope.checkService);}
 

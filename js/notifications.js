@@ -24,7 +24,7 @@ create notification from search
    * Controller of the clientApp
    */
   angular.module('clientApp')
-    .controller('NotificationsCtrl', function ($scope,$http,$location) {
+    .controller('NotificationsCtrl', function ($scope,$http,$location,$rootScope) {
       var selectedSearch=null
         $scope.searchList= [
           {ID:"1",Title:"Search Example",SearchString:"searchstring"},
