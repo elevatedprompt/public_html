@@ -9,8 +9,8 @@
  */
 angular.module('clientApp')
   .controller('ConfigfilesCtrl', function ($scope,$http,$location) {
-      if(global.checkService!=null)
-        {clearInterval(global.checkService);}
+      if($rootScope.checkService!=null)
+        {clearInterval($rootScope.checkService);}
 
       $scope.configfiles = [{filename:"logstash.conf", configuration:"config data"},
                         {filename:"filter.conf", configuration:"config data2"},

@@ -52,8 +52,8 @@ create notification from search
 
 
         var notificationService = "https://" + $location.$$host + "/api/Notification";
-        if(global.checkService!=null)
-          {clearInterval(global.checkService);}
+        if($rootScope.checkService!=null)
+          {clearInterval($rootScope.checkService);}
 
         var data = {};
         var config = {headers:{

@@ -17,7 +17,7 @@ angular.module('clientApp')
                                               $http
                                             ) {
 
-    global.checkService = setInterval(function () {
+    $rootScope.checkService = setInterval(function () {
                                                       checkServiceStatus();
                                                     }, 5000);
 
