@@ -52,8 +52,9 @@ create notification from search
 
 
         var notificationService = "https://" + $location.$$host + "/api/Notification";
+        if(global.checkService!=null)
+          {clearInterval(global.checkService);}
 
-      //  servicelocation = "https://" + $location.$$host + "/api/";
         var data = {};
         var config = {headers:{
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -105,8 +106,8 @@ create notification from search
           {
             var data = "conffilename="+ encodeURIComponent(configuration);
             var config = {headers:{
-              "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-            }};
+                                    "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+                                  }};
 
             var result = $http.post(notificationService+"/DeleteNotification",data,config)
               .success(function(data)

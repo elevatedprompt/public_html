@@ -9,5 +9,7 @@
  */
 angular.module('clientApp')
   .controller('HqCtrl', function ($scope,$location,$sce) {
+    if(global.checkService!=null)
+      {clearInterval(global.checkService);}
     $scope.hqUrl = $sce.trustAsResourceUrl("https://"+ $location.$$host +"/elastic/_plugin/HQ/?url=https://" + $location.$$host +"/elastic/");
     });

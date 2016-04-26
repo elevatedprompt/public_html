@@ -17,7 +17,7 @@ angular.module('clientApp')
                                               $http
                                             ) {
 
-    var checkServiceTimer = setInterval(function () {
+    global.checkService = setInterval(function () {
                                                       checkServiceStatus();
                                                     }, 5000);
 
@@ -116,73 +116,73 @@ angular.module('clientApp')
                           }};
 
     $http.post(servicelocation+"GetServiceStatus",data,config)
-      .success(function(data){
-                                 $scope.systemsettings.elasticsearchstatus=data;
-                                 var str = data;
-                                 if(str.match(stopped)){
-                                                         console.log(data + ' service stopped');
-                                                        $scope.systemsettings.elasticsearchstatusbit = false;
-                                                       }
-                                 if(str.match(notrunning)){
-                                                             console.log(data + ' service stopped');
-                                                              $scope.systemsettings.elasticsearchstatusbit = false;
-                                                           }
-                                 if(str.match(running)){
-                                                         console.log(data + ' service running');
-                                                          $scope.systemsettings.elasticsearchstatusbit = true;
-                                                       }
-                              });
+                                    .success(function(data){
+                                                               $scope.systemsettings.elasticsearchstatus=data;
+                                                               var str = data;
+                                                               if(str.match(stopped)){
+                                                                                       console.log(data + ' service stopped');
+                                                                                      $scope.systemsettings.elasticsearchstatusbit = false;
+                                                                                     }
+                                                               if(str.match(notrunning)){
+                                                                                           console.log(data + ' service stopped');
+                                                                                            $scope.systemsettings.elasticsearchstatusbit = false;
+                                                                                         }
+                                                               if(str.match(running)){
+                                                                                       console.log(data + ' service running');
+                                                                                        $scope.systemsettings.elasticsearchstatusbit = true;
+                                                                                     }
+                                                            });
 
     $http.post(servicelocation+"IsServiceRunning",data,config)
-      .success(function(data){
-                                 $scope.systemsettings.elasticsearchstatusbit=(data==="true");
-                              });
+                                      .success(function(data){
+                                                                 $scope.systemsettings.elasticsearchstatusbit=(data==="true");
+                                                              });
     data = "servicename=logstash";
     $http.post(servicelocation+"GetServiceStatus",data,config)
-          .success(function(data){
-                                     $scope.systemsettings.logstashstatus=data;
-                                     var str = data;
-                                     if(str.match(stopped)){
-                                                             console.log(data + ' service stopped');
-                                                             $scope.systemsettings.logstashstatusbit = false;
-                                                           }
-                                     if(str.match(notrunning)){
-                                                                  console.log(data + ' service stopped');
-                                                                  $scope.systemsettings.logstashstatusbit = false;
-                                                               }
-                                     if(str.match(running)){
-                                                             console.log(data + ' service running');
-                                                              $scope.systemsettings.logstashstatusbit = true;
-                                                           }
-                                  });
+                                        .success(function(data){
+                                                                   $scope.systemsettings.logstashstatus=data;
+                                                                   var str = data;
+                                                                   if(str.match(stopped)){
+                                                                                           console.log(data + ' service stopped');
+                                                                                           $scope.systemsettings.logstashstatusbit = false;
+                                                                                         }
+                                                                   if(str.match(notrunning)){
+                                                                                                console.log(data + ' service stopped');
+                                                                                                $scope.systemsettings.logstashstatusbit = false;
+                                                                                             }
+                                                                   if(str.match(running)){
+                                                                                           console.log(data + ' service running');
+                                                                                            $scope.systemsettings.logstashstatusbit = true;
+                                                                                         }
+                                                                });
     $http.post(servicelocation+"IsServiceRunning",data,config)
-          .success(function(data){
-                                     $scope.systemsettings.logstashstatusbit=(data==="true");
-                                  });
+                                  .success(function(data){
+                                                             $scope.systemsettings.logstashstatusbit=(data==="true");
+                                                          });
     data = "servicename=kibana4";
 
     $http.post(servicelocation+"GetServiceStatus",data,config)
-      .success(function(data){
-                                 $scope.systemsettings.kibanastatus=data;
-                                 var str = data;
-                                 if(str.match(stopped)){
-                                                         console.log(data + ' service stopped');
-                                                        $scope.systemsettings.kibanastatusbit = false;
-                                                       }
-                                 if(str.match(notrunning)){
-                                                             console.log(data + ' service stopped');
-                                                              $scope.systemsettings.kibanastatusbit = false;
-                                                           }
-                                 if(str.match(running)){
-                                                         console.log(data + ' service running');
-                                                          $scope.systemsettings.kibanastatusbit = true;
-                                                       }
-                              });
+                                  .success(function(data){
+                                                             $scope.systemsettings.kibanastatus=data;
+                                                             var str = data;
+                                                             if(str.match(stopped)){
+                                                                                     console.log(data + ' service stopped');
+                                                                                    $scope.systemsettings.kibanastatusbit = false;
+                                                                                   }
+                                                             if(str.match(notrunning)){
+                                                                                         console.log(data + ' service stopped');
+                                                                                          $scope.systemsettings.kibanastatusbit = false;
+                                                                                       }
+                                                             if(str.match(running)){
+                                                                                     console.log(data + ' service running');
+                                                                                      $scope.systemsettings.kibanastatusbit = true;
+                                                                                   }
+                                                          });
 
     $http.post(servicelocation+"IsServiceRunning",data,config)
-      .success(function(data){
-                                 $scope.systemsettings.kibanastatusbit=(data==="true");
-                              });
+                                  .success(function(data){
+                                                             $scope.systemsettings.kibanastatusbit=(data==="true");
+                                                          });
 
     $scope.saveTimeZone = function(timezone) {
                                               $scope.selectedTimezone = timezone;

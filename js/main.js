@@ -39,7 +39,7 @@ var app = angular.module('clientApp', ['ngRoute', 'angular-timezone-selector'])
      }
    }});
 /*Check Service*/
-
+global.checkService = {};
 /*End check serice*/
 /**
  * Configure the Routes

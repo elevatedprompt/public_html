@@ -9,6 +9,8 @@
  */
 angular.module('clientApp')
   .controller('ConfigfilesCtrl', function ($scope,$http,$location) {
+      if(global.checkService!=null)
+        {clearInterval(global.checkService);}
 
       $scope.configfiles = [{filename:"logstash.conf", configuration:"config data"},
                         {filename:"filter.conf", configuration:"config data2"},
@@ -23,29 +25,25 @@ angular.module('clientApp')
         "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
         }};
 
-      $scope.refreshScreen = function()
-      {
+      $scope.refreshScreen = function(){
         servicelocation = "https://" + $location.$$host + "/api/";
         var data = {};
         var config = {headers:{
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
           }};
         $http.post(servicelocation+"/GetLogstashConfigDirectoryListing",data,config)
-          .success(function(data)
-            {
+          .success(function(data){
               console.log(data);
                $scope.configfiles=data;
             });
         $http.post(servicelocation+"/GetElasticConfigDirectoryListing",data,config)
-          .success(function(data)
-            {
+          .success(function(data){
               console.log(data);
                $scope.elastic=data;
             });
 
         $http.post(servicelocation+"/GetCronJobDirectory",data,config)
-          .success(function(data)
-            {
+          .success(function(data){
               console.log(data);
                $scope.cron=data;
             });
@@ -59,16 +57,14 @@ angular.module('clientApp')
 
         var retVal = prompt("You must confirm to delete this file enter DELETE in the box below \n\n are you sure you want to continue?", "WARNING");
 
-        if(retVal=="DELETE")
-        {
+        if(retVal=="DELETE"){
           var data = "conffilename="+ encodeURIComponent(configuration);
           var config = {headers:{
             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
           }};
 
           var result = $http.post(servicelocation+"/DeleteConfFile",data,config)
-            .success(function(data)
-              {
+            .success(function(data){
                 console.log(data);
                 $scope.configuration = data;
               });
@@ -83,12 +79,11 @@ angular.module('clientApp')
 
       var data = "configfile="+ encodeURIComponent(configuration);
       var config = {headers:{
-        "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-      }};
+                            "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+                          }};
 
       var result = $http.post(servicelocation+"/GetConfFile",data,config)
-        .success(function(data)
-          {
+        .success(function(data){
             console.log(data);
             $scope.configuration = data;
           });
@@ -111,8 +106,7 @@ angular.module('clientApp')
     };
 
     //Function to send config file data to be saved.
-    $scope.saveConfigFile = function()
-    {
+    $scope.saveConfigFile = function(){
 
       if($scope.filename=="")
       {
