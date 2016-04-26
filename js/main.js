@@ -70,7 +70,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     })
     .when('/Notifications', {
       templateUrl: 'views/notifications.html', controller: 'NotificationsCtrl',
-      controllerAs: 'systemservices'
+      controllerAs: 'Notifications'
     })
     .otherwise("/404", {
       templateUrl: "views/about.html", controller: "AboutCtrl",
