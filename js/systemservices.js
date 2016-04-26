@@ -18,10 +18,11 @@ angular.module('clientApp')
                                               $rootScope
                                             ) {
 
-    $rootScope.checkService = setInterval(function () {
+  var intervalRef = setInterval(function () {
                                                       checkServiceStatus();
                                                     }, 5000);
 
+   $rootScope.checkService = intervalRef;
 
     servicelocation = "https://" + $location.$$host + "/api/";
 
