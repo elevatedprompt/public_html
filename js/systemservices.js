@@ -20,10 +20,9 @@ angular.module('clientApp')
                                               var poll = function(){
                                                 $timeout(function(){
                                                   checkServiceStatus();
-                                                  //poll();
+                                                  poll();
                                                 },5000);
                                               };
-    poll();
 
     servicelocation = "https://" + $location.$$host + "/api/";
 
