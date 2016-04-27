@@ -70,27 +70,27 @@
                   </div>
             </div>
             <div class="row">
-                    <div class="left">
-                        <input type="submit" class="btn btn-primary" ng-click="cycleElasticSearch(systemsettings)" name="elasticButton" value="{{systemsettings.elasticsearchstatusbit && 'Stop' || 'Start'}}">
-                    </div>
-                    <div class="middle">
-                        <div class=''>Elastic Search</div>
-                    </div>
-                    <div class="middle">
-                        <img ng-src="./images/icons/{{systemsettings.elasticsearchstatusbit && 'checkmark.png' || 'X.png'}}" name="elasticStatus" ></img>
-                    </div>
-                    <div class="right">
+                  <div class="left">
+                      <input type="submit" class="btn btn-primary" ng-click="cycleElasticSearch(systemsettings)" name="elasticButton" value="{{systemsettings.elasticsearchstatusbit && 'Stop' || 'Start'}}">
+                  </div>
+                  <div class="middle">
+                      <div class=''>Elastic Search</div>
+                  </div>
+                  <div class="middle">
+                      <img ng-src="./images/icons/{{systemsettings.elasticsearchstatusbit && 'checkmark.png' || 'X.png'}}" name="elasticStatus" ></img>
+                  </div>
+                  <div class="right">
 
-                          <div class=''>{{systemsettings.elasticsearchstatus}}</div>
-                    </div>
+                        <div class=''>{{systemsettings.elasticsearchstatus}}</div>
+                  </div>
             </div>
         </div>
     </div>
 </div>
-  <h2 >debug info</h2>
+  <!-- <h2 >debug info</h2>
 <pre>Form data settings = "{{systemsettings | json}}"</pre>
-<pre>Location = "{{servicelocation}}"</pre>
+<pre>Location = "{{servicelocation}}"</pre> -->
 </form>
 <div class="EP_Footer">
-    <i><sub>&copy; 2016 elevatedprompt [EPSTACK version 2.0 RC January 17, 2016]</sub></i>
+    <i><sub>&copy; 2016 elevatedprompt [EPSTACK version 2.1 RC April 25, 2016]</sub></i>
 </div>

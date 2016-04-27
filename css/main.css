@@ -152,6 +152,7 @@ footer {
   padding: 0.2em 0;
   font-weight:bold;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  white-space: nowrap;
 }
 
 .label{
@@ -166,6 +167,9 @@ footer {
 body {
   padding: 0;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+td{
+    white-space: nowrap;
 }
 textarea {
     width: 100%;// 600px;
@@ -253,6 +257,7 @@ textarea {
 
   .row  {
     display: table-row;
+    white-space: nowrap;
     }
 
   .left, .right, .middle {

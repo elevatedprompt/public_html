@@ -7,10 +7,9 @@
  * Main AngularJS Web Application
  tutorialWebApp
  */
- var servicelocation = "";
-var app = angular.module('clientApp', [
-'ngRoute', 'angular-timezone-selector'
-]).directive('portalFrame', function() {
+var servicelocation = "";
+var app = angular.module('clientApp', ['ngRoute', 'angular-timezone-selector'])
+  .directive('portalFrame', function() {
     return{
       restrict: "E",
          replace: true,
@@ -71,7 +70,7 @@ app.config(['$routeProvider', function ($routeProvider) {
     })
     .when('/Notifications', {
       templateUrl: 'views/notifications.html', controller: 'NotificationsCtrl',
-      controllerAs: 'systemservices'
+      controllerAs: 'Notifications'
     })
     .otherwise("/404", {
       templateUrl: "views/about.html", controller: "AboutCtrl",
