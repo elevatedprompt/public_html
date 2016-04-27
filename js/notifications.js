@@ -26,17 +26,7 @@ create notification from search
   angular.module('clientApp')
     .controller('NotificationsCtrl', function ($scope,$http,$location,$rootScope) {
       var selectedSearch=null
-        $scope.searchList= [
-          {ID:"1",Title:"Search Example",SearchString:"searchstring"},
-          {ID:"2",Title:"Another Search",SearchString:"searchstring"},
-          {ID:"3",Title:"Another Example",SearchString:"searchstring"},
-        ];
-        $scope.NotificationList = [
-          {NotifyID:"1",SearchID:"1",Threshold:"2",Period:""},//Period in minutes.
-          {NotifyID:"2",SearchID:"1",Threshold:"2",Period:""},
-          {NotifyID:"3",SearchID:"2",Threshold:"2",Period:""},
-          {NotifyID:"4",SearchID:"3",Threshold:"2",Period:""},
-        ];
+
         $scope.notification = {};
         $scope.notification.thresholdType          = "";
         $scope.notification.notificationName       = "";
@@ -47,12 +37,12 @@ create notification from search
         $scope.notification.enabled                = false;
         $scope.notification.notificationDescription= "";
         $scope.notification.notifyEmail            = "";
-        $scope.notification.htmlEmail              =false;
-        $scope.notification.checkFreq = 1;//check frequency in minutes
+        $scope.notification.htmlEmail              = false;
+        $scope.notification.checkFreq              = 1;//check frequency in minutes
 
 
         var notificationService = "https://" + $location.$$host + "/api/Notification";
-    
+
         var data = {};
         var config = {headers:{
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -100,19 +90,17 @@ create notification from search
 
           var retVal = prompt("You must confirm to delete this file enter DELETE in the box below \n\n are you sure you want to continue?", "WARNING");
 
-          if(retVal=="DELETE")
-          {
+          if(retVal=="DELETE"){
             var data = "conffilename="+ encodeURIComponent(configuration);
             var config = {headers:{
                                     "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
                                   }};
 
             var result = $http.post(notificationService+"/DeleteNotification",data,config)
-              .success(function(data)
-                {
-                  console.log(data);
-                  $scope.configuration = data;
-                });
+              .success(function(data){
+                                        console.log(data);
+                                        $scope.configuration = data;
+                                      });
           }
           $scope.refreshScreen();
         }
@@ -124,34 +112,31 @@ create notification from search
 
         var data = "configfile="+ encodeURIComponent(configuration);
         var config = {headers:{
-          "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-        }};
+                                "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+                              }};
 
         var result = $http.post(notificationService+"/GetNotification",data,config)
-          .success(function(data)
-            {
-              console.log(data);
-              //$scope.configuration = data;
-              $scope.notification = data;
-              $scope.notification.enabled = data.enabled=='true';
-              $scope.notification.htmlEmail = data.htmlEmail=='true';
-            });
+          .success(function(data){
+                                    console.log(data);
+                                    //$scope.configuration = data;
+                                    $scope.notification = data;
+                                    $scope.notification.enabled = data.enabled=='true';
+                                    $scope.notification.htmlEmail = data.htmlEmail=='true';
+                                  });
       };
 
 
 $scope.saveNotification = function()
 {
 
-  if($scope.notification.notificationName=="")
-  {
-    alert('you must supply a notification name!');
-    return;
-  }
-  if($scope.notification.selectedSearch=="")
-  {
-    alert('you must select a search name!');
-    return;
-  }
+  if($scope.notification.notificationName==""){
+                                                alert('you must supply a notification name!');
+                                                return;
+                                              }
+  if($scope.notification.selectedSearch==""){
+                                              alert('you must select a search name!');
+                                              return;
+                                            }
 
   var data = "notificationName="
   + encodeURIComponent($scope.notification.notificationName);
@@ -178,20 +163,18 @@ $scope.saveNotification = function()
 
 
   var config = {headers:{
-    "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-  }};
+                          "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+                        }};
   var operation =notificationService+"/UpdateNotification";
   console.log(data);
   var result = $http.post(operation,data,config)
     .success(function(data){
-        console.log(data);
-        //$scope.configuration = data;
-        $scope.refreshScreen();
-      }).error(function(err){
-        $scope.refreshScreen();
-        console.log(err);
-      });
-
+                          console.log(data);
+                          $scope.refreshScreen();
+                        }).error(function(err){
+                                              $scope.refreshScreen();
+                                              console.log(err);
+                                            });
   };
 
     $scope.testNotifyService = function(){
@@ -199,30 +182,29 @@ $scope.saveNotification = function()
       notificationService = "https://" + $location.$$host + "/api/Notification";
       var data = {};
       var config = {headers:{
-        "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-        }};
+                            "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+                            }};
 
       $http.post(notificationService+"/PingCluster",data,config)
-        .success(function(data)
-          {
-            console.log(data);
-             $scope.searchList=data;
-          });
+        .success(function(data){
+                                console.log(data);
+                                 $scope.searchList=data;
+                              });
     };
 
       //Clear form
       $scope.createNotification= function(){
-        $scope.notification.notificationName = "";
-        $scope.notification.selectedSearch = {};
-        $scope.notification.thresholdType = 'Max';
-        $scope.notification.thresholdCount = 0;
-        $scope.notification.timeValue = 0;
-        $scope.notification.timeFrame = 'm';
-        $scope.notification.enabled = false;
-        $scope.notification.notificationDescription = "";
-        $scope.notification.notifyEmail = "";
-        $scope.notification.htmlEmail =false;
-        $scope.notification.checkFreq = 1;//check frequency in minutes
-      };
+                                            $scope.notification.notificationName        = "";
+                                            $scope.notification.selectedSearch          = {};
+                                            $scope.notification.thresholdType           = 'Max';
+                                            $scope.notification.thresholdCount          = 0;
+                                            $scope.notification.timeValue               = 0;
+                                            $scope.notification.timeFrame               = 'm';
+                                            $scope.notification.enabled                 = false;
+                                            $scope.notification.notificationDescription = "";
+                                            $scope.notification.notifyEmail             = "";
+                                            $scope.notification.htmlEmail               = false;
+                                            $scope.notification.checkFreq               = 1;//check frequency in minutes
+                                          };
 
     });
