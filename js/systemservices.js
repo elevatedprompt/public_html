@@ -18,7 +18,7 @@ angular.module('clientApp')
                                               $rootScope
                                             ) {
                                               var poll = function(){
-                                                $timeout(function(){
+                                                setTimeout(function(){
                                                   checkServiceStatus();
                                                   poll();
                                                 },5000);
