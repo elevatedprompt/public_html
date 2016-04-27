@@ -84,14 +84,14 @@ create notification from search
 
         $scope.pageLoad();
 
-        $scope.deleteFile = function(configuration){
+        $scope.deleteFile = function(notificationName){
           $scope.filelocation = "";
-          $scope.conffilename = configuration;
+          $scope.conffilename = notificationName;
 
           var retVal = prompt("You must confirm to delete this file enter DELETE in the box below \n\n are you sure you want to continue?", "WARNING");
 
           if(retVal=="DELETE"){
-            var data = "conffilename="+ encodeURIComponent(configuration);
+            var data = "notificationName="+ encodeURIComponent(notificationName);
             var config = {headers:{
                                     "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
                                   }};
