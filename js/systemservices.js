@@ -23,7 +23,7 @@ angular.module('clientApp')
                                                   poll();
                                                 },5000);
                                               };
-
+                                              poll();
     servicelocation = "https://" + $location.$$host + "/api/";
 
     $scope.systemsettings = {};
