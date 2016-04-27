@@ -52,9 +52,7 @@ create notification from search
 
 
         var notificationService = "https://" + $location.$$host + "/api/Notification";
-        if($rootScope.checkService!=null)
-          {clearInterval($rootScope.checkService);}
-
+    
         var data = {};
         var config = {headers:{
           "Content-type": "application/x-www-form-urlencoded; charset=utf-8"

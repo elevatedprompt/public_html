@@ -9,6 +9,4 @@
  */
 angular.module('clientApp')
   .controller('AboutCtrl', function ($rootScope) {
-    if($rootScope.checkService!=null)
-      {clearInterval($rootScope.checkService);}
   });

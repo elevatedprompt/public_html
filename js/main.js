@@ -95,6 +95,3 @@ app.controller('PageCtrl', function (/* $scope, $location, $http */) {
     selector: "a[data-toggle=tooltip]"
   })
 });
-app.run(function($rootScope){
-  $rootScope.checkService = null;
-});

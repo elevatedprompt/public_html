@@ -17,12 +17,13 @@ angular.module('clientApp')
                                               $http,
                                               $rootScope
                                             ) {
+                                              var poll = function(){
+                                                $timeout(function(){
+                                                  checkServiceStatus();
+                                                  poll();
+                                                },5000);
+                                              };
 
-  var intervalRef = setInterval(function () {
-                                                      checkServiceStatus();
-                                                    }, 5000);
-
-   $rootScope.checkService = intervalRef;
 
     servicelocation = "https://" + $location.$$host + "/api/";
 
