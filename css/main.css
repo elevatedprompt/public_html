@@ -184,7 +184,7 @@ textarea {
   height: 100%;
 }
 .filename{
-  width: 100%;//540px;
+  width: 70%;//540px;
   min-width: 535px;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
