@@ -172,12 +172,15 @@ td{
     white-space: nowrap;
 }
 textarea {
-    width: 100%;// 600px;
+    width: 94%;// 600px;
     min-width: 600px;
     //cols:300;
     rows:25;
     resize: none;
     placeholder : "configuration text";
+}
+select{
+  width:25%;
 }
 .iframearea{
   min-height: 450px;
