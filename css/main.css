@@ -16,6 +16,9 @@ body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
+p{
+  white-space: normal;
+}
 .deleteConfirmation{
   width: 250px;
 }
@@ -172,7 +175,7 @@ td{
     white-space: nowrap;
 }
 textarea {
-    width: 94%;// 600px;
+    width: 100%;// 600px;
     min-width: 600px;
     //cols:300;
     rows:25;
