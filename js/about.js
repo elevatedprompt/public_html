@@ -9,4 +9,4 @@
  */
 angular.module('clientApp')
   .controller('AboutCtrl', function ($rootScope) {
-  });
+                                                  });

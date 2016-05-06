@@ -85,112 +85,108 @@ create notification from search
         $scope.pageLoad();
 
         $scope.deleteFile = function(notificationName){
-          $scope.filelocation = "";
-          $scope.conffilename = notificationName;
+                                                      $scope.filelocation = "";
+                                                      $scope.conffilename = notificationName;
 
-          var retVal = prompt("You must confirm to delete this file enter DELETE in the box below \n\n are you sure you want to continue?", "WARNING");
+                                                      var retVal = prompt("You must confirm to delete this file enter DELETE in the box below \n\n are you sure you want to continue?", "WARNING");
 
-          if(retVal=="DELETE"){
-            var data = "notificationName="+ encodeURIComponent(notificationName);
-            var config = {headers:{
-                                    "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-                                  }};
+                                                      if(retVal=="DELETE"){
+                                                        var data = "notificationName="+ encodeURIComponent(notificationName);
+                                                        var config = {headers:{
+                                                                                "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+                                                                              }};
 
-            var result = $http.post(notificationService+"/DeleteNotification",data,config)
-              .success(function(data){
-                                        console.log(data);
-                                        $scope.configuration = data;
-                                      });
-          }
-          $scope.refreshScreen();
-        }
+                                                        var result = $http.post(notificationService+"/DeleteNotification",data,config)
+                                                          .success(function(data){
+                                                                                    console.log(data);
+                                                                                    $scope.configuration = data;
+                                                                                  });
+                                                      }
+                                                      $scope.refreshScreen();
+                                                    };
 
-      $scope.updateTextArea = function(configuration){
+        $scope.updateTextArea = function(configuration){
 
-        $scope.filelocation = "";
-        $scope.filename = configuration;
+                                                        $scope.filelocation = "";
+                                                        $scope.filename = configuration;
 
-        var data = "configfile="+ encodeURIComponent(configuration);
-        var config = {headers:{
-                                "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-                              }};
+                                                        var data = "configfile="+ encodeURIComponent(configuration);
+                                                        var config = {headers:{
+                                                                                "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+                                                                              }};
 
-        var result = $http.post(notificationService+"/GetNotification",data,config)
-          .success(function(data){
+                                                        var result = $http.post(notificationService+"/GetNotification",data,config)
+                                                          .success(function(data){
+                                                                                    console.log(data);
+                                                                                    $scope.notification = data;
+                                                                                    $scope.notification.enabled = data.enabled=='true';
+                                                                                    $scope.notification.htmlEmail = data.htmlEmail=='true';
+                                                                                  });
+                                                      };
+
+      $scope.saveNotification = function(){
+                                    if($scope.notification.notificationName==""){
+                                                                                  alert('you must supply a notification name!');
+                                                                                  return;
+                                                                                }
+                                    if($scope.notification.selectedSearch==""){
+                                                                                alert('you must select a search name!');
+                                                                                return;
+                                                                              }
+
+                                    var data = "notificationName="
+                                        + encodeURIComponent($scope.notification.notificationName);
+                                        data+= "&selectedSearch="
+                                        + encodeURIComponent($scope.notification.selectedSearch);
+                                        data+= "&thresholdType="
+                                        + encodeURIComponent($scope.notification.thresholdType);
+                                        data+= "&thresholdCount="
+                                        + encodeURIComponent($scope.notification.thresholdCount);
+                                        data+= "&timeValue="
+                                        + encodeURIComponent($scope.notification.timeValue);
+                                        data+= "&timeFrame="
+                                        + encodeURIComponent($scope.notification.timeFrame);
+                                        data+= "&enabled="
+                                        + encodeURIComponent($scope.notification.enabled);
+                                        data+= "&notificationDescription="
+                                        + encodeURIComponent($scope.notification.notificationDescription);
+                                        data+= "&notifyEmail="
+                                        + encodeURIComponent($scope.notification.notifyEmail);
+                                        data+= "&htmlEmail="
+                                        + encodeURIComponent($scope.notification.htmlEmail);
+                                        data+= "&checkFreq="
+                                        + encodeURIComponent($scope.notification.checkFreq);
+
+
+                                    var config = {headers:{
+                                                            "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+                                                          }};
+                                    var operation =notificationService+"/UpdateNotification";
                                     console.log(data);
-                                    //$scope.configuration = data;
-                                    $scope.notification = data;
-                                    $scope.notification.enabled = data.enabled=='true';
-                                    $scope.notification.htmlEmail = data.htmlEmail=='true';
-                                  });
-      };
-
-
-$scope.saveNotification = function()
-{
-
-  if($scope.notification.notificationName==""){
-                                                alert('you must supply a notification name!');
-                                                return;
-                                              }
-  if($scope.notification.selectedSearch==""){
-                                              alert('you must select a search name!');
-                                              return;
-                                            }
-
-  var data = "notificationName="
-  + encodeURIComponent($scope.notification.notificationName);
-  data+= "&selectedSearch="
-  + encodeURIComponent($scope.notification.selectedSearch);
-  data+= "&thresholdType="
-  + encodeURIComponent($scope.notification.thresholdType);
-  data+= "&thresholdCount="
-  + encodeURIComponent($scope.notification.thresholdCount);
-  data+= "&timeValue="
-  + encodeURIComponent($scope.notification.timeValue);
-  data+= "&timeFrame="
-  + encodeURIComponent($scope.notification.timeFrame);
-  data+= "&enabled="
-  + encodeURIComponent($scope.notification.enabled);
-  data+= "&notificationDescription="
-  + encodeURIComponent($scope.notification.notificationDescription);
-  data+= "&notifyEmail="
-  + encodeURIComponent($scope.notification.notifyEmail);
-  data+= "&htmlEmail="
-  + encodeURIComponent($scope.notification.htmlEmail);
-  data+= "&checkFreq="
-  + encodeURIComponent($scope.notification.checkFreq);
-
-
-  var config = {headers:{
-                          "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-                        }};
-  var operation =notificationService+"/UpdateNotification";
-  console.log(data);
-  var result = $http.post(operation,data,config)
-    .success(function(data){
-                          console.log(data);
-                          $scope.refreshScreen();
-                        }).error(function(err){
-                                              $scope.refreshScreen();
-                                              console.log(err);
-                                            });
-  };
+                                    var result = $http.post(operation,data,config)
+                                      .success(function(data){
+                                                            console.log(data);
+                                                            $scope.refreshScreen();
+                                                          }).error(function(err){
+                                                                                $scope.refreshScreen();
+                                                                                console.log(err);
+                                                                              });
+                                    };
 
     $scope.testNotifyService = function(){
-      console.log("test notfiy");
-      notificationService = "https://" + $location.$$host + "/api/Notification";
-      var data = {};
-      var config = {headers:{
-                            "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-                            }};
+                                            console.log("test notfiy");
+                                            notificationService = "https://" + $location.$$host + "/api/Notification";
+                                            var data = {};
+                                            var config = {headers:{
+                                                                  "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+                                                                  }};
 
-      $http.post(notificationService+"/PingCluster",data,config)
-        .success(function(data){
-                                console.log(data);
-                                 $scope.searchList=data;
-                              });
-    };
+                                            $http.post(notificationService+"/PingCluster",data,config)
+                                              .success(function(data){
+                                                                      console.log(data);
+                                                                       $scope.searchList=data;
+                                                                    });
+                                          };
 
       //Clear form
       $scope.createNotification= function(){

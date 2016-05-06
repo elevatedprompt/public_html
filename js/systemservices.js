@@ -1,4 +1,3 @@
-//'use strict';
 
 /**
  * @ngdoc function
@@ -12,7 +11,6 @@ angular.module('clientApp')
   .controller('SystemservicesCtrl',function (
                                               $location,
                                               $scope,
-                                            //  $parse,
                                               $interval,
                                               $http,
                                               $rootScope
