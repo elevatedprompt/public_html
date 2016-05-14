@@ -22,15 +22,11 @@
                     // put caret at right position again
                     this.selectionStart = this.selectionEnd = start + 1;
 
-                    // prevent the focus lose
                     return false;
-
                 }
             };
         }
 
-        // Enable the tab character onkeypress (onkeydown) inside textarea...
-        // ... for a textarea that has an `id="my-textarea"`
         enableTab('configTextArea');
     </script>
     <tr>
