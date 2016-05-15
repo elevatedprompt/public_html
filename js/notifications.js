@@ -38,7 +38,7 @@ create notification from search
         $scope.notification.notificationDescription= "";
         $scope.notification.notifyEmail            = "";
         $scope.notification.htmlEmail              = false;
-        $scope.notification.checkFreq              = 1;//check frequency in minutes
+        $scope.notification.checkFreq              = 5;//check frequency in minutes
 
 
         var notificationService = "https://" + $location.$$host + "/api/Notification";
@@ -200,7 +200,7 @@ create notification from search
                                             $scope.notification.notificationDescription = "";
                                             $scope.notification.notifyEmail             = "";
                                             $scope.notification.htmlEmail               = false;
-                                            $scope.notification.checkFreq               = 1;//check frequency in minutes
+                                            $scope.notification.checkFreq               = 5;//check frequency in minutes
                                           };
 
     });
