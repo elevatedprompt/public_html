@@ -78,7 +78,7 @@ angular.module('clientApp')
                                                                     $scope.systemsettings.logstashstatusbit = true;
                                                                  }
                                         });
-           data = "servicename=kibana4";
+           data = "servicename=kibana";
           $http.post(servicelocation+"IsServiceRunning",data,config)
             .success(function(data){
                                        $scope.systemsettings.kibanastatusbit=(data==="true");
@@ -159,7 +159,7 @@ angular.module('clientApp')
                                   .success(function(data){
                                                              $scope.systemsettings.logstashstatusbit=(data==="true");
                                                           });
-    data = "servicename=kibana4";
+    data = "servicename=kibana";
 
     $http.post(servicelocation+"GetServiceStatus",data,config)
                                   .success(function(data){
