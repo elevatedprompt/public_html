@@ -9,5 +9,5 @@
  */
 angular.module('clientApp')
   .controller('HqCtrl', function ($scope,$location,$sce,$rootScope) {
-                                                                      $scope.hqUrl = $sce.trustAsResourceUrl("https://"+ $location.$$host +"/elastic/_plugin/HQ/?url=https://" + $location.$$host +"/elastic/");
+                                                                      $scope.hqUrl = $sce.trustAsResourceUrl("https://"+ $location.$$host +"/elastic/_plugin/hq/?url=https://" + $location.$$host +"/elastic/");
                                                                       });

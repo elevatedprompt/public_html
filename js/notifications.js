@@ -125,6 +125,7 @@ create notification from search
                                                       };
 
       $scope.saveNotification = function(){
+        //Confirm that the timeFrame is no less than 15 minutes.
                                     if($scope.notification.notificationName==""){
                                                                                   alert('you must supply a notification name!');
                                                                                   return;
