@@ -1,12 +1,11 @@
 'use strict';
+/*!
+* Copyright(c) 2016 elevatedprompt
+* EPStack API
+* Author: Colin Goss
+* Controller of the clientApp
+*/
 
-/**
- * @ngdoc function
- * @name clientApp.controller:UsermanagementCtrl
- * @description
- * # UsermanagementCtrl
- * Controller of the clientApp
- */
 
 angular.module('clientApp')
   .controller('UsermanagementCtrl', function (

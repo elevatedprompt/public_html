@@ -1,5 +1,8 @@
 
-/**
+/*!
+ * Copyright(c) 2016 elevatedprompt
+ * EPStack API
+ * Author: Colin Goss
  * @ngdoc function
  * @name clientApp.controller:SystemservicesCtrl
  * @description

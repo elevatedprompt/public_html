@@ -1,11 +1,14 @@
 'use strict';
 
-/**
+/*!
+ * Copyright(c) 2016 elevatedprompt
+ * EPStack API
+ * Author: Colin Goss
  * @ngdoc function
  * @name clientApp.controller:ConfigfilesCtrl
  * @description
  * # ConfigfilesCtrl
- * Controller of the clientApp
+ *
  */
 angular.module('clientApp')
   .controller('ConfigfilesCtrl', function ($scope,$http,$location,$rootScope) {

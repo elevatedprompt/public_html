@@ -1,11 +1,14 @@
 'use strict';
 
-/**
+/*!
+ * Copyright(c) 2016 elevatedprompt
+ * EPStack API
+ * Author: Colin Goss
  * @ngdoc function
  * @name clientApp.controller:DashboardCtrl
  * @description
  * # DashboardCtrl
- * Controller of the clientApp
+ * 
  */
 angular.module('clientApp')
   .controller('DashboardCtrl', function ($scope,$location,$sce,$rootScope) {

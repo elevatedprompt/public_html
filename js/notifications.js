@@ -1,17 +1,13 @@
-//Responsibilities.
-/*
-*** Incomplete.
-
-Listing notifications
-adding notifications
-removing notifications
-updating notifications
-
-searches
-list searches
-retreive search info
-create notification from search
-*/
+/*!
+ * Copyright(c) 2016 elevatedprompt
+ * EPStack API
+ * Author: Colin Goss
+ * @ngdoc function
+ * @name clientApp.controller:NotificationsCtrl
+ * @description
+ * # NotificationsCtrl
+ * Controller of the clientApp
+ */
 
 
   'use strict';
