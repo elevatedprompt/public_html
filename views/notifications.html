@@ -76,9 +76,9 @@
                 Threshold Type:
               </td>
               <td><select name="thresholdType" id="thresholdType" width = "100%" ng-model="notification.thresholdType">
-                                  <option value="CeilingEvent" selected="true">Max</option>
-                                  <option value="FloorEvent">Min</option>
-                                  <option value="ThresholdMet">Any</option>
+                                  <option value="Max" selected="true">Max (Alert when event count is under)</option>
+                                  <option value="Min">Min (Alert when event count passes)</option>
+                                  <option value="Any">Any</option>
                                 </select>
               </td>
             </tr>
