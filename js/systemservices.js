@@ -22,7 +22,7 @@ angular.module('clientApp')
                                                 setTimeout(function(){
                                                   //check for current tab
                                                   var url = $location.absUrl().split('#')[1]
-                                                  if (url=="systemservices"){
+                                                  if (url=="/systemservices"){
                                                     checkServiceStatus();
                                                   }
                                                   poll();
