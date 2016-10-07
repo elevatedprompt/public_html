@@ -288,9 +288,6 @@ select{
   /* Space out the masthead */
   .header {
     margin-bottom: 0px;
-    position: fixed;
-    top:0px;    
-    width: 100%;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
 }
