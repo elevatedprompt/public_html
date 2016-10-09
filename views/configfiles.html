@@ -43,7 +43,7 @@
           <label class="header" text="Template Files">Template Files</label>
           <ul>
               <li ng-repeat="tmplate in templates">
-                  <img ng-src='./images/icons/delete-button.png' ng-click="deleteFile(tmplate);"></img> &nbsp;<a ng-click="updateTextArea(tmplate);">{{tmplate.replace('/etc/logstash/conf.d/templates//','')}}</a>
+                  <img ng-src='./images/icons/delete-button.png' ng-click="deleteFile(tmplate);"></img> &nbsp;<a ng-click="updateTextArea(tmplate);">{{tmplate.replace('/etc/logstash/templates//','')}}</a>
               </li>
           </ul>
           <a class="btn btn-primary" ng-click="createTemplateConfig()"><span class="glyphicon glyphicon-plus"></span> Create Template File</a>
@@ -53,7 +53,7 @@
         <label class="header" text="Filter Files">Filter Files</label>
         <ul>
             <li ng-repeat="filter in filters">
-                <img ng-src='./images/icons/delete-button.png' ng-click="deleteFile(filter);"></img> &nbsp;<a ng-click="updateTextArea(filter);">{{filter.replace('/etc/logstash/conf.d/filter//','')}}</a>
+                <img ng-src='./images/icons/delete-button.png' ng-click="deleteFile(filter);"></img> &nbsp;<a ng-click="updateTextArea(filter);">{{filter.replace('/etc/logstash/filters//','')}}</a>
             </li>
         </ul>
         <a class="btn btn-primary" ng-click="createTemplateConfig()"><span class="glyphicon glyphicon-plus"></span> Create Template File</a>

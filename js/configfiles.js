@@ -17,8 +17,10 @@ angular.module('clientApp')
                         { filename: "bro.conf", configuration: "config data3" }];
       $scope.templates = [{ filename: "template.json", configuration: "config data" },
                     { filename: "template2.json", configuration: "config data2" }];
-      $scope.elastic = [{filename:"elastic.yml", configuration:"config data"},
-                      { filename: "filter.yml", configuration: "config data2" }];
+      $scope.filters = [{ filename: "template.json", configuration: "config data" },
+                  { filename: "template2.json", configuration: "config data2" }];
+      $scope.elastic = [{filename:"filter.conf", configuration:"config data"},
+                      { filename: "filter.conf", configuration: "config data2" }];
 
       $scope.cron = [{filename:"admin", configuration:"/cron/admin"}];
 
@@ -39,15 +41,17 @@ angular.module('clientApp')
                                                                     console.log(data);
                                                                      $scope.configfiles=data;
                                                                 });
+
                                           $http.post(servicelocation + "/GetLogstashTemplateDirectoryListing", data, config)
                                                                   .success(function (data) {
                                                                       console.log(data);
-                                                                      $scope.configfiles = data;
+                                                                      $scope.templates = data;
                                                                   });
+
                                           $http.post(servicelocation + "/GetLogstashFilterDirectoryListing", data, config)
                                                                 .success(function (data) {
                                                                     console.log(data);
-                                                                    $scope.configfiles = data;
+                                                                    $scope.filters = data;
                                                                 });
 
                                           $http.post(servicelocation+"/GetElasticConfigDirectoryListing",data,config)
@@ -122,13 +126,13 @@ angular.module('clientApp')
     $scope.createTemplateConfig = function () {
                                             $scope.configuration = "";
                                             $scope.filename = "";
-                                            $scope.filelocation = "/etc/logstash/conf.d/templates/";
+                                            $scope.filelocation = "/etc/logstash/templates/";
     };
 
     $scope.createFilterConfig = function () {
                                             $scope.configuration = "";
                                             $scope.filename = "";
-                                            $scope.filelocation = "/etc/logstash/conf.d/filters/";
+                                            $scope.filelocation = "/etc/logstash/filters/";
                                         };
 
     //Function to send config file data to be saved.
