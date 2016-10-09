@@ -128,7 +128,7 @@ angular.module('clientApp')
     $scope.createFilterConfig = function () {
                                             $scope.configuration = "";
                                             $scope.filename = "";
-                                            $scope.filelocation = "/etc/logstash/conf.d/filter/";
+                                            $scope.filelocation = "/etc/logstash/conf.d/filters/";
                                         };
 
     //Function to send config file data to be saved.
