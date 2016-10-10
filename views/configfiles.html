@@ -31,7 +31,7 @@
     </script>
     <tr>
       <td>
-        <label class="header" text ="Configuration Files">Configuration Files</label>
+        <label class="" text ="Configuration Files">Configuration Files</label>
         <ul>
             <li ng-repeat="config in configfiles"><img  ng-src='./images/icons/delete-button.png' ng-click="deleteFile(config);" ></img> &nbsp;<a ng-click="updateTextArea(config);">{{config.replace('/etc/logstash/conf.d//','')}}</a>
             </li>
@@ -40,7 +40,7 @@
           <br />
           <br />
           </br>
-          <label class="header" text="Template Files">Template Files</label>
+          <label class="" text="Template Files">Template Files</label>
           <ul>
               <li ng-repeat="tmplate in templates">
                   <img ng-src='./images/icons/delete-button.png' ng-click="deleteFile(tmplate);"></img> &nbsp;<a ng-click="updateTextArea(tmplate);">{{tmplate.replace('/etc/logstash/templates//','')}}</a>
@@ -50,7 +50,7 @@
         <br />
         <br />
         </br>
-        <label class="header" text="Filter Files">Filter Files</label>
+        <label class="" text="Filter Files">Filter Files</label>
         <ul>
             <li ng-repeat="filter in filters">
                 <img ng-src='./images/icons/delete-button.png' ng-click="deleteFile(filter);"></img> &nbsp;<a ng-click="updateTextArea(filter);">{{filter.replace('/etc/logstash/filters//','')}}</a>
@@ -60,7 +60,7 @@
         <br />
         <br />
         </br>
-        <label class="header" text ="Configuration Files">Elastic Files</label>
+        <label class="" text ="Configuration Files">Elastic Files</label>
         <ul>
             <li ng-repeat="esconfig in elastic"><img ng-src='./images/icons/delete-button.png' ng-click="deleteFile(esconfig);"></img> &nbsp;<a ng-click="updateTextArea(esconfig);">{{esconfig.replace('/etc/elasticsearch//','')}}</a>
             </li>
@@ -70,7 +70,7 @@
         <br />
         <br />
         <br />
-        <label class="header" text ="Configuration Files">Cron Files</label>
+        <label class="" text ="Configuration Files">Cron Files</label>
         <ul>
             <li ng-repeat="cronconfig in cron"><a ng-click="updateTextArea(cronconfig);">{{cronconfig.replace('/var/spool/cron//','')}}</a>
             </li>
