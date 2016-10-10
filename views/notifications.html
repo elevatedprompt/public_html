@@ -1,141 +1,145 @@
 <bootstrap-navbar current-tab='Notifications'></bootstrap-navbar>
-<table class="table table-striped">
-  <thead>
+<table class="table table-striped" style="height:100%;width:100%">
+    <thead>
     <th>Notifications</th>
     <th>Notification Details</th>
-  </thead>
+    </thead>
     <tbody>
-    <script>
-        function enableTab(id) {
-            var el = document.getElementById(id);
-            el.onkeydown = function (e) {
-                if (e.keyCode === 9) { // tab was pressed
+        <script>
+            function enableTab(id) {
+                var el = document.getElementById(id);
+                el.onkeydown = function (e) {
+                    if (e.keyCode === 9) { // tab was pressed
 
-                    // get caret position/selection
-                    var val = this.value,
-                        start = this.selectionStart,
-                        end = this.selectionEnd;
+                        // get caret position/selection
+                        var val = this.value,
+                            start = this.selectionStart,
+                            end = this.selectionEnd;
 
-                    // set textarea value to: text before caret + tab + text after caret
-                    this.value = val.substring(0, start) + '\t' + val.substring(end);
+                        // set textarea value to: text before caret + tab + text after caret
+                        this.value = val.substring(0, start) + '\t' + val.substring(end);
 
-                    // put caret at right position again
-                    this.selectionStart = this.selectionEnd = start + 1;
+                        // put caret at right position again
+                        this.selectionStart = this.selectionEnd = start + 1;
 
-                    // prevent the focus lose
-                    return false;
-                }
-            };
-        }
+                        // prevent the focus lose
+                        return false;
+                    }
+                };
+            }
 
-        // Enable the tab character onkeypress (onkeydown) inside textarea...
-        // ... for a textarea that has an `id="my-textarea"`
-        enableTab('notificationDescription');
-    </script>
-    <tr>
-      <td>
-        <label class="header" text ="Notifications">Notifications</label>
-        <ul>
-            <li ng-repeat="notify in notificationFiles"><img ng-src='./images/icons/delete-button.png' ng-click="deleteFile(notify);" ></img> &nbsp;<a style="white-space: nowrap;" ng-click="updateTextArea(notify);">{{notify.replace('/opt/API/Notifications//','')}}</a>
-            </li>
-        </ul>
-        <a class="btn btn-primary" ng-click="createNotification()" ><span class="glyphicon glyphicon-plus"></span> Create Notification</a>
-        <br />
-        <br />
-      </td>
-      <td>
+            // Enable the tab character onkeypress (onkeydown) inside textarea...
+            // ... for a textarea that has an `id="my-textarea"`
+            enableTab('notificationDescription');
+        </script>
+        <tr>
+            <td>
+                <label class="" text="Notifications">Notifications</label>
+                <ul>
+                    <li ng-repeat="notify in notificationFiles">
+                        <img ng-src='./images/icons/delete-button.png' ng-click="deleteFile(notify);"></img> &nbsp;<a style="white-space: nowrap;" ng-click="updateTextArea(notify);">{{notify.replace('/opt/API/Notifications//','')}}</a>
+                    </li>
+                </ul>
+                <a class="btn btn-primary" ng-click="createNotification()"><span class="glyphicon glyphicon-plus"></span> Create Notification</a>
+                <br />
+                <br />
+            </td>
+            <td>
 
-          <table width="100%" >
-            <tr>
-              <td width = "20%">
-                Notification Name:
-              </td>
-              <td>
-                <input type="text" class="filename" width="100%" ng-model="notification.notificationName" />
-              </td>
-            </tr>
-            <tr>
-              <td width = "20%">
-                Enabled:
-              </td>
-              <td>
-                <input type="checkbox" width="100%" ng-model="notification.enabled" />
-              </td>
-            </tr>
-              <tr>
-                  <td  width = "20%">
-                    Search Name:
-                  </td>
-                  <td><select name="repeatSelect" id="repeatSelect" width="100%" ng-model="notification.selectedSearch">
-                                    <option ng-repeat="option in avalibleSearches" value="{{option.title}}">{{option.title}}</option>
-                                  </select>
-                  </td>
-              </tr>
-            <tr>
-              <td width = "20%">
-                Threshold Type:
-              </td>
-              <td><select name="thresholdType" id="thresholdType" width = "100%" ng-model="notification.thresholdType">
-                                  <option value="Max" selected="true">Less Than</option>
-                                  <option value="Min">Greater Than</option>
-                                  <option value="Any">Any</option>
-                                </select>
-              </td>
-            </tr>
-            <tr>
-              <td width = "20%">
-                Threshold Count:
-              </td>
-                <td>
-                  <input type="text" width="100%" ng-model="notification.thresholdCount"  />
-              </td>
-            </tr>
-            <tr>
-              <td width = "20%">
-                Threshold Time Interval:
-              </td>
-              <td><input type="text" width="100%" class="timeValue" ng-model="notification.timeValue"  />
-                                <select name="timeFrame" id="timeFrame" ng-model="notification.timeFrame">
-                                  <option value="m" selected="true">Minutes</option>
-                                  <option value="h">Hours</option>
-                                </select>
-              </td>
-            </tr>
-            <tr>
-              <td width = "20%">
-                Notification Email:
-              </td>
-                <td>
-                  <input type="text" width = "100%" ng-model="notification.notifyEmail"  />
-              </td>
-            </tr>
-            <!-- <tr>
-              <td width = "20%">
-                Send notification Email in HTML:
-              </td>
-              <td>
-                <input type="checkbox" class="htmlEmail" width="100%" ng-model="notification.htmlEmail" />
-              </td>
-            </tr> -->
-            <tr>
-              <td width = "20%">
-                Description:
-              </td>
-            </tr>
-            <tr>
-                  <td colspan="2">
-                      <textarea style="texteditor" width="100%" border=true id="notificationDescription" ng-model="notification.notificationDescription" rows="5" />
-                  </td>
-              </tr>
-              <tr>
-                <td>
-                  <a class="btn btn-primary" ng-click="saveNotification()" ><span class="glyphicon"></span>Save</a>
-                </td>
-              </tr>
-          </table>
-      </td>
-    </tr>
-  </tbody>
+                <table style="width:100%">
+                    <tr>
+                        <td width="20%">
+                            Notification Name:
+                        </td>
+                        <td>
+                            <input type="text" class="filename" width="100%" ng-model="notification.notificationName" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%">
+                            Enabled:
+                        </td>
+                        <td>
+                            <input type="checkbox" width="100%" ng-model="notification.enabled" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%">
+                            Search Name:
+                        </td>
+                        <td>
+                            <select name="repeatSelect" id="repeatSelect" width="100%" ng-model="notification.selectedSearch">
+                                <option ng-repeat="option in avalibleSearches" value="{{option.title}}">{{option.title}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%">
+                            Threshold Type:
+                        </td>
+                        <td>
+                            <select name="thresholdType" id="thresholdType" width="100%" ng-model="notification.thresholdType">
+                                <option value="Max" selected="true">Less Than</option>
+                                <option value="Min">Greater Than</option>
+                                <option value="Any">Any</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%">
+                            Threshold Count:
+                        </td>
+                        <td>
+                            <input type="text" width="100%" ng-model="notification.thresholdCount" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%">
+                            Threshold Time Interval:
+                        </td>
+                        <td>
+                            <input type="text" width="100%" class="timeValue" ng-model="notification.timeValue" />
+                            <select name="timeFrame" id="timeFrame" ng-model="notification.timeFrame">
+                                <option value="m" selected="true">Minutes</option>
+                                <option value="h">Hours</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="20%">
+                            Notification Email:
+                        </td>
+                        <td>
+                            <input type="text" width="100%" ng-model="notification.notifyEmail" />
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                      <td width = "20%">
+                        Send notification Email in HTML:
+                      </td>
+                      <td>
+                        <input type="checkbox" class="htmlEmail" width="100%" ng-model="notification.htmlEmail" />
+                      </td>
+                    </tr> -->
+                    <tr>
+                        <td width="20%">
+                            Description:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <textarea style="texteditor" width="100%" border=true id="notificationDescription" ng-model="notification.notificationDescription" rows="5" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a class="btn btn-primary" ng-click="saveNotification()"><span class="glyphicon"></span>Save</a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
 </table>
 <div class="EP_Footer">
     <i><sub>&copy; 2016 elevatedprompt [EPSTACK version 2.5 RC April 25, 2016]</sub></i>
