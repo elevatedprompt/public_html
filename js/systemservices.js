@@ -20,7 +20,11 @@ angular.module('clientApp')
                                             ) {
                                               var poll = function(){
                                                 setTimeout(function(){
+                                                  //check for current tab
+                                                var url = $location.absUrl().split('#')[1]
+                                                if (url=="systemservices"){
                                                   checkServiceStatus();
+                                                }
                                                   poll();
                                                 },5000);
                                               };
