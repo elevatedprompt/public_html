@@ -35,7 +35,8 @@
         $scope.notification.notifyEmail            = "";
         $scope.notification.htmlEmail              = false;
         $scope.notification.checkFreq              = 5;//check frequency in minutes
-
+        $scope.notification.telegramChatId         = "";
+        $scope.notification.notifyData             = "";
 
         var notificationService = "https://" + $location.$$host + "/api/Notification";
 
@@ -153,7 +154,10 @@
                                         + encodeURIComponent($scope.notification.htmlEmail);
                                         data+= "&checkFreq="
                                         + encodeURIComponent($scope.notification.checkFreq);
-
+                                        data+= "&telegramChatId="
+                                        + encodeURIComponent($scope.notification.telegramChatId);
+                                        data+= "&notifyData="
+                                        + encodeURIComponent($scope.notification.notifyData);
 
                                     var config = {headers:{
                                                             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
@@ -198,6 +202,8 @@
                                             $scope.notification.notifyEmail             = "";
                                             $scope.notification.htmlEmail               = false;
                                             $scope.notification.checkFreq               = 5;//check frequency in minutes
+                                            $scope.notification.telegramChatId         = "";
+                                            $scope.notification.notifyData             = "";
                                           };
 
     });
