@@ -1,73 +1,75 @@
 <bootstrap-navbar current-tab='User Management'></bootstrap-navbar>
-<table class="table table-striped">
-  <tbody>
-    <tr>
-      <td>
-        <br />
-        <label class="header" text ="Users">Users</label>
-        <ul>
-            <li ng-repeat="user in userManagmentModel.userList"><a ng-click="userManagmentModel.selectedUser = user;">{{user}}</a>
-            </li>
-        </ul>
-        <a class="btn btn-primary" ng-click="clearForm();" ><span class="glyphicon glyphicon-plus"></span> Create User</a>
-        <br />
-        <br />
-        </br>
-      </td>
-      <td>
-          <table width="200px" >
-            <tr>
-              <td><h4>&nbsp;</h4></td>
-            </tr>
-              <tr>
-                  <td width="20%">
-                      User:
-                    </td>
-                    <td><input type="text" class="filename" ng-model="userManagmentModel.selectedUser"  />
-                  </td>
-              </tr>
-              <tr>
-                <td>
-                  &nbsp;
-                </td>
-                <td>
-                </td>
-              </tr>
-              <tr>
-                  <td width = "20%">
-                      Password:</td>
-                    <td>
-                         <input type="password" class="filename" ng-model="userManagmentModel.passwd"  />
-                  </td>
-              </tr>
-              <tr>
-                <td>&nbsp;
-                </td>
-              <tr>
-                <td>
-                </td>
-                <td>
-                  <div class="rows">
-                    <div class="row">
-                      <div class="center">
-                      <a class="btn btn-primary" ng-click="updateUser(selectedUser,passwd)" ><span class="glyphicon"></span>Save</a>
-                      <a class="btn btn-primary" ng-click="clearForm()"><span class="glyphicon"></span>Cancel</a>
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a class="btn btn-danger" ng-click="deleteUser()" ><span class="glyphicon"></span>Delete</a>
-                      </div>
-                    </div>
-                  </div>
+<table class="table table-striped" style="height:100%;width:100%">
+    <tbody>
+        <tr>
+            <td>
+                <br />
+                <label class="" text="Users">Users</label>
+                <ul>
+                    <li ng-repeat="user in userManagmentModel.userList">
+                        <a ng-click="userManagmentModel.selectedUser = user;">{{user}}</a>
+                    </li>
+                </ul>
+                <a class="btn btn-primary" ng-click="clearForm();"><span class="glyphicon glyphicon-plus"></span> Create User</a>
+                <br />
+                <br />
+                </br>
+            </td>
+            <td>
+                <table width="200px">
+                    <tr>
+                        <td><h4>&nbsp;</h4></td>
+                    </tr>
+                    <tr>
+                        <td width="20%">
+                            User:
+                        </td>
+                        <td>
+                            <input type="text" class="filename" ng-model="userManagmentModel.selectedUser" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td width="20%">
+                            Password:
+                        </td>
+                        <td>
+                            <input type="password" class="filename" ng-model="userManagmentModel.passwd" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;
+                        </td>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <div class="rows">
+                                <div class="row">
+                                    <div class="center">
+                                        <a class="btn btn-primary" ng-click="updateUser(selectedUser,passwd)"><span class="glyphicon"></span>Save</a>
+                                        <a class="btn btn-primary" ng-click="clearForm()"><span class="glyphicon"></span>Cancel</a>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <a class="btn btn-danger" ng-click="deleteUser()"><span class="glyphicon"></span>Delete</a>
+                                    </div>
+                                </div>
+                            </div>
 
-                </td>
-              </tr>
-          </table>
-      </td>
-    </tr>
-  </tbody>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
 </table>
 <div class="EP_Footer">
     <i><sub>&copy; 2016 elevatedprompt [EPSTACK version 2.5.1 RC April 25, 2016]</sub></i>
