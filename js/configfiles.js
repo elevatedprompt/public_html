@@ -102,6 +102,24 @@ angular.module('clientApp')
                                 $scope.configuration = data;
                               });
     };
+    //Function to address files being written out as json objects.
+    $scope.updateTextAreaJson = function(configuration){
+
+      $scope.filelocation = "";
+      $scope.filename = configuration;
+
+      var data = "configfile="+ encodeURIComponent(configuration);
+      var config = {headers:{
+                            "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
+                          }};
+
+      var result = $http.post(servicelocation+"/GetConfFile",data,config)
+        .success(function(data){
+                                console.log(data);
+                                $scope.configuration = JSON.stringify(data);
+                              });
+    };
+
 
     //function to set the default file location for logstash files
     // /etc/logstash/conf.d/
