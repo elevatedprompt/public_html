@@ -118,7 +118,17 @@ angular.module('clientApp')
                                             $scope.filename = "";
                                             $scope.filelocation = "/etc/elasticsearch/";
                                           };
+    $scope.createTemplateConfig = function () {
+                                            $scope.configuration = "";
+                                            $scope.filename = "";
+                                            $scope.filelocation = "/etc/logstash/templates/";
+    };
 
+    $scope.createFilterConfig = function () {
+                                            $scope.configuration = "";
+                                            $scope.filename = "";
+                                            $scope.filelocation = "/etc/logstash/filters/";
+                                        };
     //Function to send config file data to be saved.
     $scope.saveConfigFile = function(){
 
