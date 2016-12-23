@@ -28,7 +28,7 @@
             };
         }
         //Remove space from notification name
-        ​$("#notification.notificationName").on("keydown", function (e) {
+        document.getElementById("notificationName").on("keydown", function (e) {
           return e.which !== 32;
         });​​​​​
 
@@ -55,7 +55,7 @@
                 Notification Name:
               </td>
               <td>
-                <input type="text" class="filename" width="100%" ng-model="notification.notificationName" />
+                <input type="text" class="filename" width="100%" id="notificationName" ng-model="notification.notificationName" />
               </td>
             </tr>
             <tr>
