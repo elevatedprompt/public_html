@@ -166,5 +166,17 @@ angular.module('clientApp')
                                                                 console.log(data);
                                                                  $scope.cron=data;
                                                               });
+
+                                      $http.post(servicelocation + "/GetLogstashTemplateDirectoryListing", data, config)
+                                                              .success(function (data) {
+                                                                  console.log(data);
+                                                                  $scope.templates = data;
+                                                              });
+
+                                      $http.post(servicelocation + "/GetLogstashFilterDirectoryListing", data, config)
+                                                            .success(function (data) {
+                                                                console.log(data);
+                                                                $scope.filters = data;
+                                                            });
                                     };
   });
