@@ -18,6 +18,10 @@ angular.module('clientApp')
       $scope.elastic = [{filename:"elastic.yml", configuration:"config data"},
                       {filename:"filter.yml", configuration:"config data2"}];
       $scope.cron = [{filename:"admin", configuration:"/cron/admin"}];
+      $scope.templates = [{ filename: "template.json", configuration: "config data" },
+                    { filename: "template2.json", configuration: "config data2" }];
+      $scope.filters = [{ filename: "template.json", configuration: "config data" },
+                  { filename: "template2.json", configuration: "config data2" }];
 
       servicelocation = "https://" + $location.$$host + "/api/";
       var data = {};
