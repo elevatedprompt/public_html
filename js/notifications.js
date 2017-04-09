@@ -133,7 +133,7 @@
                                                                                 alert('you must select a search name!');
                                                                                 return;
                                                                               }
-
+                                    $scope.notification.timeStamp = new Date().toString();
                                     var data = "notificationName="
                                         + encodeURIComponent($scope.notification.notificationName);
                                         data+= "&selectedSearch="
