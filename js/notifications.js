@@ -37,6 +37,7 @@
         $scope.notification.checkFreq              = 5;//check frequency in minutes
         $scope.notification.telegramChatId         = "";
         $scope.notification.notifyData             = "";
+        $scope.notification.timeStamp              = new Date().toString();
 
         var notificationService = "https://" + $location.$$host + "/api/Notification";
 
@@ -116,6 +117,7 @@
                                                           .success(function(data){
                                                                                     console.log(data);
                                                                                     $scope.notification = data;
+                                                                                    $scope.notification.timeStamp = new Date().toString();
                                                                                     $scope.notification.enabled = data.enabled=='true';
                                                                                     $scope.notification.htmlEmail = data.htmlEmail=='true';
                                                                                   });
@@ -158,7 +160,8 @@
                                         + encodeURIComponent($scope.notification.telegramChatId);
                                         data+= "&notifyData="
                                         + encodeURIComponent($scope.notification.notifyData);
-
+                                        data+= "&timeStamp="
+                                        + encodeURIComponent($scope.notification.timeStamp);
                                     var config = {headers:{
                                                             "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
                                                           }};
@@ -204,6 +207,7 @@
                                             $scope.notification.checkFreq               = 5;//check frequency in minutes
                                             $scope.notification.telegramChatId         = "";
                                             $scope.notification.notifyData             = "";
+                                            $scope.notification.timeStamp              = new Date().toString();
                                           };
 
     });
