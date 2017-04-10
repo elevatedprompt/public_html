@@ -26,7 +26,9 @@
                 }
             };
         }
-
+        document.getElementById("configFileName").onkeydown = function (e) {
+          return e.which !== 32;
+        }
         enableTab('configTextArea');
     </script>
     <tr>
@@ -59,7 +61,7 @@
           <table width="100%" >
               <tr>
                   <td width="100%">
-                      Filename: <input type="text" class="filename" ng-model="filename"  />
+                      Filename: <input type="text" class="filename" id = "configFileName" ng-model="filename"  />
                   </td>
               </tr>
               <tr>

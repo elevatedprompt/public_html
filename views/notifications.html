@@ -27,6 +27,9 @@
                 }
             };
         }
+        document.getElementById("notificationName").onkeydown = function (e) {
+          return e.which !== 32;
+        }
 
         // Enable the tab character onkeypress (onkeydown) inside textarea...
         // ... for a textarea that has an `id="my-textarea"`
@@ -51,7 +54,7 @@
                 Notification Name:
               </td>
               <td>
-                <input type="text" class="filename" width="100%" ng-model="notification.notificationName" />
+                <input type="text" class="filename" width="100%" id="notificationName" ng-model="notification.notificationName" />
               </td>
             </tr>
             <tr>
